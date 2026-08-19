@@ -57,7 +57,7 @@ export function JoinForm() {
       </div>
 
       {state === 'ok' && (
-        <Alert tone="ok" title="Richiesta inviata.">Ti rispondiamo via email. Nel frattempo puoi entrare nel gruppo WhatsApp.</Alert>
+        <Alert tone="ok" title="Richiesta inviata.">Ti rispondiamo via email. L'invito al gruppo dei soci arriva insieme alla conferma.</Alert>
       )}
       {state === 'error' && (
         <Alert tone="danger" title="Invio non riuscito.">Riprova tra poco, oppure scrivici direttamente a {SITE.email}.</Alert>

@@ -17,7 +17,6 @@ export const SITE = {
   email: 'info@torc.it',
   github: 'https://github.com/TriesteOpenRoboticsCommunity',
   githubLabel: 'github.com/TriesteOpenRoboticsCommunity',
-  whatsapp: 'https://chat.whatsapp.com/J99EPLX7dGtDGLHxT2mzm9',
   coords: '45.6495 N · 13.7768 E',
 };
 
@@ -46,7 +45,6 @@ export const FOOTER = {
       links: [
         { label: 'Progetti', href: '/progetti/' },
         { label: 'GitHub', href: SITE.github },
-        { label: 'WhatsApp', href: SITE.whatsapp },
       ],
     },
     {
@@ -128,7 +126,7 @@ export const ESITI = [
 export const CHANNELS = [
   { name: 'GitHub', text: 'Tutti i repository, pubblici dal primo commit.', badge: 'attivo', tone: 'ok', href: SITE.github },
   { name: 'Sito', text: 'torc.it — manifesto, progetti e prossimi incontri.', badge: 'attivo', tone: 'ok' },
-  { name: 'WhatsApp', text: 'Il canale di confronto quotidiano tra i soci.', badge: 'attivo', tone: 'ok', href: SITE.whatsapp },
+  { name: 'WhatsApp', text: 'Il canale di confronto quotidiano tra i soci. Si entra con la richiesta di adesione.', badge: 'attivo', tone: 'ok' },
   { name: 'LinkedIn', text: 'Il riferimento per ricercatori, università e aziende.', badge: 'in apertura', muted: true },
   { name: 'Newsletter', text: 'Aggiornamenti sui repository e sui prossimi incontri.', badge: 'in apertura', muted: true },
 ];
@@ -172,7 +170,7 @@ export const ROWS_MEETUP = [
 export const ROWS_CONTATTI = [
   ['email', SITE.email],
   ['github', SITE.githubLabel],
-  ['whatsapp', 'gruppo soci', 'link in pagina'],
+  ['whatsapp', 'gruppo soci', "invito via email dopo l'adesione"],
   ['sede', 'Trieste, Italia', '45.6495 N'],
   ['ente', 'APS in costituzione'],
 ];
