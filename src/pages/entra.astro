@@ -43,10 +43,11 @@ import { SITE, JOIN_STEPS, ROWS_CONTATTI } from '../content.js';
 <!-- The second of the site's two islands. -->
 <JoinForm client:load />
 <div style="border-left:1px solid var(--border-subtle);padding-left:40px;display:flex;flex-direction:column;gap:16px">
-<span class="torc-hud-label">Nel frattempo</span>
+<span class="torc-hud-label">Oppure, subito</span>
+<Button variant="secondary" size="md" icon="message-square" href={SITE.whatsapp} block>Gruppo WhatsApp</Button>
+<p style="font-size:15px;line-height:1.56;color:var(--text-secondary);margin:0">Il canale di confronto quotidiano tra i soci. L'ingresso viene approvato da un admin.</p>
 <Button variant="secondary" size="md" icon="github" href={SITE.github} block>GitHub</Button>
 <p style="font-size:15px;line-height:1.56;color:var(--text-secondary);margin:0">Tutti i repository, pubblici dal primo commit.</p>
-<p style="font-size:15px;line-height:1.56;color:var(--text-secondary);margin:0">Il gruppo WhatsApp è riservato ai soci: ti mandiamo l'invito via email quando confermiamo la richiesta.</p>
 </div>
 </div>
 </div>
