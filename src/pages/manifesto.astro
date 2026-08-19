@@ -1,19 +1,26 @@
-<!-- ManifestoScreen — il manifesto: i sette principi, per esteso
-     Rendered by index.html when the router is on this page.
-     Every value interpolated below ({{ … }}) comes from the shell's
-     renderVals(), handed down as dc-props. -->
-<x-dc>
+---
+import Base from '../layouts/Base.astro';
+import { Button } from '../../design-system/components/core/Button.jsx';
+import { PrincipleItem } from '../../design-system/components/content/PrincipleItem.jsx';
+import { PRINCIPLES } from '../content.js';
+---
 
-<div>
+<Base
+  title="Manifesto — TORC"
+  description="Il manifesto di TORC: i sette principi dell'associazione, per esteso."
+>
+
 <section class="torc-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:112px 64px 64px">
 <div style="max-width:1280px;margin:0 auto">
 <span class="torc-kicker">Manifesto v1.0 · testo integrale</span>
-<h1 style="font-family:var(--font-display);font-size:clamp(40px,4.6vw,64px);font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0;max-width:26ch" data-comment-anchor="b9fda1974b-h1">Manifesto della community.</h1>
+<h1 style="font-family:var(--font-display);font-size:clamp(40px,4.6vw,64px);font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0;max-width:26ch">Manifesto della community.</h1>
 <div class="torc-ticks torc-ticks--major" style="margin-top:56px"></div>
-<div style="display:flex;justify-content:space-between;margin-top:10px"><span class="torc-hud-label" data-comment-anchor="86d027d20a-span">Manifesto</span><span class="torc-hud-label">45.6495 N · Trieste · torc.it</span></div>
+<div style="display:flex;justify-content:space-between;margin-top:10px"><span class="torc-hud-label">Manifesto</span><span class="torc-hud-label">45.6495 N · Trieste · torc.it</span></div>
 </div>
 </section>
 
+<!-- Paper ground: past a screenful of text the reading half of the system takes
+     over, and the drawn field drops out entirely (data-instrument="off"). -->
 <div data-theme="light" data-instrument="off" style="background:var(--bg-page);color:var(--text-body)">
 <section style="padding:96px 64px">
 <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:80px;align-items:start">
@@ -22,7 +29,7 @@
 <a href="#premessa" style="font-family:var(--font-mono);font-size:13px;color:var(--text-accent);text-decoration:none">Premessa</a>
 <a href="#principi" style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);text-decoration:none">01—07 Principi</a>
 <a href="#conclusione" style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);text-decoration:none">Conclusione</a>
-<div style="margin-top:16px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="ghost" size="sm" mono="{{ true }}" icon="download" hint-size="132px,32px">PDF</x-import></div>
+<div style="margin-top:16px"><Button variant="ghost" size="sm" mono icon="download">PDF</Button></div>
 </nav>
 <article style="max-width:66ch">
 <div id="premessa" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:32px"><span class="torc-hud-label" style="color:var(--text-accent)">Premessa</span></div>
@@ -33,13 +40,9 @@
 <p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0">Non siamo un'azienda, non siamo un fornitore di servizi, non siamo una scuola. Siamo una comunità di persone che condividono una passione e una convinzione: che le idee migliori nascano quando si lavora fianco a fianco, senza vincoli, su ciò che vale la pena costruire.</p>
 
 <div id="principi" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin:72px 0 32px"><span class="torc-hud-label" style="color:var(--text-accent)">I nostri principi</span><span class="torc-hud-label" style="margin-left:auto">01 — 07</span></div>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="1" title="Il nostro motore è la passione." hint-size="100%,150px">Facciamo robotica perché ci appassiona la sfida tecnica. È la passione a guidare le nostre scelte, ed è la migliore garanzia che possiamo offrire: quando un problema ci accende, non lo abbandoniamo finché non funziona.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="2" title="Costruiamo sistemi reali." hint-size="100%,140px">Non ci bastano le parole. Il risultato del nostro lavoro è codice che gira, hardware che si muove, sistemi che funzionano. La concretezza è il nostro metro di giudizio.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="3" title="Trasformiamo i problemi in ricerca, e la ricerca in strumenti utili." hint-size="100%,160px">Un progetto può nascere da un'esigenza del territorio come da un modo nuovo di affrontare un problema noto. Una volta creato uno strumento, il lavoro non è finito: ne mostriamo le applicazioni e lo colleghiamo ai casi d'uso in cui può fare la differenza.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="4" title="Tutto ciò che creiamo è aperto." hint-size="100%,150px">Ogni progetto che sviluppiamo è open source. È un principio, non un'opzione. La conoscenza cresce quando può essere studiata, verificata, riutilizzata e migliorata da chiunque.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="5" title="Trieste è la nostra casa, la rete è la nostra piazza." hint-size="100%,160px">Ci incontriamo di persona — meetup, hackathon, sfide — perché le idee corrono più veloci quando le persone si guardano in faccia. Ma i nostri progetti vivono in rete e sono aperti al contributo di chiunque, ovunque si trovi.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="6" title="La porta è aperta, l'asticella è alta." hint-size="100%,150px">Chiunque condivida questa passione è benvenuto: professionisti, ricercatori, studenti, autodidatti. Ciò che chiediamo non è un titolo, ma la voglia di mettersi alla prova su problemi difficili.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="7" title="Poche cose, fatte fino in fondo." hint-size="100%,150px">Scegliamo con cura i progetti su cui investire le nostre energie e li portiamo a termine. Preferiamo un risultato solido a dieci esperimenti lasciati a metà.</x-import>
+{PRINCIPLES.map((p) => (
+  <PrincipleItem number={p.number} title={p.title}>{p.body}</PrincipleItem>
+))}
 
 <div id="conclusione" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin:72px 0 32px"><span class="torc-hud-label" style="color:var(--text-accent)">Conclusione</span></div>
 <p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0 0 24px">Crediamo che da questo modo di lavorare — aperto, concreto, guidato dalla passione — possano nascere le competenze, le collaborazioni e le imprese che renderanno Trieste un punto di riferimento per la robotica.</p>
@@ -52,9 +55,8 @@
 <section class="torc-field" data-field="scan" data-field-glow="lit" style="padding:96px 64px;border-top:1px solid var(--border-subtle)">
 <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
 <h2 style="font-family:var(--font-display);font-size:40px;font-weight:600;line-height:1.08;letter-spacing:-.03em;color:var(--text-strong);margin:0;max-width:30ch">Se leggendo queste righe hai pensato «questo è il luogo che stavo cercando», allora probabilmente lo è.</h2>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="primary" size="lg" mono="{{ true }}" sc-camel-icon-end="arrow-right" sc-camel-on-click="{{ goEntra }}" hint-size="176px,48px">Entra in TORC</x-import>
+<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in TORC</Button>
 </div>
 </section>
-</div>
 
-</x-dc>
+</Base>

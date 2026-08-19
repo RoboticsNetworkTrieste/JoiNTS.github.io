@@ -1,0 +1,27 @@
+---
+import { Logo } from '../../design-system/components/brand/Logo.jsx';
+import { FOOTER } from '../content.js';
+---
+
+<footer style="border-top:1px solid var(--border-subtle);background:var(--bg-page-deep);padding:64px 64px 40px">
+<div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,1fr) repeat(3,minmax(140px,auto));gap:64px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<Logo variant="lockup" height={22} />
+<span class="torc-hud-label">Trieste Open Robotics Community</span>
+<p style="font-size:15px;line-height:1.56;color:var(--text-secondary);max-width:36ch;margin:8px 0 0">{FOOTER.note}</p>
+</div>
+{FOOTER.columns.map((col) => (
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <span class="torc-hud-label">{col.title}</span>
+    {col.links.map((l) => (
+      l.href
+        ? <a href={l.href} style="font-size:15px;color:var(--text-secondary);text-decoration:none">{l.label}</a>
+        : <span style="font-size:15px;color:var(--text-muted)">{l.label}</span>
+    ))}
+  </div>
+))}
+</div>
+<div style="max-width:1440px;margin:56px auto 0;padding-top:24px;border-top:1px solid var(--border-subtle);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-family:var(--font-mono);font-size:12px;letter-spacing:.02em;color:var(--text-muted)">
+{FOOTER.meta.map((m) => <span>{m}</span>)}
+</div>
+</footer>

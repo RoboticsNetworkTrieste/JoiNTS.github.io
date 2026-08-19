@@ -1,0 +1,60 @@
+---
+// The page shell: <head>, the sticky header, the footer. Every page uses it.
+// Nothing visual is declared here — it all comes from the design system.
+import '../../design-system/styles.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+// Fonts are fingerprinted by the build, so ask Vite for the real URLs rather
+// than hardcoding paths that would go stale.
+import displayFont from '../../design-system/assets/fonts/red-hat-display-700-latin.woff2?url';
+import textFont from '../../design-system/assets/fonts/red-hat-text-400-latin.woff2?url';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, '') || Astro.site!.href;
+const ogImage = new URL('/social/torc-icon-on-accent.svg', Astro.site).href;
+---
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <link rel="icon" type="image/svg+xml" href="/social/torc-favicon.svg" />
+  <link rel="apple-touch-icon" href="/social/torc-icon-on-accent.svg" />
+  <meta name="theme-color" content="#08130F" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TORC" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- The two cuts above the fold. The rest of the family loads on demand. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href={displayFont} />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href={textFont} />
+</head>
+
+<body>
+  <!-- data-instrument="quiet": the HUD chrome is sensed, not seen. The site
+       and the decks run quiet; only the dashboard runs "full". -->
+  <div data-instrument="quiet" style="background:var(--bg-page);min-height:100vh">
+    <SiteHeader />
+    <slot />
+    <SiteFooter />
+  </div>
+</body>
+</html>

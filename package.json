@@ -1,0 +1,19 @@
+{
+  "name": "torc-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "torc.it — the public site of Trieste Open Robotics Community",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "astro": "^5.18.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

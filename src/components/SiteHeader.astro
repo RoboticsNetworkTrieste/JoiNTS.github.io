@@ -1,0 +1,28 @@
+---
+// Sticky blurred header. The nav is real links now, so the active state comes
+// from the URL rather than from router state.
+import { Logo } from '../../design-system/components/brand/Logo.jsx';
+import { Button } from '../../design-system/components/core/Button.jsx';
+import { NAV } from '../content.js';
+
+// Compare both sides in the same shape — hrefs carry a trailing slash, the
+// dev server and the built site do not always agree on whether the URL does.
+const norm = (p: string) => (p.endsWith('/') ? p : p + '/');
+const path = norm(Astro.url.pathname);
+---
+
+<header style="position:sticky;top:0;z-index:60;height:72px;display:flex;align-items:center;padding:0 64px;background:var(--surface-header);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle)">
+<div style="display:flex;align-items:center;gap:32px;width:100%;max-width:1440px;margin:0 auto">
+<a href="/" style="display:flex;align-items:center" aria-label="TORC — home"><Logo variant="lockup" height={24} /></a>
+<nav style="display:flex;align-items:center;gap:4px;margin-left:auto">
+{NAV.map((item) => (
+  <a
+    href={item.href}
+    aria-current={path === item.href ? 'page' : undefined}
+    style={`display:inline-flex;align-items:center;height:32px;padding:0 12px;font-size:15px;font-weight:500;text-decoration:none;color:${path === item.href ? 'var(--text-accent)' : 'var(--text-secondary)'}`}
+  >{item.label}</a>
+))}
+<span style="margin-left:12px"><Button size="sm" variant="primary" href="/entra/">Entra</Button></span>
+</nav>
+</div>
+</header>

@@ -1,90 +1,89 @@
 # torc.it
 
-The public site of **TORC — Trieste Open Robotics Community**, served by GitHub Pages
-at [torc.it](https://torc.it).
+The public site of **TORC — Trieste Open Robotics Community**, at [torc.it](https://torc.it).
 
-It is a static site: no build step, no package manager, no CI. Clone it, open a file,
-push. What makes it hold together is the design system vendored in
+Built with [Astro](https://astro.build). Five pages, real URLs, and almost no JavaScript:
+three of the five ship **zero** bytes of it, and the other two ship only the form they
+need. Everything visual comes from the design system vendored in
 [`design-system/`](design-system/) — read [CONTRIBUTING.md](CONTRIBUTING.md) before
-changing anything visual.
+changing anything you can see.
 
 ---
 
 ## Layout
 
 ```
-index.html              the shell: <head>, sticky header, footer, router, page logic
-screens/                one file per page — this is where the content lives
-  HomeScreen.dc.html      hero, chi siamo, principi, progetti, CTA
-  ManifestoScreen.dc.html the seven principles
-  ProjectsScreen.dc.html  repositories, how to propose a project
-  EventsScreen.dc.html    meetup format, mail signup
-  JoinScreen.dc.html      application form, contacts
-site/site.css           page-level responsive overrides. Nothing else belongs here.
-design-system/          TORC Design System, vendored. The source of truth for
-                        every colour, size, font, icon and component.
-vendor/                 React 18 + the dc runtime that renders the page.
-                        Third-party, self-hosted, do not edit.
-.nojekyll               keeps GitHub Pages from dropping the _ds_* files
-CNAME                   torc.it
+src/pages/          one file per URL — this is where the content lives
+  index.astro         /
+  manifesto.astro     /manifesto/
+  progetti.astro      /progetti/
+  incontri.astro      /incontri/
+  entra.astro         /entra/
+src/content.js      ALL the copy and data. Most edits belong here, not in a page.
+src/layouts/        the page shell: <head>, header, footer
+src/components/     pieces shared across pages, plus the two form islands
+design-system/      the TORC Design System, vendored. The source of truth for
+                    every colour, size, font, icon and component.
+public/             copied to the site root as-is: CNAME, favicon, social image
+.github/workflows/  build and deploy on push
 ```
 
-**To change what a page says, open the file in `screens/`.** You only need
-`index.html` for the header, the footer, or the shared data behind all five pages.
-
-## Running it locally
-
-Any static file server. The page fetches its own assets, so `file://` will not do:
+## Working on it
 
 ```sh
-python3 -m http.server 8000
-# → http://localhost:8000
+npm install
+npm run dev       # http://localhost:4321, live reload
+npm run build     # writes dist/
+npm run preview   # serve the built site exactly as it deploys
 ```
 
-## How the page works
-
-`index.html` and every file in `screens/` is a **Design Component document**: ordinary
-HTML plus four extra tags, rendered client-side by `vendor/dc-runtime.js`.
-
-| Tag | What it does |
-|---|---|
-| `<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" …>` | Renders a design-system component. Props are attributes. |
-| `<dc-import name="HomeScreen" dc-props="{{ page }}">` | Renders another `.dc.html` document. `dc-props` spreads an object into it as props. |
-| `<sc-if value="{{ isHome }}">` | Conditional block. |
-| `{{ expression }}` | Interpolates a value from the page logic. |
-
-The page logic is the `<script type="text/x-dc">` block at the bottom of `index.html`:
-a small class holding `state.page` (`home` / `manifesto` / `progetti` / `incontri` /
-`entra`), the nav handlers, the two Formspree form submissions, and the static row data
-for the spec tables. Everything it returns from `renderVals()` is what `{{ … }}` can see.
-
-That whole bag is also exposed as `page` and handed to each screen through `dc-props`,
-so a screen reads exactly the same names it would if its markup were still inline. Add a
-value to `renderVals()` and all five screens can use it with no further wiring.
-
-The runtime resolves `<dc-import name="X">` to `./X.dc.html`; the `window.__resources`
-map in `<head>` redirects that to `screens/X.dc.html`. If you add a screen, add both the
-file and its entry in that map, or the import silently renders an empty placeholder.
-
-Routing is in-page — there is one URL, and screens are fetched on first navigation
-(prefetched from `<head>`, so it costs nothing in practice). Giving each page a real URL
-would mean turning each screen into its own full HTML document.
+Node 22. Nothing else to install.
 
 ### Editing content
 
-Copy lives inline in the `screens/` files, in Italian. The design system has firm rules about
-that Italian — first-person plural, sentence case, no hype, no emoji. They are written
-out in [`design-system/readme.md`](design-system/readme.md) under *CONTENT FUNDAMENTALS*,
-and they are not stylistic suggestions: they are what makes the site sound like TORC.
+Almost everything is in [`src/content.js`](src/content.js) — the manifesto principles,
+the six technical strands, the channel list, the spec-table rows, the links. Change it
+there and every page that uses it follows.
+
+The copy is Italian and the design system has firm rules about it: first person plural,
+sentence case, statements end with a full stop, no hype, **no emoji**. They are written
+out in [`design-system/readme.md`](design-system/readme.md) under *CONTENT FUNDAMENTALS*.
+They are not stylistic preferences — they are what makes the site sound like TORC.
+
+Everything in `content.js` is real. If a number or a date is not something the
+association can stand behind, it does not go in: an honest empty state ("Nessun
+repository pubblico, per ora.") beats an invented project.
+
+### Adding a page
+
+Drop a `.astro` file in `src/pages/`. The filename is the URL — `src/pages/soci.astro`
+becomes `/soci/`. Wrap it in the `Base` layout, give it a title and a description, and
+add it to `NAV` in `content.js` if it belongs in the header.
+
+## How it renders
+
+Astro runs the design system's React components **at build time** and writes plain HTML.
+No React reaches the browser unless a component is explicitly marked `client:load` —
+which is true for exactly two things, the mail signup on `/incontri/` and the membership
+form on `/entra/`. Those are the only parts of the site that need JavaScript to work.
+
+Everything else — including every button, badge and spec table — is static markup by the
+time it is served.
 
 ## Deploying
 
-Push to `main`. GitHub Pages serves the repository root as-is.
+Push to `main`. The workflow in `.github/workflows/deploy.yml` runs `npm ci && npm run
+build` and publishes `dist/`. Nothing is committed back; there is no `gh-pages` branch
+and `dist/` is not in git.
 
-`.nojekyll` must stay: without it Jekyll silently drops every path beginning with an
-underscore, which would take `design-system/_ds_bundle.js` with it and leave the page
-blank.
+> **One-time setup, and it must happen before the first push:**
+> **Settings → Pages → Source → "GitHub Actions"**.
+> While the source is still "Deploy from a branch", GitHub serves the repository root —
+> which no longer contains an `index.html` — and the site would 404.
+
+The custom domain is served from `public/CNAME`, which the build copies to `dist/CNAME`.
+The workflow fails the build if it goes missing.
 
 ## Licence
 
-Text CC BY-SA 4.0 · code Apache-2.0. `vendor/` is React (MIT) and the dc runtime.
+Text CC BY-SA 4.0 · code Apache-2.0.

@@ -1,0 +1,179 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionRule from '../components/SectionRule.astro';
+import Esiti from '../components/Esiti.astro';
+import Channels from '../components/Channels.astro';
+import { Logo } from '../../design-system/components/brand/Logo.jsx';
+import { Button } from '../../design-system/components/core/Button.jsx';
+import { Badge } from '../../design-system/components/core/Badge.jsx';
+import { SpecTable } from '../../design-system/components/content/SpecTable.jsx';
+import { StatBlock } from '../../design-system/components/content/StatBlock.jsx';
+import {
+  SITE, PRINCIPLES, STATS, DISCIPLINE, ROWS_CHI_SIAMO, ROWS_CTA,
+} from '../content.js';
+
+const card = 'background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:24px;display:flex;flex-direction:column;gap:12px';
+const cardTitle = 'font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0';
+const cardBody = 'font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0';
+const principleRow = 'display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border-subtle)';
+const principleNum = 'font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-accent);letter-spacing:.08em';
+const principleTitle = 'font-family:var(--font-display);font-size:21px;font-weight:500;line-height:1.24;color:var(--text-strong)';
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<Base title={SITE.title} description={SITE.description}>
+
+<section class="torc-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:128px 64px 72px">
+<div style="max-width:1280px;margin:0 auto">
+<div style="display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center">
+<div>
+<div style="display:flex;align-items:center;gap:12px"><span style="width:24px;height:1.5px;background:var(--accent)"></span><span class="torc-kicker">Trieste Open Robotics Community</span></div>
+<h1 style="font-family:var(--font-display);font-size:clamp(52px,6.4vw,92px);font-weight:600;line-height:.98;letter-spacing:-.03em;color:var(--text-strong);margin:24px 0 0;max-width:20ch">Diamo forma alle idee.</h1>
+<p style="font-size:20px;line-height:1.62;color:var(--text-secondary);max-width:56ch;margin:24px 0 0;text-wrap:pretty">Una comunità no-profit di chi progetta, scrive codice e costruisce robotica, spinta dalla passione tecnica e decisa a diffonderla.</p>
+<div class="btnrow" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in TORC</Button>
+<Button variant="secondary" size="lg" mono href="/manifesto/">Leggi il manifesto</Button>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+<Logo variant="stacked" height={46} />
+</div>
+</div>
+<div class="torc-ticks torc-ticks--major" style="margin-top:72px"></div>
+<div style="display:flex;justify-content:flex-end;margin-top:10px"><span class="torc-hud-label">45.6495 N · Trieste</span></div>
+</div>
+</section>
+
+<div data-theme="light" style="background:var(--bg-page);color:var(--text-body)">
+
+<section style="padding:112px 64px 0">
+<div style="max-width:1280px;margin:0 auto">
+<SectionRule index="01 / 08" label="Chi siamo" note="Associazione · Trieste" />
+<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start">
+<h2 style="font-family:var(--font-display);font-size:42px;font-weight:600;line-height:1.06;letter-spacing:-.028em;color:var(--text-strong);margin:0;text-wrap:pretty">Siamo chi la robotica la fa davvero, e ci uniamo per dare a questo territorio un luogo in cui farla crescere.</h2>
+<div style="display:flex;flex-direction:column;gap:24px">
+<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:0">Non siamo un'azienda, non siamo un fornitore di servizi, non siamo una scuola. Siamo professionisti, ricercatori, studenti e autodidatti che progettano, scrivono codice e costruiscono sistemi che funzionano, e che scelgono di lavorare fianco a fianco, in modo aperto, su ciò che vale la pena costruire.</p>
+<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:0">Da questo modo di lavorare — aperto, concreto, guidato dalla passione — possono nascere le competenze, le collaborazioni e le imprese che renderanno Trieste un punto di riferimento per la robotica.</p>
+<SpecTable tight rows={ROWS_CHI_SIAMO} />
+</div>
+</div>
+</div>
+</section>
+
+<section class="torc-field" data-field="strata" data-field-depth="open" data-field-edge="horizon" style="padding:80px 64px 0">
+<div class="statsrow" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)">
+{STATS.map((s, i) => (
+  <div style={`padding:36px ${i === 0 ? '32px 36px 0' : i === STATS.length - 1 ? '0 36px 32px' : '32px'}`}>
+    <StatBlock value={s.value} accentPart={s.accentPart} label={s.label} />
+  </div>
+))}
+</div>
+</section>
+
+<section style="padding:112px 64px 0">
+<div style="max-width:1280px;margin:0 auto">
+<SectionRule index="02 / 08" label="I nostri principi" note="Manifesto v1.0 · 7 punti" />
+<div style="display:grid;grid-template-columns:1fr 1fr;column-gap:64px">
+<div style="display:flex;flex-direction:column;border-top:1px solid var(--border-subtle)">
+{PRINCIPLES.slice(0, 4).map((p) => (
+  <div style={principleRow}><span style={principleNum}>{pad(p.number)}</span><span style={principleTitle}>{p.title}</span></div>
+))}
+</div>
+<div style="display:flex;flex-direction:column;border-top:1px solid var(--border-subtle)">
+{PRINCIPLES.slice(4).map((p) => (
+  <div style={principleRow}><span style={principleNum}>{pad(p.number)}</span><span style={principleTitle}>{p.title}</span></div>
+))}
+<div style="padding:24px 0"><Button variant="secondary" size="md" mono iconEnd="arrow-right" href="/manifesto/">Testo integrale</Button></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding:112px 64px 0">
+<div style="max-width:1280px;margin:0 auto">
+<SectionRule index="03 / 08" label="Filoni tecnologici" note="Sei discipline" />
+<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end;margin-bottom:40px">
+<h2 style="font-family:var(--font-display);font-size:38px;font-weight:600;line-height:1.08;letter-spacing:-.028em;color:var(--text-strong);margin:0">Sei discipline, un solo progetto.</h2>
+<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:0">Un robot funziona quando queste competenze lavorano nello stesso posto, sullo stesso problema.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+{DISCIPLINE.map((d, i) => (
+  <div style={card}>
+    <span class="torc-hud-label" style="color:var(--text-accent)">{pad(i + 1)}</span>
+    <h3 style={cardTitle}>{d.title}</h3>
+    <p style={cardBody}>{d.body}</p>
+  </div>
+))}
+</div>
+</div>
+</section>
+
+<section style="padding:112px 64px 0">
+<div style="max-width:1280px;margin:0 auto">
+<SectionRule index="04 / 08" label="Cosa ne nasce" note="Tre esiti" />
+<Esiti />
+</div>
+</section>
+<div style="height:112px"></div>
+</div>
+
+<section class="torc-field" data-field="scan" data-field-glow="lit" style="padding:112px 64px;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+<div style="max-width:1280px;margin:0 auto">
+<SectionRule index="05 / 08" label="Hackathon e sfide" />
+<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end">
+<div>
+<h2 style="font-family:var(--font-display);font-size:44px;font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:0;max-width:22ch">Due giorni, un obiettivo, un repository.</h2>
+<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:24px 0 0;max-width:52ch">Sono il punto di partenza dei nostri progetti: da uno sprint nasce il primo repository, che l'associazione porta poi a termine. Il risultato resta pubblico, con la storia dei commit.</p>
+</div>
+<div style="display:flex;gap:56px">
+<StatBlock value="48" accentPart="h" label="durata dello sprint" />
+<StatBlock value="1" label="obiettivo, definito in anticipo" />
+</div>
+</div>
+</div>
+</section>
+
+<div data-theme="light" style="background:var(--bg-page);color:var(--text-body)">
+<section style="padding:112px 64px 0">
+<div style="max-width:1280px;margin:0 auto">
+<SectionRule index="06 / 08" label="Progetti" note="0 pubblici" />
+<!-- The honest empty state. It stays until there is a real repository to
+     show — the design system's rule is that a plate says what is missing
+     rather than faking it. -->
+<div class="torc-field torc-hud" data-field="schematic" data-field-depth="open" style="border:1px solid var(--border-subtle);border-radius:3px;padding:56px 40px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+<span class="torc-hud-label">Stato · in apertura</span>
+<h2 style="font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.025em;color:var(--text-strong);margin:0">Nessun repository pubblico, per ora.</h2>
+<p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0;max-width:52ch">Il primo arriva con il lancio open. Ogni progetto che sviluppiamo è open source: è un principio, non un'opzione.</p>
+<div style="display:flex;gap:12px;margin-top:8px">
+<Button variant="secondary" size="md" icon="github" href={SITE.github}>Segui su GitHub</Button>
+<Button variant="ghost" size="md" iconEnd="arrow-right" href="/progetti/">I filoni</Button>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding:112px 64px 0">
+<div style="max-width:1280px;margin:0 auto">
+<SectionRule index="07 / 08" label="La casa digitale" note="I progetti vivono in rete" />
+<Channels linked />
+</div>
+</section>
+<div style="height:112px"></div>
+</div>
+
+<section style="padding:0 64px 112px">
+<div style="max-width:1280px;margin:0 auto;background:var(--surface-accent);border:1px solid var(--border-accent);border-radius:3px;padding:64px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:end">
+<div>
+<span class="torc-hud-label" style="color:var(--text-accent)">08 / 08 · Entra in TORC</span>
+<h2 style="font-family:var(--font-display);font-size:48px;font-weight:600;line-height:1.02;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0">Iniziamo a costruire.</h2>
+<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:20px 0 0;max-width:50ch">Se leggendo il manifesto hai pensato «questo è il luogo che stavo cercando», allora probabilmente lo è.</p>
+<div class="btnrow" style="display:flex;gap:12px;margin-top:28px">
+<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in TORC</Button>
+<Button variant="secondary" size="lg" mono icon="message-square" href={SITE.whatsapp}>WhatsApp</Button>
+</div>
+</div>
+<div style="min-width:0;overflow-wrap:anywhere"><SpecTable tight rows={ROWS_CTA} /></div>
+</div>
+</section>
+
+</Base>

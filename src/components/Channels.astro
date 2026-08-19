@@ -1,0 +1,28 @@
+---
+// "La casa digitale" — where the association lives online. Shown on the home
+// page (rows link out) and on /entra/ (rows are plain, the links are already
+// in the aside next to the form).
+import { Badge } from '../../design-system/components/core/Badge.jsx';
+import { CHANNELS } from '../content.js';
+
+interface Props {
+  linked?: boolean;
+}
+const { linked = false } = Astro.props;
+
+const row = 'display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)';
+---
+
+<div style="border-top:1px solid var(--border-subtle)">
+{CHANNELS.map((c) => {
+  const href = linked ? c.href : undefined;
+  const Row = href ? 'a' : 'div';
+  return (
+    <Row class="chanrow" href={href} style={href ? `${row};text-decoration:none;color:inherit` : row}>
+      <span class="torc-hud-label">{c.name}</span>
+      <span style={`font-size:17px;color:var(--text-${c.muted ? 'secondary' : 'body'})`}>{c.text}</span>
+      <Badge tone={c.tone}>{c.badge}</Badge>
+    </Row>
+  );
+})}
+</div>

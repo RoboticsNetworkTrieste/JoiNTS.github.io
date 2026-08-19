@@ -1,0 +1,19 @@
+---
+// Every section opens on a full-width hairline carrying its index and label —
+// the design system's section-head pattern. 10px mono, label in accent,
+// optional right-aligned annotation.
+interface Props {
+  index: string;
+  label: string;
+  note?: string;
+  /** Gap to the content below. 48px on the home page, 40px on the inner pages. */
+  mb?: string;
+}
+const { index, label, note, mb = '48px' } = Astro.props;
+---
+
+<div class="sechead" style={`display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:${mb}`}>
+<span class="torc-hud-label">{index}</span>
+<span class="torc-hud-label" style="color:var(--text-accent)">{label}</span>
+{note && <span class="torc-hud-label" style="margin-left:auto">{note}</span>}
+</div>
