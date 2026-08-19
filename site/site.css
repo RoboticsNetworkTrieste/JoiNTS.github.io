@@ -1,0 +1,51 @@
+/* torc.it — page-level styles.
+   Everything visual comes from design-system/styles.css; this file only
+   carries the responsive overrides the page layout needs. */
+body{margin:0;background:var(--bg-page);color:var(--text-body);font-family:var(--font-sans)}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--text-link-hover);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1200px) and (min-width:901px){
+[style*="repeat(3, 1fr)"],[style*="repeat(4, 1fr)"],[style*="repeat(3,1fr)"],[style*="repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important}
+[style*="grid-template-columns: 200px 1fr"],[style*="grid-template-columns:200px 1fr"]{grid-template-columns:1fr!important;gap:40px!important}
+.statsrow{grid-template-columns:repeat(3,1fr)!important}
+.statsrow>div{padding:28px 16px!important}
+.statsrow>div:first-child{padding-left:0!important}
+.statsrow>div:last-child{padding-right:0!important}
+.statsrow .torc-stat__value{font-size:clamp(34px,4.4vw,44px)!important}
+}
+@media (max-width:900px){
+header{padding-left:20px!important;padding-right:20px!important;height:auto!important;padding-top:12px!important;padding-bottom:12px!important}
+header>div{flex-wrap:wrap!important;gap:10px!important;justify-content:space-between!important}
+header nav{margin-left:0!important;flex-wrap:wrap!important;gap:0!important;width:100%!important}
+header nav a{padding:0 10px 0 0!important;font-size:14px!important}
+header nav span{margin-left:auto!important}
+section{padding-left:20px!important;padding-right:20px!important;padding-top:72px!important}
+footer{padding-left:20px!important;padding-right:20px!important}
+[style*="grid-template-columns"]{grid-template-columns:1fr!important;gap:28px!important}
+[style*="grid-template-columns"]>*{min-width:0!important}
+.btnrow{flex-direction:column!important;align-items:stretch!important}
+.btnrow>*,.btnrow a,.btnrow button{width:100%!important;justify-content:center!important}
+.statsrow{grid-template-columns:repeat(3,1fr)!important;gap:0!important}
+.statsrow>div{padding:22px 10px!important;border-left:0!important}
+.statsrow>div:first-child{padding-left:0!important;border-left:0!important}
+.statsrow>div:last-child{padding-right:0!important}
+.statsrow .torc-stat{gap:6px!important}
+.statsrow .torc-stat__value{font-size:clamp(26px,7.5vw,34px)!important}
+.statsrow .torc-stat__label{font-size:8.5px!important;letter-spacing:.1em!important;line-height:1.35!important}
+.chanrow{grid-template-columns:1fr auto!important;gap:4px 12px!important;padding:14px 0!important;align-items:baseline!important}
+.chanrow>*:nth-child(1){grid-column:1;grid-row:1}
+.chanrow>*:nth-child(3){grid-column:2;grid-row:1;justify-self:end}
+.chanrow>*:nth-child(2){grid-column:1/-1;grid-row:2;font-size:15px!important;line-height:1.5!important}
+.sechead{flex-wrap:nowrap!important;gap:10px!important}
+.sechead>span{white-space:nowrap!important}
+.sechead>span:nth-child(3){display:none!important}
+[style*="border-left: 1px solid var(--border-subtle)"],[style*="border-left:1px solid var(--border-subtle)"]{border-left:0!important;padding-left:0!important}
+[style*="padding-left: 40px"],[style*="padding-left:40px"]{border-top:1px solid var(--border-subtle)!important;padding-top:28px!important;padding-left:0!important}
+[style*="top: 104px"],[style*="top:104px"]{position:static!important}
+[style*="gap: 56px"],[style*="display:flex;gap:56px"]{gap:32px!important;flex-wrap:wrap!important}
+[style*="padding: 64px 56px"],[style*="padding: 56px 40px"],[style*="padding: 40px"],[style*="padding:64px 56px"],[style*="padding:56px 40px"]{padding:32px 24px!important}
+h1{font-size:38px!important;line-height:1.06!important;max-width:none!important}
+h2{font-size:28px!important;max-width:none!important}
+h3{max-width:none!important}
+.torc-spec__val{overflow-wrap:anywhere}
+}
