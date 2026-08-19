@@ -55,6 +55,10 @@ These come straight from `readme.md`; they are the ones easiest to break by acci
 
 ## Adding to the page
 
+Content goes in `screens/<Name>.dc.html` — one file per page. `index.html` holds only
+the header, the footer, the router, and the shared values every screen reads
+(`renderVals()` at the bottom).
+
 Use a design-system component before writing markup by hand:
 
 ```html
@@ -125,3 +129,7 @@ python3 -m http.server 8000
 Walk all five screens — home, manifesto, progetti, incontri, entra — and check the
 console is clean. Check the page at a narrow width too: `site/site.css` carries the
 responsive overrides and is easy to leave behind.
+
+A screen that renders as an empty grey box means the runtime could not fetch it: check
+the filename in `screens/` against its `window.__resources` entry in `index.html`. The
+runtime logs the failed URL to the console.

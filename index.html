@@ -31,12 +31,25 @@
 <link rel="stylesheet" href="design-system/styles.css">
 <link rel="stylesheet" href="site/site.css">
 
+<!-- Screens are fetched by the runtime on first navigation; warm them here. -->
+<link rel="prefetch" as="fetch" crossorigin href="screens/HomeScreen.dc.html">
+<link rel="prefetch" as="fetch" crossorigin href="screens/ManifestoScreen.dc.html">
+<link rel="prefetch" as="fetch" crossorigin href="screens/ProjectsScreen.dc.html">
+<link rel="prefetch" as="fetch" crossorigin href="screens/EventsScreen.dc.html">
+<link rel="prefetch" as="fetch" crossorigin href="screens/JoinScreen.dc.html">
+
 <!-- React is self-hosted rather than pulled from unpkg: the design system is a
      no-CDN system, and the site has to render with no third-party origin. -->
 <script>
 window.__resources = {
   'https://unpkg.com/react@18.3.1/umd/react.production.min.js': 'vendor/react.production.min.js',
-  'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': 'vendor/react-dom.production.min.js'
+  'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': 'vendor/react-dom.production.min.js',
+  // Screens live in screens/; the runtime would otherwise look for ./<Name>.dc.html
+  './HomeScreen.dc.html': 'screens/HomeScreen.dc.html',
+  './ManifestoScreen.dc.html': 'screens/ManifestoScreen.dc.html',
+  './ProjectsScreen.dc.html': 'screens/ProjectsScreen.dc.html',
+  './EventsScreen.dc.html': 'screens/EventsScreen.dc.html',
+  './JoinScreen.dc.html': 'screens/JoinScreen.dc.html'
 };
 </script>
 <script src="vendor/dc-runtime.js"></script>
@@ -55,7 +68,6 @@ window.__resources = {
 
 <x-dc>
 
-
 <div data-instrument="quiet" style="background:var(--bg-page);min-height:100vh">
 
 <header style="position:sticky;top:0;z-index:60;height:72px;display:flex;align-items:center;padding:0 64px;background:var(--surface-header);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle)">
@@ -71,453 +83,23 @@ window.__resources = {
 </header>
 
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-<div>
-<section class="torc-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:128px 64px 72px">
-<div style="max-width:1280px;margin:0 auto">
-<div style="display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center">
-<div>
-<div style="display:flex;align-items:center;gap:12px"><span style="width:24px;height:1.5px;background:var(--accent)"></span><span class="torc-kicker">Trieste Open Robotics Community</span></div>
-<h1 style="font-family:var(--font-display);font-size:clamp(52px,6.4vw,92px);font-weight:600;line-height:.98;letter-spacing:-.03em;color:var(--text-strong);margin:24px 0 0;max-width:20ch">Diamo forma alle idee.</h1>
-<p style="font-size:20px;line-height:1.62;color:var(--text-secondary);max-width:56ch;margin:24px 0 0;text-wrap:pretty">Una comunità no-profit di chi progetta, scrive codice e costruisce robotica, spinta dalla passione tecnica e decisa a diffonderla.</p>
-<div class="btnrow" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="primary" size="lg" mono="{{ true }}" sc-camel-icon-end="arrow-right" sc-camel-on-click="{{ goEntra }}" hint-size="176px,48px">Entra in TORC</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="secondary" size="lg" mono="{{ true }}" sc-camel-on-click="{{ goManifesto }}" hint-size="196px,48px">Leggi il manifesto</x-import>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;align-items:center;gap:20px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Logo" variant="stacked" height="46" hint-size="240px,120px"></x-import>
-</div>
-</div>
-<div class="torc-ticks torc-ticks--major" style="margin-top:72px"></div>
-<div style="display:flex;justify-content:flex-end;margin-top:10px"><span class="torc-hud-label">45.6495 N · Trieste</span></div>
-</div>
-</section>
-
-<div data-theme="light" style="background:var(--bg-page);color:var(--text-body)">
-
-<section style="padding:112px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:48px"><span class="torc-hud-label">01 / 08</span><span class="torc-hud-label" style="color:var(--text-accent)">Chi siamo</span><span class="torc-hud-label" style="margin-left:auto">Associazione · Trieste</span></div>
-<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start">
-<h2 style="font-family:var(--font-display);font-size:42px;font-weight:600;line-height:1.06;letter-spacing:-.028em;color:var(--text-strong);margin:0;text-wrap:pretty">Siamo chi la robotica la fa davvero, e ci uniamo per dare a questo territorio un luogo in cui farla crescere.</h2>
-<div style="display:flex;flex-direction:column;gap:24px">
-<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:0">Non siamo un'azienda, non siamo un fornitore di servizi, non siamo una scuola. Siamo professionisti, ricercatori, studenti e autodidatti che progettano, scrivono codice e costruiscono sistemi che funzionano, e che scelgono di lavorare fianco a fianco, in modo aperto, su ciò che vale la pena costruire.</p>
-<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:0">Da questo modo di lavorare — aperto, concreto, guidato dalla passione — possono nascere le competenze, le collaborazioni e le imprese che renderanno Trieste un punto di riferimento per la robotica.</p>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.SpecTable" tight="{{ true }}" rows="{{ rowsChiSiamo }}" hint-size="100%,148px"></x-import>
-</div>
-</div>
-</div>
-</section>
-
-<sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
-<section class="torc-field" data-field="strata" data-field-depth="open" data-field-edge="horizon" style="padding:80px 64px 0">
-<div class="statsrow" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)">
-<div style="padding:36px 32px 36px 0"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.StatBlock" value="6" label="meetup all'anno" hint-size="100%,88px"></x-import></div>
-<div style="padding:36px 32px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.StatBlock" value="100" sc-camel-accent-part="%" label="codice open source" hint-size="100%,88px"></x-import></div>
-<div style="padding:36px 0 36px 32px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.StatBlock" value="48" sc-camel-accent-part="h" label="hackathon" hint-size="100%,88px"></x-import></div>
-</div>
-</section>
-</sc-if>
-
-<section style="padding:112px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:48px"><span class="torc-hud-label">02 / 08</span><span class="torc-hud-label" style="color:var(--text-accent)">I nostri principi</span><span class="torc-hud-label" style="margin-left:auto">Manifesto v1.0 · 7 punti</span></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;column-gap:64px">
-<div style="display:flex;flex-direction:column;border-top:1px solid var(--border-subtle)">
-<div style="display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border-subtle)"><span style="font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-accent);letter-spacing:.08em">01</span><span style="font-family:var(--font-display);font-size:21px;font-weight:500;line-height:1.24;color:var(--text-strong)">Il nostro motore è la passione.</span></div>
-<div style="display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border-subtle)"><span style="font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-accent);letter-spacing:.08em">02</span><span style="font-family:var(--font-display);font-size:21px;font-weight:500;line-height:1.24;color:var(--text-strong)">Costruiamo sistemi reali.</span></div>
-<div style="display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border-subtle)"><span style="font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-accent);letter-spacing:.08em">03</span><span style="font-family:var(--font-display);font-size:21px;font-weight:500;line-height:1.24;color:var(--text-strong)">Trasformiamo i problemi in ricerca, e la ricerca in strumenti utili.</span></div>
-<div style="display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border-subtle)"><span style="font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-accent);letter-spacing:.08em">04</span><span style="font-family:var(--font-display);font-size:21px;font-weight:500;line-height:1.24;color:var(--text-strong)">Tutto ciò che creiamo è aperto.</span></div>
-</div>
-<div style="display:flex;flex-direction:column;border-top:1px solid var(--border-subtle)">
-<div style="display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border-subtle)"><span style="font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-accent);letter-spacing:.08em">05</span><span style="font-family:var(--font-display);font-size:21px;font-weight:500;line-height:1.24;color:var(--text-strong)">Trieste è la nostra casa, la rete è la nostra piazza.</span></div>
-<div style="display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border-subtle)"><span style="font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-accent);letter-spacing:.08em">06</span><span style="font-family:var(--font-display);font-size:21px;font-weight:500;line-height:1.24;color:var(--text-strong)">La porta è aperta, l'asticella è alta.</span></div>
-<div style="display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border-subtle)"><span style="font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-accent);letter-spacing:.08em">07</span><span style="font-family:var(--font-display);font-size:21px;font-weight:500;line-height:1.24;color:var(--text-strong)">Poche cose, fatte fino in fondo.</span></div>
-<div style="padding:24px 0"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="secondary" size="md" mono="{{ true }}" sc-camel-icon-end="arrow-right" sc-camel-on-click="{{ goManifesto }}" hint-size="212px,40px">Testo integrale</x-import></div>
-</div>
-</div>
-</div>
-</section>
-
-<section style="padding:112px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:48px"><span class="torc-hud-label">03 / 08</span><span class="torc-hud-label" style="color:var(--text-accent)">Filoni tecnologici</span><span class="torc-hud-label" style="margin-left:auto">Sei discipline</span></div>
-<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end;margin-bottom:40px">
-<h2 style="font-family:var(--font-display);font-size:38px;font-weight:600;line-height:1.08;letter-spacing:-.028em;color:var(--text-strong);margin:0">Sei discipline, un solo progetto.</h2>
-<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:0">Un robot funziona quando queste competenze lavorano nello stesso posto, sullo stesso problema.</p>
-</div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:24px;display:flex;flex-direction:column;gap:12px"><span class="torc-hud-label" style="color:var(--text-accent)">01</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0">Robotica</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Navigazione, SLAM e controllo: nodi ROS 2 su rig reali.</p></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:24px;display:flex;flex-direction:column;gap:12px"><span class="torc-hud-label" style="color:var(--text-accent)">02</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0">Intelligenza artificiale</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Percezione, visione e calibrazione, con inferenza a bordo.</p></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:24px;display:flex;flex-direction:column;gap:12px"><span class="torc-hud-label" style="color:var(--text-accent)">03</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0">Simulazione e 3D</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Modelli, ambienti e digital twin per provare prima di costruire.</p></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:24px;display:flex;flex-direction:column;gap:12px"><span class="torc-hud-label" style="color:var(--text-accent)">04</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0">Meccanica</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Telai, trasmissioni e cinematica, tra CAD e stampa 3D.</p></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:24px;display:flex;flex-direction:column;gap:12px"><span class="torc-hud-label" style="color:var(--text-accent)">05</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0">Elettronica</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Schede di controllo, alimentazione, sensori e firmware.</p></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:24px;display:flex;flex-direction:column;gap:12px"><span class="torc-hud-label" style="color:var(--text-accent)">06</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0">Dati e infrastruttura</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Dataset, CI e documentazione: ciò che tiene in piedi i progetti.</p></div>
-</div>
-</div>
-</section>
-
-<section style="padding:112px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:48px"><span class="torc-hud-label">04 / 08</span><span class="torc-hud-label" style="color:var(--text-accent)">Cosa ne nasce</span><span class="torc-hud-label" style="margin-left:auto">Tre esiti</span></div>
-<h2 style="font-family:var(--font-display);font-size:38px;font-weight:600;line-height:1.08;letter-spacing:-.028em;color:var(--text-strong);margin:0 0 40px">Un progetto non finisce in sé stesso.</h2>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
-<div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid var(--accent);padding-top:20px"><span class="torc-hud-label">01</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Collaborazioni</h3><p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0">Persone e gruppi che si incontrano su un problema comune e proseguono insieme.</p></div>
-<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--border-subtle);padding-top:20px"><span class="torc-hud-label">02</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Le imprese di domani</h3><p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0">Da un prototipo funzionante può nascere un prodotto, e da un gruppo di lavoro un'impresa.</p></div>
-<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--border-subtle);padding-top:20px"><span class="torc-hud-label">03</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Ricerca scientifica</h3><p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0">Metodi e risultati pubblici, riutilizzabili da chi fa ricerca a Trieste e altrove.</p></div>
-</div>
-</div>
-</section>
-<div style="height:112px"></div>
-</div>
-
-<section class="torc-field" data-field="scan" data-field-glow="lit" style="padding:112px 64px;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:48px"><span class="torc-hud-label">05 / 08</span><span class="torc-hud-label" style="color:var(--text-accent)">Hackathon e sfide</span></div>
-<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end">
-<div>
-<h2 style="font-family:var(--font-display);font-size:44px;font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:0;max-width:22ch">Due giorni, un obiettivo, un repository.</h2>
-<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:24px 0 0;max-width:52ch">Sono il punto di partenza dei nostri progetti: da uno sprint nasce il primo repository, che l'associazione porta poi a termine. Il risultato resta pubblico, con la storia dei commit.</p>
-</div>
-<div style="display:flex;gap:56px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.StatBlock" value="48" sc-camel-accent-part="h" label="durata dello sprint" hint-size="auto,88px"></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.StatBlock" value="1" label="obiettivo, definito in anticipo" hint-size="auto,88px"></x-import>
-</div>
-</div>
-</div>
-</section>
-
-<div data-theme="light" style="background:var(--bg-page);color:var(--text-body)">
-<section style="padding:112px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:48px"><span class="torc-hud-label">06 / 08</span><span class="torc-hud-label" style="color:var(--text-accent)">Progetti</span><span class="torc-hud-label" style="margin-left:auto">0 pubblici</span></div>
-<div class="torc-field torc-hud" data-field="schematic" data-field-depth="open" style="border:1px solid var(--border-subtle);border-radius:3px;padding:56px 40px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
-<span class="torc-hud-label">Stato · in apertura</span>
-<h2 style="font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.025em;color:var(--text-strong);margin:0">Nessun repository pubblico, per ora.</h2>
-<p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0;max-width:52ch">Il primo arriva con il lancio open. Ogni progetto che sviluppiamo è open source: è un principio, non un'opzione.</p>
-<div style="display:flex;gap:12px;margin-top:8px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="secondary" size="md" icon="github" href="https://github.com/TriesteOpenRoboticsCommunity" hint-size="188px,40px">Segui su GitHub</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="ghost" size="md" sc-camel-icon-end="arrow-right" sc-camel-on-click="{{ goProgetti }}" hint-size="150px,40px">I filoni</x-import>
-</div>
-</div>
-</div>
-</section>
-
-<section style="padding:112px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:48px"><span class="torc-hud-label">07 / 08</span><span class="torc-hud-label" style="color:var(--text-accent)">La casa digitale</span><span class="torc-hud-label" style="margin-left:auto">I progetti vivono in rete</span></div>
-<div style="border-top:1px solid var(--border-subtle)">
-<a href="https://github.com/TriesteOpenRoboticsCommunity" class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle);text-decoration:none;color:inherit"><span class="torc-hud-label">GitHub</span><span style="font-size:17px;color:var(--text-body)">Tutti i repository, pubblici dal primo commit.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" tone="ok" hint-size="72px,22px">attivo</x-import></a>
-<div class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)"><span class="torc-hud-label">Sito</span><span style="font-size:17px;color:var(--text-body)">torc.it — manifesto, progetti e prossimi incontri.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" tone="ok" hint-size="72px,22px">attivo</x-import></div>
-<a href="https://chat.whatsapp.com/J99EPLX7dGtDGLHxT2mzm9" class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle);text-decoration:none;color:inherit"><span class="torc-hud-label">WhatsApp</span><span style="font-size:17px;color:var(--text-body)">Il canale di confronto quotidiano tra i soci.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" tone="ok" hint-size="72px,22px">attivo</x-import></a>
-<div class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)"><span class="torc-hud-label">LinkedIn</span><span style="font-size:17px;color:var(--text-secondary)">Il riferimento per ricercatori, università e aziende.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" hint-size="96px,22px">in apertura</x-import></div>
-<div class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)"><span class="torc-hud-label">Newsletter</span><span style="font-size:17px;color:var(--text-secondary)">Aggiornamenti sui repository e sui prossimi incontri.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" hint-size="96px,22px">in apertura</x-import></div>
-</div>
-</div>
-</section>
-<div style="height:112px"></div>
-</div>
-
-<section style="padding:0 64px 112px">
-<div style="max-width:1280px;margin:0 auto;background:var(--surface-accent);border:1px solid var(--border-accent);border-radius:3px;padding:64px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:end">
-<div>
-<span class="torc-hud-label" style="color:var(--text-accent)">08 / 08 · Entra in TORC</span>
-<h2 style="font-family:var(--font-display);font-size:48px;font-weight:600;line-height:1.02;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0">Iniziamo a costruire.</h2>
-<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:20px 0 0;max-width:50ch">Se leggendo il manifesto hai pensato «questo è il luogo che stavo cercando», allora probabilmente lo è.</p>
-<div class="btnrow" style="display:flex;gap:12px;margin-top:28px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="primary" size="lg" mono="{{ true }}" sc-camel-icon-end="arrow-right" sc-camel-on-click="{{ goEntra }}" hint-size="176px,48px">Entra in TORC</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="secondary" size="lg" mono="{{ true }}" icon="message-square" href="https://chat.whatsapp.com/J99EPLX7dGtDGLHxT2mzm9" hint-size="150px,48px">WhatsApp</x-import>
-</div>
-</div>
-<div style="min-width:0;overflow-wrap:anywhere"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.SpecTable" tight="{{ true }}" rows="{{ rowsCta }}" hint-size="100%,120px"></x-import></div>
-</div>
-</section>
-</div>
+<dc-import name="HomeScreen" dc-props="{{ page }}"></dc-import>
 </sc-if>
 
 <sc-if value="{{ isManifesto }}" hint-placeholder-val="{{ false }}">
-<div>
-<section class="torc-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:112px 64px 64px">
-<div style="max-width:1280px;margin:0 auto">
-<span class="torc-kicker">Manifesto v1.0 · testo integrale</span>
-<h1 style="font-family:var(--font-display);font-size:clamp(40px,4.6vw,64px);font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0;max-width:26ch" data-comment-anchor="b9fda1974b-h1">Manifesto della community.</h1>
-<div class="torc-ticks torc-ticks--major" style="margin-top:56px"></div>
-<div style="display:flex;justify-content:space-between;margin-top:10px"><span class="torc-hud-label" data-comment-anchor="86d027d20a-span">Manifesto</span><span class="torc-hud-label">45.6495 N · Trieste · torc.it</span></div>
-</div>
-</section>
-
-<div data-theme="light" data-instrument="off" style="background:var(--bg-page);color:var(--text-body)">
-<section style="padding:96px 64px">
-<div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:80px;align-items:start">
-<nav style="position:sticky;top:104px;display:flex;flex-direction:column;gap:10px">
-<span class="torc-hud-label">Indice</span>
-<a href="#premessa" style="font-family:var(--font-mono);font-size:13px;color:var(--text-accent);text-decoration:none">Premessa</a>
-<a href="#principi" style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);text-decoration:none">01—07 Principi</a>
-<a href="#conclusione" style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);text-decoration:none">Conclusione</a>
-<div style="margin-top:16px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="ghost" size="sm" mono="{{ true }}" icon="download" hint-size="132px,32px">PDF</x-import></div>
-</nav>
-<article style="max-width:66ch">
-<div id="premessa" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:32px"><span class="torc-hud-label" style="color:var(--text-accent)">Premessa</span></div>
-<p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0 0 24px">A Trieste, e nell'area che la circonda, ci sono persone che la robotica la fanno davvero: ogni giorno, professionisti, ricercatori e studenti progettano, scrivono codice e costruiscono sistemi che funzionano realmente, con competenza e metodo. Allo stesso tempo, questo territorio è pieno di sfide e problemi concreti che aspettano solo di incontrare chi abbia le capacità, la curiosità e la voglia di affrontarli.</p>
-<p style="font-family:var(--font-display);font-size:28px;font-weight:500;line-height:1.24;letter-spacing:-.02em;color:var(--text-strong);margin:32px 0">Eppure, tra questi due mondi manca ancora un ponte.</p>
-<p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0 0 24px">Esistono realtà che fanno divulgazione, didattica, robotica educativa, e il loro ruolo è fondamentale. Ma manca uno spazio dove chi sa costruire possa incontrarsi per fare ricerca insieme, in modo aperto, sotto la spinta di un interesse genuino.</p>
-<p style="font-family:var(--font-display);font-size:28px;font-weight:500;line-height:1.24;letter-spacing:-.02em;color:var(--text-strong);margin:32px 0">TORC nasce per essere quel ponte.</p>
-<p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0">Non siamo un'azienda, non siamo un fornitore di servizi, non siamo una scuola. Siamo una comunità di persone che condividono una passione e una convinzione: che le idee migliori nascano quando si lavora fianco a fianco, senza vincoli, su ciò che vale la pena costruire.</p>
-
-<div id="principi" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin:72px 0 32px"><span class="torc-hud-label" style="color:var(--text-accent)">I nostri principi</span><span class="torc-hud-label" style="margin-left:auto">01 — 07</span></div>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="1" title="Il nostro motore è la passione." hint-size="100%,150px">Facciamo robotica perché ci appassiona la sfida tecnica. È la passione a guidare le nostre scelte, ed è la migliore garanzia che possiamo offrire: quando un problema ci accende, non lo abbandoniamo finché non funziona.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="2" title="Costruiamo sistemi reali." hint-size="100%,140px">Non ci bastano le parole. Il risultato del nostro lavoro è codice che gira, hardware che si muove, sistemi che funzionano. La concretezza è il nostro metro di giudizio.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="3" title="Trasformiamo i problemi in ricerca, e la ricerca in strumenti utili." hint-size="100%,160px">Un progetto può nascere da un'esigenza del territorio come da un modo nuovo di affrontare un problema noto. Una volta creato uno strumento, il lavoro non è finito: ne mostriamo le applicazioni e lo colleghiamo ai casi d'uso in cui può fare la differenza.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="4" title="Tutto ciò che creiamo è aperto." hint-size="100%,150px">Ogni progetto che sviluppiamo è open source. È un principio, non un'opzione. La conoscenza cresce quando può essere studiata, verificata, riutilizzata e migliorata da chiunque.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="5" title="Trieste è la nostra casa, la rete è la nostra piazza." hint-size="100%,160px">Ci incontriamo di persona — meetup, hackathon, sfide — perché le idee corrono più veloci quando le persone si guardano in faccia. Ma i nostri progetti vivono in rete e sono aperti al contributo di chiunque, ovunque si trovi.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="6" title="La porta è aperta, l'asticella è alta." hint-size="100%,150px">Chiunque condivida questa passione è benvenuto: professionisti, ricercatori, studenti, autodidatti. Ciò che chiediamo non è un titolo, ma la voglia di mettersi alla prova su problemi difficili.</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.PrincipleItem" number="7" title="Poche cose, fatte fino in fondo." hint-size="100%,150px">Scegliamo con cura i progetti su cui investire le nostre energie e li portiamo a termine. Preferiamo un risultato solido a dieci esperimenti lasciati a metà.</x-import>
-
-<div id="conclusione" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin:72px 0 32px"><span class="torc-hud-label" style="color:var(--text-accent)">Conclusione</span></div>
-<p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0 0 24px">Crediamo che da questo modo di lavorare — aperto, concreto, guidato dalla passione — possano nascere le competenze, le collaborazioni e le imprese che renderanno Trieste un punto di riferimento per la robotica.</p>
-<p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0">Non promettiamo rivoluzioni: promettiamo di costruire, insieme, e di condividere apertamente tutto ciò che impariamo lungo il percorso.</p>
-</article>
-</div>
-</section>
-</div>
-
-<section class="torc-field" data-field="scan" data-field-glow="lit" style="padding:96px 64px;border-top:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
-<h2 style="font-family:var(--font-display);font-size:40px;font-weight:600;line-height:1.08;letter-spacing:-.03em;color:var(--text-strong);margin:0;max-width:30ch">Se leggendo queste righe hai pensato «questo è il luogo che stavo cercando», allora probabilmente lo è.</h2>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="primary" size="lg" mono="{{ true }}" sc-camel-icon-end="arrow-right" sc-camel-on-click="{{ goEntra }}" hint-size="176px,48px">Entra in TORC</x-import>
-</div>
-</section>
-</div>
+<dc-import name="ManifestoScreen" dc-props="{{ page }}"></dc-import>
 </sc-if>
 
 <sc-if value="{{ isProgetti }}" hint-placeholder-val="{{ false }}">
-<div>
-<section class="torc-field" data-field="schematic" data-field-glow="wash" data-field-depth="hero" style="padding:112px 64px 64px">
-<div style="max-width:1280px;margin:0 auto">
-<span class="torc-kicker">Progetti</span>
-<h1 style="font-family:var(--font-display);font-size:clamp(40px,4.6vw,64px);font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0;max-width:24ch">Tutto ciò che creiamo è aperto.</h1>
-<p style="font-size:20px;line-height:1.62;color:var(--text-secondary);max-width:56ch;margin:24px 0 0">Ogni progetto che sviluppiamo è open source, pubblico dal primo commit. Scegliamo poche cose e le portiamo fino in fondo.</p>
-</div>
-</section>
-
-<div data-theme="light" style="background:var(--bg-page);color:var(--text-body)">
-<section style="padding:96px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">01 / 03</span><span class="torc-hud-label" style="color:var(--text-accent)">Repository</span><span class="torc-hud-label" style="margin-left:auto">0 pubblici</span></div>
-<div class="torc-field torc-hud" data-field="schematic" data-field-depth="open" style="border:1px solid var(--border-subtle);border-radius:3px;padding:56px 40px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
-<span class="torc-hud-label">Stato · in apertura</span>
-<h2 style="font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.025em;color:var(--text-strong);margin:0">Nessun repository pubblico.</h2>
-<p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0;max-width:48ch">Il primo arriva con il lancio open. Nel frattempo l'organizzazione GitHub è già aperta: seguila per vedere il primo commit quando esce.</p>
-<div style="margin-top:8px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="secondary" size="md" icon="github" href="https://github.com/TriesteOpenRoboticsCommunity" hint-size="230px,40px">TriesteOpenRoboticsCommunity</x-import></div>
-</div>
-</div>
-</section>
-
-<section style="padding:96px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">02 / 03</span><span class="torc-hud-label" style="color:var(--text-accent)">Filoni tecnologici</span><span class="torc-hud-label" style="margin-left:auto">Sei discipline</span></div>
-<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end;margin-bottom:40px">
-<h2 style="font-family:var(--font-display);font-size:38px;font-weight:600;line-height:1.08;letter-spacing:-.028em;color:var(--text-strong);margin:0">Sei discipline, un solo progetto.</h2>
-<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:0">Un robot funziona quando queste competenze lavorano nello stesso posto, sullo stesso problema.</p>
-</div>
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:28px;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start"><span class="torc-hud-label" style="color:var(--text-accent);padding-top:6px">01</span><div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0 0 8px">Robotica</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Navigazione, SLAM e controllo: nodi ROS 2 su rig reali.</p></div></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:28px;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start"><span class="torc-hud-label" style="color:var(--text-accent);padding-top:6px">02</span><div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0 0 8px">Intelligenza artificiale</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Percezione, visione e calibrazione, con inferenza a bordo.</p></div></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:28px;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start"><span class="torc-hud-label" style="color:var(--text-accent);padding-top:6px">03</span><div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0 0 8px">Simulazione e 3D</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Modelli, ambienti e digital twin per provare prima di costruire.</p></div></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:28px;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start"><span class="torc-hud-label" style="color:var(--text-accent);padding-top:6px">04</span><div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0 0 8px">Meccanica</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Telai, trasmissioni e cinematica, tra CAD e stampa 3D.</p></div></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:28px;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start"><span class="torc-hud-label" style="color:var(--text-accent);padding-top:6px">05</span><div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0 0 8px">Elettronica</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Schede di controllo, alimentazione, sensori e firmware.</p></div></div>
-<div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:3px;padding:28px;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start"><span class="torc-hud-label" style="color:var(--text-accent);padding-top:6px">06</span><div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--text-strong);margin:0 0 8px">Dati e infrastruttura</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Dataset, CI e documentazione: ciò che tiene in piedi i progetti.</p></div></div>
-</div>
-</div>
-</section>
-
-<section style="padding:96px 64px">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">03 / 03</span><span class="torc-hud-label" style="color:var(--text-accent)">Cosa ne nasce</span></div>
-<h2 style="font-family:var(--font-display);font-size:38px;font-weight:600;line-height:1.08;letter-spacing:-.028em;color:var(--text-strong);margin:0 0 40px">Un progetto non finisce in sé stesso.</h2>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
-<div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid var(--accent);padding-top:20px"><span class="torc-hud-label">01</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Collaborazioni</h3><p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0">Persone e gruppi che si incontrano su un problema comune e proseguono insieme.</p></div>
-<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--border-subtle);padding-top:20px"><span class="torc-hud-label">02</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Le imprese di domani</h3><p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0">Da un prototipo funzionante può nascere un prodotto, e da un gruppo di lavoro un'impresa.</p></div>
-<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--border-subtle);padding-top:20px"><span class="torc-hud-label">03</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Ricerca scientifica</h3><p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0">Metodi e risultati pubblici, riutilizzabili da chi fa ricerca a Trieste e altrove.</p></div>
-</div>
-</div>
-</section>
-</div>
-
-<section class="torc-field" data-field="scan" data-field-glow="lit" style="padding:80px 64px;border-top:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px">
-<div><h2 style="font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.025em;color:var(--text-strong);margin:0">Hai un problema su cui vuoi lavorare?</h2><span class="torc-hud-label" style="display:block;margin-top:10px">Portalo al primo incontro</span></div>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="primary" size="lg" mono="{{ true }}" sc-camel-icon-end="arrow-right" sc-camel-on-click="{{ goEntra }}" hint-size="176px,48px">Entra in TORC</x-import>
-</div>
-</section>
-</div>
+<dc-import name="ProjectsScreen" dc-props="{{ page }}"></dc-import>
 </sc-if>
 
 <sc-if value="{{ isIncontri }}" hint-placeholder-val="{{ false }}">
-<div>
-<section class="torc-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:112px 64px 64px">
-<div style="max-width:1280px;margin:0 auto">
-<span class="torc-kicker">Incontri</span>
-<h1 style="font-family:var(--font-display);font-size:clamp(40px,4.6vw,64px);font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0;max-width:26ch">Ci incontriamo di persona per confrontarci e condividere ciò che impariamo.</h1>
-<div class="torc-ticks torc-ticks--major" style="margin-top:48px"></div>
-</div>
-</section>
-
-<div data-theme="light" style="background:var(--bg-page);color:var(--text-body)">
-<section style="padding:96px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">01 / 04</span><span class="torc-hud-label" style="color:var(--text-accent)">Prossimi appuntamenti</span><span class="torc-hud-label" style="margin-left:auto">Calendario non ancora aperto</span></div>
-<div style="border:1px solid var(--border-subtle);border-radius:3px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center">
-<div><h2 style="font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Il calendario verrà definito al primo incontro.</h2><p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:12px 0 0;max-width:52ch">Lascia la tua email e ti scriviamo quando fissiamo le prime date.</p></div>
-<form sc-camel-on-submit="{{ onNotify }}" style="display:flex;gap:12px;align-items:flex-end">
-<input type="hidden" name="_subject" value="Nuova iscrizione agli avvisi TORC">
-<input type="text" name="_gotcha" tabindex="-1" sc-camel-auto-complete="off" style="display:none">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Field" label="Email" hint-size="240px,68px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Input" type="email" name="email" required="{{ true }}" placeholder="nome@dominio.it" hint-size="240px,40px"></x-import></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="secondary" size="md" mono="{{ true }}" type="submit" disabled="{{ notifySending }}" hint-size="130px,40px">Avvisami</x-import>
-</form>
-</div>
-<sc-if value="{{ notified }}" hint-placeholder-val="{{ false }}">
-<div style="margin-top:16px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Alert" tone="ok" title="Email registrata." hint-size="100%,72px">Ti scriviamo appena il calendario è pronto.</x-import></div>
-</sc-if>
-<sc-if value="{{ notifyError }}" hint-placeholder-val="{{ false }}">
-<div style="margin-top:16px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Alert" tone="danger" title="Invio non riuscito." hint-size="100%,72px">Riprova, oppure scrivici a info@torc.it.</x-import></div>
-</sc-if>
-</div>
-</section>
-
-<section style="padding:96px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">02 / 04</span><span class="torc-hud-label" style="color:var(--text-accent)">Meetup</span></div>
-<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start">
-<h2 style="font-family:var(--font-display);font-size:38px;font-weight:600;line-height:1.08;letter-spacing:-.028em;color:var(--text-strong);margin:0">Un intervento tecnico, un problema aperto, il tempo per discuterne.</h2>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.SpecTable" rows="{{ rowsMeetup }}" hint-size="100%,180px"></x-import>
-</div>
-</div>
-</section>
-<div style="height:96px"></div>
-</div>
-
-<section class="torc-field" data-field="survey" data-field-glow="lit" data-field-depth="open" style="padding:96px 64px;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">03 / 04</span><span class="torc-hud-label" style="color:var(--text-accent)">Hackathon e sfide</span></div>
-<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end">
-<div>
-<h2 style="font-family:var(--font-display);font-size:44px;font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:0;max-width:22ch">Due giorni, un obiettivo, un repository.</h2>
-<p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:24px 0 0;max-width:52ch">Il lavoro procede più rapidamente quando un gruppo si concentra su un solo problema, entro un tempo definito. Da uno sprint nasce il primo repository, che l'associazione porta poi a termine.</p>
-<span class="torc-hud-label" style="display:block;margin-top:24px">Il risultato resta pubblico, con la storia dei commit</span>
-</div>
-<div style="display:flex;gap:56px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.StatBlock" value="48" sc-camel-accent-part="h" label="durata dello sprint" hint-size="auto,88px"></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.StatBlock" value="1" label="obiettivo, definito in anticipo" hint-size="auto,88px"></x-import>
-</div>
-</div>
-</div>
-</section>
-
-<div data-theme="light" style="background:var(--bg-page);color:var(--text-body)">
-<section style="padding:96px 64px">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">04 / 04</span><span class="torc-hud-label" style="color:var(--text-accent)">Roadmap operativa</span><span class="torc-hud-label" style="margin-left:auto">Quattro passi, in sequenza</span></div>
-<h2 style="font-family:var(--font-display);font-size:38px;font-weight:600;line-height:1.08;letter-spacing:-.028em;color:var(--text-strong);margin:0 0 40px">Quattro passi, in sequenza.</h2>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
-<div style="border-top:1.5px solid var(--accent);padding-top:20px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:10px"><span class="torc-hud-label">01</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.StatusDot" tone="ok" live="{{ true }}" hint-size="10px,10px"></x-import></div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Costituzione</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Statuto, registrazione e ruoli definiti tra i fondatori.</p></div>
-<div style="border-top:1px solid var(--border-subtle);padding-top:20px;display:flex;flex-direction:column;gap:10px"><span class="torc-hud-label">02</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Lancio open</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Canali ufficiali attivi e primo repository pubblico.</p></div>
-<div style="border-top:1px solid var(--border-subtle);padding-top:20px;display:flex;flex-direction:column;gap:10px"><span class="torc-hud-label">03</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Primi meetup</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Un intervento tecnico, un problema aperto, il tempo per discuterne.</p></div>
-<div style="border-top:1px solid var(--border-subtle);padding-top:20px;display:flex;flex-direction:column;gap:10px"><span class="torc-hud-label">04</span><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">Primi hackathon</h3><p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">Due giorni su un obiettivo: da qui nascono i primi progetti.</p></div>
-</div>
-</div>
-</section>
-</div>
-</div>
+<dc-import name="EventsScreen" dc-props="{{ page }}"></dc-import>
 </sc-if>
 
 <sc-if value="{{ isEntra }}" hint-placeholder-val="{{ false }}">
-<div>
-<section class="torc-field" data-field="scan" data-field-glow="lit" data-field-depth="hero" style="padding:112px 64px 64px">
-<div style="max-width:1280px;margin:0 auto">
-<span class="torc-kicker">Entra in TORC</span>
-<h1 style="font-family:var(--font-display);font-size:clamp(48px,5.6vw,80px);font-weight:600;line-height:1;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0">Iniziamo a costruire.</h1>
-<p style="font-size:20px;line-height:1.62;color:var(--text-secondary);max-width:54ch;margin:24px 0 0">Se leggendo il manifesto hai pensato «questo è il luogo che stavo cercando», allora probabilmente lo è.</p>
-</div>
-</section>
-
-<div data-theme="light" style="background:var(--bg-page);color:var(--text-body)">
-<section style="padding:96px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">01 / 04</span><span class="torc-hud-label" style="color:var(--text-accent)">Come si entra</span><span class="torc-hud-label" style="margin-left:auto">Tre passi</span></div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
-<div style="border-top:1.5px solid var(--accent);padding-top:20px"><span class="torc-hud-label">01</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:10px 0 0">Scrivici dal sito e leggi il manifesto.</h3></div>
-<div style="border-top:1px solid var(--border-subtle);padding-top:20px"><span class="torc-hud-label">02</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:10px 0 0">Vieni al primo incontro.</h3></div>
-<div style="border-top:1px solid var(--border-subtle);padding-top:20px"><span class="torc-hud-label">03</span><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:10px 0 0">Porta un problema su cui vuoi lavorare.</h3></div>
-</div>
-</div>
-</section>
-
-<section style="padding:96px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">02 / 04</span><span class="torc-hud-label" style="color:var(--text-accent)">Raccontaci cosa sai fare</span></div>
-<div style="display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:start">
-<form sc-camel-on-submit="{{ onJoin }}" style="display:flex;flex-direction:column;gap:20px">
-<input type="hidden" name="_subject" value="Nuova richiesta di adesione a TORC">
-<input type="text" name="_gotcha" tabindex="-1" sc-camel-auto-complete="off" style="display:none">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Field" label="Nome" required="{{ true }}" hint-size="100%,68px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Input" name="nome" required="{{ true }}" placeholder="Nome e cognome" hint-size="100%,40px"></x-import></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Field" label="Email" required="{{ true }}" hint-size="100%,68px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Input" type="email" name="email" required="{{ true }}" placeholder="nome@dominio.it" hint-size="100%,40px"></x-import></x-import>
-</div>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Field" label="Filoni che ti interessano" hint="Scegli quelli su cui vuoi lavorare, anche più di uno." hint-size="100%,120px">
-<div style="display:flex;flex-wrap:wrap;gap:12px 28px;padding-top:4px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Checkbox" name="filoni" value="Robotica" label="Robotica" hint-size="auto,24px"></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Checkbox" name="filoni" value="Intelligenza artificiale" label="Intelligenza artificiale" hint-size="auto,24px"></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Checkbox" name="filoni" value="Simulazione e 3D" label="Simulazione e 3D" hint-size="auto,24px"></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Checkbox" name="filoni" value="Meccanica" label="Meccanica" hint-size="auto,24px"></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Checkbox" name="filoni" value="Elettronica" label="Elettronica" hint-size="auto,24px"></x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Checkbox" name="filoni" value="Dati e infrastruttura" label="Dati e infrastruttura" hint-size="auto,24px"></x-import>
-</div>
-</x-import>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Field" label="Cosa sai fare" hint="Progetti, strumenti, hardware — e su cosa vorresti lavorare." hint-size="100%,180px"><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Textarea" name="messaggio" placeholder="Scrivi qui" hint-size="100%,112px"></x-import></x-import>
-<div style="display:flex;align-items:center;gap:20px">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="primary" size="lg" mono="{{ true }}" type="submit" disabled="{{ joinSending }}" sc-camel-icon-end="arrow-right" hint-size="196px,48px">Invia richiesta</x-import>
-<span class="torc-hud-label">Rispondiamo via email a info@torc.it</span>
-</div>
-<sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Alert" tone="ok" title="Richiesta inviata." hint-size="100%,72px">Ti rispondiamo via email. Nel frattempo puoi entrare nel gruppo WhatsApp.</x-import>
-</sc-if>
-<sc-if value="{{ joinError }}" hint-placeholder-val="{{ false }}">
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Alert" tone="danger" title="Invio non riuscito." hint-size="100%,72px">Riprova tra poco, oppure scrivici direttamente a info@torc.it.</x-import>
-</sc-if>
-</form>
-<div style="border-left:1px solid var(--border-subtle);padding-left:40px;display:flex;flex-direction:column;gap:16px">
-<span class="torc-hud-label">Oppure, subito</span>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="secondary" size="md" icon="message-square" href="https://chat.whatsapp.com/J99EPLX7dGtDGLHxT2mzm9" block="{{ true }}" hint-size="100%,40px">Gruppo WhatsApp</x-import>
-<p style="font-size:15px;line-height:1.56;color:var(--text-secondary);margin:0">Il canale di confronto quotidiano tra i soci.</p>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.Button" variant="secondary" size="md" icon="github" href="https://github.com/TriesteOpenRoboticsCommunity" block="{{ true }}" hint-size="100%,40px">GitHub</x-import>
-<p style="font-size:15px;line-height:1.56;color:var(--text-secondary);margin:0">Tutti i repository, pubblici dal primo commit.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section style="padding:96px 64px 0">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">03 / 04</span><span class="torc-hud-label" style="color:var(--text-accent)">La casa digitale</span><span class="torc-hud-label" style="margin-left:auto">Cinque canali</span></div>
-<div style="border-top:1px solid var(--border-subtle)">
-<div class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)"><span class="torc-hud-label">GitHub</span><span style="font-size:17px">Tutti i repository, pubblici dal primo commit.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" tone="ok" hint-size="72px,22px">attivo</x-import></div>
-<div class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)"><span class="torc-hud-label">Sito</span><span style="font-size:17px">torc.it — manifesto, progetti e prossimi incontri.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" tone="ok" hint-size="72px,22px">attivo</x-import></div>
-<div class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)"><span class="torc-hud-label">WhatsApp</span><span style="font-size:17px">Il canale di confronto quotidiano tra i soci.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" tone="ok" hint-size="72px,22px">attivo</x-import></div>
-<div class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)"><span class="torc-hud-label">LinkedIn</span><span style="font-size:17px;color:var(--text-secondary)">Il riferimento per ricercatori, università e aziende.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" hint-size="96px,22px">in apertura</x-import></div>
-<div class="chanrow" style="display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border-subtle)"><span class="torc-hud-label">Newsletter</span><span style="font-size:17px;color:var(--text-secondary)">Aggiornamenti sui repository e sui prossimi incontri.</span><x-import component-from-global-scope="TORCDesignSystem_49bcd9.Badge" hint-size="96px,22px">in apertura</x-import></div>
-</div>
-</div>
-</section>
-
-<section style="padding:96px 64px">
-<div style="max-width:1280px;margin:0 auto">
-<div class="sechead" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:40px"><span class="torc-hud-label">04 / 04</span><span class="torc-hud-label" style="color:var(--text-accent)">Contatti</span></div>
-<x-import component-from-global-scope="TORCDesignSystem_49bcd9.SpecTable" rows="{{ rowsContatti }}" hint-size="100%,180px"></x-import>
-</div>
-</section>
-</div>
-</div>
+<dc-import name="JoinScreen" dc-props="{{ page }}"></dc-import>
 </sc-if>
 
 <footer style="border-top:1px solid var(--border-subtle);background:var(--bg-page-deep);padding:64px 64px 40px">
@@ -563,7 +145,7 @@ class Component extends DCLogic {
   renderVals() {
     const p = this.state.page;
     const on = 'var(--text-accent)', off = 'var(--text-secondary)';
-    return {
+    const v = {
       isHome: p === 'home', isManifesto: p === 'manifesto', isProgetti: p === 'progetti',
       isIncontri: p === 'incontri', isEntra: p === 'entra',
       navManifesto: p === 'manifesto' ? on : off,
@@ -600,6 +182,11 @@ class Component extends DCLogic {
         ['ente', 'APS in costituzione']
       ]
     };
+    // Handed to every screen as dc-props, so a screen reads exactly the same
+    // names it would if its markup were still inline here. Add a value above
+    // and it is available in all five screens with no further wiring.
+    v.page = v;
+    return v;
   }
 }
 </script>
