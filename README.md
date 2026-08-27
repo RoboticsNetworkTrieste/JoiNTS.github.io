@@ -1,6 +1,6 @@
 # torc.it
 
-The public site of **TORC — Trieste Open Robotics Community**, at [torc.it](https://torc.it).
+The public site of **JoiNTS — Robotics Network Trieste**, at [torc.it](https://torc.it).
 
 Built with [Astro](https://astro.build). Five pages, real URLs, and almost no JavaScript:
 three of the five ship **zero** bytes of it, and the other two ship only the form they
@@ -22,7 +22,7 @@ src/pages/          one file per URL — this is where the content lives
 src/content.js      ALL the copy and data. Most edits belong here, not in a page.
 src/layouts/        the page shell: <head>, header, footer
 src/components/     pieces shared across pages, plus the two form islands
-design-system/      the TORC Design System, vendored. The source of truth for
+design-system/      the JoiNTS Design System, vendored. The source of truth for
                     every colour, size, font, icon and component.
 public/             copied to the site root as-is: CNAME, favicon, social image
 .github/workflows/  build and deploy on push
@@ -48,7 +48,7 @@ there and every page that uses it follows.
 The copy is Italian and the design system has firm rules about it: first person plural,
 sentence case, statements end with a full stop, no hype, **no emoji**. They are written
 out in [`design-system/readme.md`](design-system/readme.md) under *CONTENT FUNDAMENTALS*.
-They are not stylistic preferences — they are what makes the site sound like TORC.
+They are not stylistic preferences — they are what makes the site sound like JoiNTS.
 
 Everything in `content.js` is real. If a number or a date is not something the
 association can stand behind, it does not go in: an honest empty state ("Nessun

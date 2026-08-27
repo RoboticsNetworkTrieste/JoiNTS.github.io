@@ -7,12 +7,12 @@ import { FOOTER } from '../content.js';
 <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,1fr) repeat(3,minmax(140px,auto));gap:64px">
 <div style="display:flex;flex-direction:column;gap:12px">
 <Logo variant="lockup" height={22} />
-<span class="torc-hud-label">Trieste Open Robotics Community</span>
+<span class="joints-hud-label">Robotics Network Trieste</span>
 <p style="font-size:15px;line-height:1.56;color:var(--text-secondary);max-width:36ch;margin:8px 0 0">{FOOTER.note}</p>
 </div>
 {FOOTER.columns.map((col) => (
   <div style="display:flex;flex-direction:column;gap:12px">
-    <span class="torc-hud-label">{col.title}</span>
+    <span class="joints-hud-label">{col.title}</span>
     {col.links.map((l) => (
       l.href
         ? <a href={l.href} style="font-size:15px;color:var(--text-secondary);text-decoration:none">{l.label}</a>

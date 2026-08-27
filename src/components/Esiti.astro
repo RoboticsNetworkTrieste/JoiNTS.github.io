@@ -8,7 +8,7 @@ import { ESITI } from '../content.js';
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
 {ESITI.map((e, i) => (
   <div style={`display:flex;flex-direction:column;gap:12px;border-top:${i === 0 ? '1.5px solid var(--accent)' : '1px solid var(--border-subtle)'};padding-top:20px`}>
-    <span class="torc-hud-label">{String(i + 1).padStart(2, '0')}</span>
+    <span class="joints-hud-label">{String(i + 1).padStart(2, '0')}</span>
     <h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">{e.title}</h3>
     <p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0">{e.body}</p>
   </div>

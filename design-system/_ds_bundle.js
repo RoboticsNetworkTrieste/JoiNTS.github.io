@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"TORCDesignSystem_49bcd9","components":[{"name":"Kicker","sourcePath":"components/brand/Kicker.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"CodeBlock","sourcePath":"components/content/CodeBlock.jsx"},{"name":"EventCard","sourcePath":"components/content/EventCard.jsx"},{"name":"ImagePlate","sourcePath":"components/content/ImagePlate.jsx"},{"name":"PrincipleItem","sourcePath":"components/content/PrincipleItem.jsx"},{"name":"ProjectCard","sourcePath":"components/content/ProjectCard.jsx"},{"name":"Quote","sourcePath":"components/content/Quote.jsx"},{"name":"SectionHeading","sourcePath":"components/content/SectionHeading.jsx"},{"name":"SpecTable","sourcePath":"components/content/SpecTable.jsx"},{"name":"StatBlock","sourcePath":"components/content/StatBlock.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Spinner.jsx"},{"name":"StatusDot","sourcePath":"components/feedback/StatusDot.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"ICONS","sourcePath":"components/icon/Icon.jsx"},{"name":"ICON_NAMES","sourcePath":"components/icon/Icon.jsx"},{"name":"Icon","sourcePath":"components/icon/Icon.jsx"},{"name":"SiteFooter","sourcePath":"components/navigation/SiteFooter.jsx"},{"name":"SiteHeader","sourcePath":"components/navigation/SiteHeader.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"}],"sourceHashes":{"components/brand/Kicker.jsx":"dee8b11375a1","components/brand/Logo.jsx":"ad2010ab73f6","components/content/CodeBlock.jsx":"cf07059b5c15","components/content/EventCard.jsx":"bed5d89ce422","components/content/ImagePlate.jsx":"627e30855041","components/content/PrincipleItem.jsx":"db46cabd47b3","components/content/ProjectCard.jsx":"4d6206d0b306","components/content/Quote.jsx":"f94e57d8dee3","components/content/SectionHeading.jsx":"20c3849169c9","components/content/SpecTable.jsx":"01098a55b671","components/content/StatBlock.jsx":"348777d245ac","components/core/Badge.jsx":"11c5f1b7ddd1","components/core/Button.jsx":"b246d3ee31e7","components/core/Card.jsx":"997f892f8867","components/core/Divider.jsx":"384b332d74a9","components/core/IconButton.jsx":"a987e2b1bf5e","components/core/Tag.jsx":"3a5067cc2c4a","components/feedback/Alert.jsx":"60ad0576fba9","components/feedback/Spinner.jsx":"bb91dd6853d9","components/feedback/StatusDot.jsx":"6afd1cdac230","components/forms/Checkbox.jsx":"1af50733d713","components/forms/Field.jsx":"4465a39af611","components/forms/Input.jsx":"c95bcf2d4404","components/forms/Select.jsx":"8e519572c336","components/forms/Switch.jsx":"7694269f0b0c","components/forms/Textarea.jsx":"be4e3091f1b3","components/icon/Icon.jsx":"2830b5c7b45c","components/navigation/SiteFooter.jsx":"41c8b09d3106","components/navigation/SiteHeader.jsx":"72aa94b68dc9","components/navigation/Tabs.jsx":"eded3d1cd9d6","ui_kits/dashboard/BuildsScreen.jsx":"47baabba1229","ui_kits/dashboard/DashShell.jsx":"c89e9870e719","ui_kits/dashboard/OverviewScreen.jsx":"467c8db9d009","ui_kits/dashboard/RigsScreen.jsx":"1d55941c065e","ui_kits/dashboard/dash-content.js":"b10886f07602","ui_kits/docs/DocsArticle.jsx":"b518bdb56cba","ui_kits/docs/DocsPages.jsx":"2fb1913ec385","ui_kits/docs/DocsSidebar.jsx":"fe2d71db948b","ui_kits/docs/docs-content.js":"58cba4982f1b","ui_kits/website/EventsScreen.jsx":"665a3bb27239","ui_kits/website/HomeScreen.jsx":"69773d235baa","ui_kits/website/JoinScreen.jsx":"d55481a8e650","ui_kits/website/ManifestoScreen.jsx":"b7a231ce6f8d","ui_kits/website/ProjectDetailScreen.jsx":"859f5d480dd9","ui_kits/website/ProjectsScreen.jsx":"df2f04d61db5","ui_kits/website/content.js":"f6caf5752d34"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"TORCDesignSystem_49bcd9","components":[{"name":"Kicker","sourcePath":"components/brand/Kicker.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"CodeBlock","sourcePath":"components/content/CodeBlock.jsx"},{"name":"EventCard","sourcePath":"components/content/EventCard.jsx"},{"name":"ImagePlate","sourcePath":"components/content/ImagePlate.jsx"},{"name":"PrincipleItem","sourcePath":"components/content/PrincipleItem.jsx"},{"name":"ProjectCard","sourcePath":"components/content/ProjectCard.jsx"},{"name":"Quote","sourcePath":"components/content/Quote.jsx"},{"name":"SectionHeading","sourcePath":"components/content/SectionHeading.jsx"},{"name":"SpecTable","sourcePath":"components/content/SpecTable.jsx"},{"name":"StatBlock","sourcePath":"components/content/StatBlock.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Spinner.jsx"},{"name":"StatusDot","sourcePath":"components/feedback/StatusDot.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"ICONS","sourcePath":"components/icon/Icon.jsx"},{"name":"ICON_NAMES","sourcePath":"components/icon/Icon.jsx"},{"name":"Icon","sourcePath":"components/icon/Icon.jsx"},{"name":"SiteFooter","sourcePath":"components/navigation/SiteFooter.jsx"},{"name":"SiteHeader","sourcePath":"components/navigation/SiteHeader.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"}],"sourceHashes":{"components/brand/Kicker.jsx":"c33f3abcdbdf","components/brand/Logo.jsx":"996f1db104c3","components/content/CodeBlock.jsx":"abef407d0030","components/content/EventCard.jsx":"6dbb4ef32f48","components/content/ImagePlate.jsx":"4b0f90be099a","components/content/PrincipleItem.jsx":"f8f1e8f0ee14","components/content/ProjectCard.jsx":"fe27b30aae70","components/content/Quote.jsx":"6ecb09ca517f","components/content/SectionHeading.jsx":"77192444a412","components/content/SpecTable.jsx":"780a5a8a44c5","components/content/StatBlock.jsx":"976589c6a95d","components/core/Badge.jsx":"625128fca1ab","components/core/Button.jsx":"f5577f524d3e","components/core/Card.jsx":"8e05bbe82ca1","components/core/Divider.jsx":"de29fecc73ab","components/core/IconButton.jsx":"99edcb6bc6e8","components/core/Tag.jsx":"be6f3fad9578","components/feedback/Alert.jsx":"a11cd417970e","components/feedback/Spinner.jsx":"6c2262d9c6a6","components/feedback/StatusDot.jsx":"755a47e7c6f4","components/forms/Checkbox.jsx":"4d459936ee15","components/forms/Field.jsx":"eb1cbeec5048","components/forms/Input.jsx":"2b74baa128a4","components/forms/Select.jsx":"e855bef8d884","components/forms/Switch.jsx":"ef349bceed0c","components/forms/Textarea.jsx":"86c18e7403f8","components/icon/Icon.jsx":"2830b5c7b45c","components/navigation/SiteFooter.jsx":"2fb46e5cd77d","components/navigation/SiteHeader.jsx":"aff506b85b8c","components/navigation/Tabs.jsx":"ab1c6f8b4c38","ui_kits/dashboard/BuildsScreen.jsx":"9ce9de3d7c2f","ui_kits/dashboard/DashShell.jsx":"de6a4f2a7960","ui_kits/dashboard/OverviewScreen.jsx":"8776e82c5f2b","ui_kits/dashboard/RigsScreen.jsx":"e5fda5df8206","ui_kits/dashboard/dash-content.js":"337881cfb732","ui_kits/docs/DocsArticle.jsx":"b518bdb56cba","ui_kits/docs/DocsPages.jsx":"121d00b1ef53","ui_kits/docs/DocsSidebar.jsx":"3a86f32961da","ui_kits/docs/docs-content.js":"5fc1dc2f5755","ui_kits/website/EventsScreen.jsx":"e94716ae35dc","ui_kits/website/HomeScreen.jsx":"efb72e2daaa3","ui_kits/website/JoinScreen.jsx":"f5572ab2998c","ui_kits/website/ManifestoScreen.jsx":"28a9bd8f1ad4","ui_kits/website/ProjectDetailScreen.jsx":"a038d67e7445","ui_kits/website/ProjectsScreen.jsx":"105666289d14","ui_kits/website/content.js":"b5481288ea8f"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -22,17 +22,17 @@ function Kicker({
 }) {
   const Tag = as;
   const label = /*#__PURE__*/React.createElement("span", {
-    className: 'torc-kicker' + (tone === 'muted' ? ' torc-kicker--muted' : '')
+    className: 'joints-kicker' + (tone === 'muted' ? ' joints-kicker--muted' : '')
   }, children);
   if (!dash) return /*#__PURE__*/React.createElement(Tag, _extends({
     className: className,
     style: style
   }, rest), label);
   return /*#__PURE__*/React.createElement(Tag, _extends({
-    className: 'torc-kicker-row ' + (className || ''),
+    className: 'joints-kicker-row ' + (className || ''),
     style: style
   }, rest), /*#__PURE__*/React.createElement("span", {
-    className: "torc-kicker-row__dash"
+    className: "joints-kicker-row__dash"
   }), label);
 }
 Object.assign(__ds_scope, { Kicker });
@@ -41,31 +41,133 @@ Object.assign(__ds_scope, { Kicker });
 // components/brand/Logo.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* Path data copied verbatim from the delivered brand SVGs
-   (assets/logo/torc-icon-dark.svg, assets/logo/torc-wordmark-dark.svg).
-   Never redraw these — the ring, the torque arc and the terminal dot are the mark. */
-const ICON_INNER = "<path d=\"M50 79.602L50 79.602Q43.604 79.602 38.110 77.347Q32.616 75.092 28.434 71.033Q24.252 66.974 21.956 61.603Q19.660 56.232 19.660 50L19.660 50Q19.660 43.768 21.956 38.397Q24.252 33.026 28.434 28.967Q32.616 24.908 38.110 22.653Q43.604 20.398 50 20.398L50 20.398Q56.396 20.398 61.931 22.653Q67.466 24.908 71.607 28.967Q75.748 33.026 78.044 38.397Q80.340 43.768 80.340 50L80.340 50Q80.340 56.232 78.044 61.603Q75.748 66.974 71.607 71.033Q67.466 75.092 61.931 77.347Q56.396 79.602 50 79.602ZM50 68.696L50 68.696Q53.936 68.696 57.216 67.261Q60.496 65.826 62.956 63.325Q65.416 60.824 66.769 57.380Q68.122 53.936 68.122 50L68.122 50Q68.122 45.982 66.769 42.579Q65.416 39.176 62.956 36.675Q60.496 34.174 57.216 32.739Q53.936 31.304 50.082 31.304L50.082 31.304Q46.146 31.304 42.866 32.739Q39.586 34.174 37.126 36.675Q34.666 39.176 33.272 42.579Q31.878 45.982 31.878 50L31.878 50Q31.878 53.936 33.272 57.380Q34.666 60.824 37.126 63.325Q39.586 65.826 42.866 67.261Q46.146 68.696 50 68.696Z\" fill=\"var(--logo-ink)\"></path><path d=\"M 50 18.8 A 31.2 31.2 0 0 1 80.7 44.6\" fill=\"none\" stroke=\"var(--logo-accent)\" stroke-width=\"6.5\" stroke-linecap=\"round\"></path><circle cx=\"80.7\" cy=\"44.6\" r=\"4.5\" fill=\"var(--logo-accent)\"></circle>";
-const WORD_INNER = "<path d=\"M39.900 90L25.300 90L25.300 32.900L1.800 32.900L1.800 20L63.400 20L63.400 32.900L39.900 32.900L39.900 90Z\" fill=\"var(--logo-ink)\"></path><path d=\"M103.800 91.100L103.800 91.100Q96 91.100 89.300 88.350Q82.600 85.600 77.500 80.650Q72.400 75.700 69.600 69.150Q66.800 62.600 66.800 55L66.800 55Q66.800 47.400 69.600 40.850Q72.400 34.300 77.500 29.350Q82.600 24.400 89.300 21.650Q96 18.900 103.800 18.900L103.800 18.900Q111.600 18.900 118.350 21.650Q125.100 24.400 130.150 29.350Q135.200 34.300 138 40.850Q140.800 47.400 140.800 55L140.800 55Q140.800 62.600 138 69.150Q135.200 75.700 130.150 80.650Q125.100 85.600 118.350 88.350Q111.600 91.100 103.800 91.100ZM103.800 77.800L103.800 77.800Q108.600 77.800 112.600 76.050Q116.600 74.300 119.600 71.250Q122.600 68.200 124.250 64Q125.900 59.800 125.900 55L125.900 55Q125.900 50.100 124.250 45.950Q122.600 41.800 119.600 38.750Q116.600 35.700 112.600 33.950Q108.600 32.200 103.900 32.200L103.900 32.200Q99.100 32.200 95.100 33.950Q91.100 35.700 88.100 38.750Q85.100 41.800 83.400 45.950Q81.700 50.100 81.700 55L81.700 55Q81.700 59.800 83.400 64Q85.100 68.200 88.100 71.250Q91.100 74.300 95.100 76.050Q99.100 77.800 103.800 77.800Z\" fill=\"var(--logo-ink)\"></path><path d=\"M163.400 90L148.800 90L148.800 20L183 20Q190.100 20 195.550 22.750Q201 25.500 204.100 30.400Q207.200 35.300 207.200 41.700L207.200 41.700Q207.200 48.400 203.450 53.500Q199.700 58.600 193.600 61.100L193.600 61.100L209 90L192.800 90L179.100 63.200L163.400 63.200L163.400 90ZM163.400 32.500L163.400 51.300L181.700 51.300Q186.600 51.300 189.550 48.700Q192.500 46.100 192.500 41.900L192.500 41.900Q192.500 37.700 189.550 35.100Q186.600 32.500 181.700 32.500L181.700 32.500L163.400 32.500Z\" fill=\"var(--logo-ink)\"></path><path d=\"M249.200 91L249.200 91Q241.400 91 234.600 88.250Q227.800 85.500 222.750 80.600Q217.700 75.700 214.850 69.150Q212 62.600 212 55L212 55Q212 47.300 214.850 40.750Q217.700 34.200 222.800 29.300Q227.900 24.400 234.650 21.650Q241.400 18.900 249.200 18.900L249.200 18.900Q255 18.900 260.400 20.500Q265.800 22.100 270.450 25Q275.100 27.900 278.400 32L278.400 32L268.600 41.700Q264.800 37 259.850 34.600Q254.900 32.200 249.200 32.200L249.200 32.200Q244.500 32.200 240.400 33.950Q236.300 35.700 233.300 38.750Q230.300 41.800 228.600 45.950Q226.900 50.100 226.900 55L226.900 55Q226.900 59.800 228.650 63.900Q230.400 68 233.450 71.100Q236.500 74.200 240.700 75.900Q244.900 77.600 249.700 77.600L249.700 77.600Q255.200 77.600 260 75.300Q264.800 73 268.400 68.700L268.400 68.700L278 78.100Q274.700 82.100 270.100 85Q265.500 87.900 260.150 89.450Q254.800 91 249.200 91Z\" fill=\"var(--logo-ink)\"></path><path d=\"M 103.7 17 A 39.5 38 0 0 1 142.6 48.4\" fill=\"none\" stroke=\"var(--logo-accent)\" stroke-width=\"7\" stroke-linecap=\"round\"></path><circle cx=\"142.6\" cy=\"48.4\" r=\"5\" fill=\"var(--logo-accent)\"></circle><path d=\"M 247.4 93 A 38 38 0 0 1 210.7 64.8\" fill=\"none\" stroke=\"var(--logo-accent)\" stroke-width=\"7\" stroke-linecap=\"round\"></path><circle cx=\"210.7\" cy=\"64.8\" r=\"5\" fill=\"var(--logo-accent)\"></circle>";
+/* Geometry extracted verbatim from the delivered JoiNTS logotype
+   (Red Hat Display ExtraBold outlines, em=1000, cap=700, baseline y=0).
+   The I+N ligature is the signature: the light I IS the N's first stem.
+   Never separate the I from the N, never tint the I in accent, never redraw.
+   Pins knock out to the ground via mask and are ALWAYS open rings — never filled. */
+const D_JO = "M300.0 10Q195.0 10 122.0 -43.0Q49.0 -96 17.0 -195L151.0 -246Q173.0 -183 210.0 -152.5Q247.0 -122 301.0 -122Q365.0 -122 404.5 -164.0Q444.0 -206 444.0 -276V-700H589.0V-272Q589.0 -187 553.0 -123.5Q517.0 -60 452.0 -25.0Q387.0 10 300.0 10Z M1073.0 11Q995.0 11 928.0 -16.5Q861.0 -44 810.0 -93.5Q759.0 -143 731.0 -208.5Q703.0 -274 703.0 -350Q703.0 -426 731.0 -491.5Q759.0 -557 810.0 -606.5Q861.0 -656 928.0 -683.5Q995.0 -711 1073.0 -711Q1151.0 -711 1218.5 -683.5Q1286.0 -656 1336.5 -606.5Q1387.0 -557 1415.0 -491.5Q1443.0 -426 1443.0 -350Q1443.0 -274 1415.0 -208.5Q1387.0 -143 1336.5 -93.5Q1286.0 -44 1218.5 -16.5Q1151.0 11 1073.0 11ZM1073.0 -122Q1121.0 -122 1161.0 -139.5Q1201.0 -157 1231.0 -187.5Q1261.0 -218 1277.5 -260.0Q1294.0 -302 1294.0 -350Q1294.0 -399 1277.5 -440.5Q1261.0 -482 1231.0 -512.5Q1201.0 -543 1161.0 -560.5Q1121.0 -578 1074.0 -578Q1026.0 -578 986.0 -560.5Q946.0 -543 916.0 -512.5Q886.0 -482 869.0 -440.5Q852.0 -399 852.0 -350Q852.0 -302 869.0 -260.0Q886.0 -218 916.0 -187.5Q946.0 -157 986.0 -139.5Q1026.0 -122 1073.0 -122Z";
+const D_TS = "M2642.0 0V-571H2407.0V-700H3023.0V-571H2788.0V0Z M3379.0 10Q3294.0 10 3213.0 -21.5Q3132.0 -53 3069.0 -111L3152.0 -215Q3214.0 -162 3270.0 -137.5Q3326.0 -113 3389.0 -113Q3433.0 -113 3465.0 -123.5Q3497.0 -134 3514.5 -154.0Q3532.0 -174 3532.0 -201Q3532.0 -237 3506.0 -256.5Q3480.0 -276 3417.0 -287L3278.0 -310Q3189.0 -326 3142.5 -374.0Q3096.0 -422 3096.0 -498Q3096.0 -563 3129.5 -611.0Q3163.0 -659 3224.5 -684.5Q3286.0 -710 3371.0 -710Q3448.0 -710 3525.0 -684.0Q3602.0 -658 3660.0 -612L3582.0 -504Q3472.0 -588 3362.0 -588Q3322.0 -588 3293.0 -578.0Q3264.0 -568 3248.5 -550.5Q3233.0 -533 3233.0 -509Q3233.0 -477 3256.5 -459.5Q3280.0 -442 3333.0 -433L3465.0 -411Q3570.0 -394 3622.5 -344.5Q3675.0 -295 3675.0 -214Q3675.0 -146 3638.5 -95.5Q3602.0 -45 3535.5 -17.5Q3469.0 10 3379.0 10Z";
+const D_I = "M1638.0 0V-700H1784.0V0Z";
+const D_DIAG = "M1711 -700 L2187 0";
+const D_STEM = "M2187 0 L2187 -700";
+const WORD_VB = '0 -800 3692 900'; /* cap-height/baseline aligned; pins overhang top+bottom */
+const WORD_AR = 3692 / 900;
+/* Icon = the joint alone: the link between two pins, no letterforms. Square, 100u. */
+function Joint({
+  ink,
+  accent,
+  uid
+}) {
+  const m = 'jjm' + uid;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("mask", {
+    id: m,
+    maskUnits: "userSpaceOnUse",
+    x: "0",
+    y: "0",
+    width: "100",
+    height: "100"
+  }, /*#__PURE__*/React.createElement("rect", {
+    width: "100",
+    height: "100",
+    fill: "#fff"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "30",
+    cy: "72",
+    r: "15"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "70",
+    cy: "28",
+    r: "15"
+  })), /*#__PURE__*/React.createElement("line", {
+    x1: "30",
+    y1: "72",
+    x2: "70",
+    y2: "28",
+    stroke: accent,
+    strokeWidth: "13",
+    mask: 'url(#' + m + ')'
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "30",
+    cy: "72",
+    r: "11",
+    fill: "none",
+    stroke: ink,
+    strokeWidth: "8"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "70",
+    cy: "28",
+    r: "11",
+    fill: "none",
+    stroke: accent,
+    strokeWidth: "8"
+  }));
+}
+function Pins({
+  top,
+  bot
+}) {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("circle", {
+    cx: "1711",
+    cy: "-700",
+    r: "78",
+    fill: "none",
+    stroke: top,
+    strokeWidth: "34"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "2187",
+    cy: "0",
+    r: "78",
+    fill: "none",
+    stroke: bot,
+    strokeWidth: "34"
+  }));
+}
+const MaskBox = {
+  maskUnits: 'userSpaceOnUse',
+  x: -400,
+  y: -1200,
+  width: 4600,
+  height: 1700
+};
+function PinMask({
+  id
+}) {
+  return /*#__PURE__*/React.createElement("mask", _extends({
+    id: id
+  }, MaskBox), /*#__PURE__*/React.createElement("rect", {
+    x: "-400",
+    y: "-1200",
+    width: "4600",
+    height: "1700",
+    fill: "#fff"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "1711",
+    cy: "-700",
+    r: "95"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "2187",
+    cy: "0",
+    r: "95"
+  }));
+}
 function Logo({
   variant = 'lockup',
   height,
   tone = 'light',
   accent,
   ink,
-  title = 'TORC — Trieste Open Robotics Community',
+  title = 'JoiNTS — Robotics Network Trieste',
   style,
   className,
   ...rest
 }) {
-  const inkColor = ink || (tone === 'dark' ? 'var(--torc-forest-900)' : 'var(--torc-mist-100)');
-  const accentColor = accent || (tone === 'dark' ? 'var(--torc-green-500)' : 'var(--torc-green-400)');
-  const vars = {
-    '--logo-ink': inkColor,
-    '--logo-accent': accentColor
-  };
+  const uid = React.useId().replace(/[^a-zA-Z0-9_-]/g, '');
+  const inkColor = ink || (tone === 'dark' ? 'var(--joints-forest-900)' : 'var(--joints-mist-100)');
+  const accentColor = accent || (tone === 'dark' ? 'var(--joints-green-700)' : 'var(--joints-green-400)');
   const h = height || (variant === 'icon' ? 32 : variant === 'tile' ? 40 : 28);
-  if (variant === 'icon' || variant === 'tile') {
-    const tile = variant === 'tile';
+  const pm = 'jpm' + uid;
+  if (variant === 'tile') {
     return /*#__PURE__*/React.createElement("svg", _extends({
       viewBox: "0 0 100 100",
       width: h,
@@ -76,75 +178,99 @@ function Logo({
       style: {
         display: 'block',
         flex: 'none',
-        ...vars,
         ...style
       }
-    }, rest), tile && /*#__PURE__*/React.createElement("rect", {
+    }, rest), /*#__PURE__*/React.createElement("rect", {
       width: "100",
       height: "100",
       rx: "22",
-      fill: accentColor
-    }), /*#__PURE__*/React.createElement("g", {
-      dangerouslySetInnerHTML: {
-        __html: ICON_INNER
-      },
-      style: tile ? {
-        '--logo-ink': 'var(--torc-ink-900)',
-        '--logo-accent': 'var(--torc-ink-900)'
-      } : undefined,
-      transform: tile ? 'translate(19 19) scale(0.62)' : undefined
+      fill: accent || 'var(--joints-green-400)'
+    }), /*#__PURE__*/React.createElement(Joint, {
+      ink: "var(--joints-ink-900)",
+      accent: "var(--joints-ink-900)",
+      uid: uid
     }));
   }
-  if (variant === 'wordmark' || variant === 'lockup') {
+  if (variant === 'icon') {
     return /*#__PURE__*/React.createElement("svg", _extends({
-      viewBox: "-4 8 292 92",
+      viewBox: "0 0 100 100",
+      width: h,
       height: h,
-      width: h * (292 / 92),
       role: "img",
       "aria-label": title,
       className: className,
       style: {
         display: 'block',
         flex: 'none',
-        ...vars,
         ...style
-      },
-      dangerouslySetInnerHTML: {
-        __html: WORD_INNER
       }
-    }, rest));
+    }, rest), /*#__PURE__*/React.createElement(Joint, {
+      ink: inkColor,
+      accent: accentColor,
+      uid: uid
+    }));
   }
-  // 'stacked' — wordmark over the expanded name
+  const word = extra => /*#__PURE__*/React.createElement("svg", _extends({
+    viewBox: WORD_VB,
+    height: h,
+    width: Math.round(h * WORD_AR),
+    role: "img",
+    "aria-label": title,
+    style: {
+      display: 'block',
+      flex: 'none',
+      ...(extra ? {} : style)
+    }
+  }, extra ? {} : {
+    className,
+    ...rest
+  }), /*#__PURE__*/React.createElement(PinMask, {
+    id: pm
+  }), /*#__PURE__*/React.createElement("g", {
+    mask: 'url(#' + pm + ')'
+  }, /*#__PURE__*/React.createElement("path", {
+    d: D_DIAG,
+    fill: "none",
+    stroke: accentColor,
+    strokeWidth: "146"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: D_STEM,
+    fill: "none",
+    stroke: accentColor,
+    strokeWidth: "146"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: D_TS,
+    fill: accentColor
+  }), /*#__PURE__*/React.createElement("path", {
+    d: D_JO,
+    fill: inkColor
+  }), /*#__PURE__*/React.createElement("path", {
+    d: D_I,
+    fill: inkColor
+  })), /*#__PURE__*/React.createElement(Pins, {
+    top: inkColor,
+    bot: accentColor
+  }));
+  if (variant !== 'stacked') return word(false);
+  /* stacked: the bottom pin overhangs the baseline, so the descriptor gets a full extra line of air */
   return /*#__PURE__*/React.createElement("span", _extends({
     className: className,
     style: {
       display: 'inline-flex',
       flexDirection: 'column',
-      gap: 'var(--space-3)',
+      alignItems: 'flex-start',
       ...style
     }
-  }, rest), /*#__PURE__*/React.createElement("svg", {
-    viewBox: "-4 8 292 92",
-    height: h,
-    width: h * (292 / 92),
-    role: "img",
-    "aria-label": title,
+  }, rest), word(true), /*#__PURE__*/React.createElement("span", {
     style: {
-      display: 'block',
-      ...vars
-    },
-    dangerouslySetInnerHTML: {
-      __html: WORD_INNER
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
+      marginTop: Math.round(h * 0.38),
       fontFamily: 'var(--font-mono)',
       fontSize: 'var(--text-2xs)',
       letterSpacing: 'var(--ls-kicker)',
       textTransform: 'uppercase',
       color: 'var(--text-muted)'
     }
-  }, "Trieste Open Robotics Community"));
+  }, "Robotics Network Trieste"));
 }
 Object.assign(__ds_scope, { Logo });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/brand/Logo.jsx", error: String((e && e.message) || e) }); }
@@ -166,7 +292,7 @@ function ImagePlate({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("figure", _extends({
-    className: ['torc-plate', bleed && 'torc-plate--bleed', hud && 'torc-hud', className].filter(Boolean).join(' '),
+    className: ['joints-plate', bleed && 'joints-plate--bleed', hud && 'joints-hud', className].filter(Boolean).join(' '),
     style: {
       position: 'relative',
       isolation: 'isolate',
@@ -176,17 +302,17 @@ function ImagePlate({
       ...style
     }
   }, rest), src ? /*#__PURE__*/React.createElement("img", {
-    className: "torc-plate__media",
+    className: "joints-plate__media",
     src: src,
     alt: alt
   }) : /*#__PURE__*/React.createElement("span", {
-    className: "torc-plate__empty"
+    className: "joints-plate__empty"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-hud-label"
+    className: "joints-hud-label"
   }, "inserire fotografia", height ? '' : ' · ' + ratio.replace(/\s/g, ''))), index && /*#__PURE__*/React.createElement("span", {
-    className: "torc-plate__index"
+    className: "joints-plate__index"
   }, index), caption && /*#__PURE__*/React.createElement("figcaption", {
-    className: "torc-plate__caption"
+    className: "joints-plate__caption"
   }, caption));
 }
 Object.assign(__ds_scope, { ImagePlate });
@@ -204,14 +330,14 @@ function PrincipleItem({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'torc-principle ' + (className || ''),
+    className: 'joints-principle ' + (className || ''),
     style: style
   }, rest), /*#__PURE__*/React.createElement("span", {
-    className: "torc-principle__num"
+    className: "joints-principle__num"
   }, String(number).padStart(2, '0')), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
-    className: "torc-principle__title"
+    className: "joints-principle__title"
   }, title), /*#__PURE__*/React.createElement("p", {
-    className: "torc-principle__body"
+    className: "joints-principle__body"
   }, children)));
 }
 Object.assign(__ds_scope, { PrincipleItem });
@@ -229,18 +355,18 @@ function Quote({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("figure", _extends({
-    className: 'torc-quote ' + (className || ''),
+    className: 'joints-quote ' + (className || ''),
     style: {
       margin: 0,
       ...style
     }
   }, rest), /*#__PURE__*/React.createElement("blockquote", {
-    className: "torc-quote__text",
+    className: "joints-quote__text",
     style: {
       margin: 0
     }
   }, children), (by || role) && /*#__PURE__*/React.createElement("figcaption", {
-    className: "torc-quote__by"
+    className: "joints-quote__by"
   }, by, role && ' · ' + role));
 }
 Object.assign(__ds_scope, { Quote });
@@ -262,14 +388,14 @@ function SectionHeading({
 }) {
   const Tag = as;
   return /*#__PURE__*/React.createElement("div", _extends({
-    className: ['torc-section-head', align === 'center' && 'torc-section-head--center', className].filter(Boolean).join(' '),
+    className: ['joints-section-head', align === 'center' && 'joints-section-head--center', className].filter(Boolean).join(' '),
     style: style
   }, rest), kicker && /*#__PURE__*/React.createElement(__ds_scope.Kicker, {
     dash: align !== 'center'
   }, kicker), /*#__PURE__*/React.createElement(Tag, {
-    className: "torc-section-head__title"
+    className: "joints-section-head__title"
   }, title), sub && /*#__PURE__*/React.createElement("p", {
-    className: "torc-section-head__sub"
+    className: "joints-section-head__sub"
   }, sub), action && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 'var(--space-2)'
@@ -290,17 +416,17 @@ function SpecTable({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("div", _extends({
-    className: ['torc-spec', tight && 'torc-spec--tight', className].filter(Boolean).join(' '),
+    className: ['joints-spec', tight && 'joints-spec--tight', className].filter(Boolean).join(' '),
     style: style
   }, rest), rows.map(r => {
     const [key, value, note] = Array.isArray(r) ? r : [r.key, r.value, r.note];
     return /*#__PURE__*/React.createElement("div", {
-      className: "torc-spec__row",
+      className: "joints-spec__row",
       key: key
     }, /*#__PURE__*/React.createElement("span", {
-      className: "torc-spec__key"
+      className: "joints-spec__key"
     }, key), /*#__PURE__*/React.createElement("span", {
-      className: "torc-spec__val"
+      className: "joints-spec__val"
     }, value, note && /*#__PURE__*/React.createElement("em", null, " \xB7 ", note)));
   }));
 }
@@ -319,12 +445,12 @@ function StatBlock({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'torc-stat ' + (className || ''),
+    className: 'joints-stat ' + (className || ''),
     style: style
   }, rest), /*#__PURE__*/React.createElement("span", {
-    className: "torc-stat__value"
+    className: "joints-stat__value"
   }, value, accentPart && /*#__PURE__*/React.createElement("em", null, accentPart)), /*#__PURE__*/React.createElement("span", {
-    className: "torc-stat__label"
+    className: "joints-stat__label"
   }, label));
 }
 Object.assign(__ds_scope, { StatBlock });
@@ -345,7 +471,7 @@ function Card({
   className,
   ...rest
 }) {
-  const cls = ['torc-card', variant !== 'default' && 'torc-card--' + variant, pad !== 'md' && 'torc-card--pad-' + pad, (interactive || href) && 'torc-card--interactive', floating && 'torc-card--floating', className].filter(Boolean).join(' ');
+  const cls = ['joints-card', variant !== 'default' && 'joints-card--' + variant, pad !== 'md' && 'joints-card--pad-' + pad, (interactive || href) && 'joints-card--interactive', floating && 'joints-card--floating', className].filter(Boolean).join(' ');
   const Tag = href ? 'a' : as;
   return /*#__PURE__*/React.createElement(Tag, _extends({
     className: cls,
@@ -366,7 +492,7 @@ function Divider({
   className,
   ...rest
 }) {
-  const cls = ['torc-divider', variant !== 'default' && 'torc-divider--' + variant, orientation === 'vertical' && 'torc-divider--vertical', className].filter(Boolean).join(' ');
+  const cls = ['joints-divider', variant !== 'default' && 'joints-divider--' + variant, orientation === 'vertical' && 'joints-divider--vertical', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("hr", _extends({
     className: cls,
     style: style
@@ -387,7 +513,7 @@ function Tag({
   className,
   ...rest
 }) {
-  const cls = ['torc-tag', onClick && 'torc-tag--interactive', selected && 'torc-tag--selected', className].filter(Boolean).join(' ');
+  const cls = ['joints-tag', onClick && 'joints-tag--interactive', selected && 'joints-tag--selected', className].filter(Boolean).join(' ');
   const Tag_ = onClick ? 'button' : 'span';
   return /*#__PURE__*/React.createElement(Tag_, _extends({
     className: cls,
@@ -420,10 +546,10 @@ function StatusDot({
     info: 'info'
   }[state];
   return /*#__PURE__*/React.createElement("span", _extends({
-    className: 'torc-status ' + (className || ''),
+    className: 'joints-status ' + (className || ''),
     style: style
   }, rest), /*#__PURE__*/React.createElement("span", {
-    className: 'torc-status__dot' + (mod ? ' torc-status__dot--' + mod : '')
+    className: 'joints-status__dot' + (mod ? ' joints-status__dot--' + mod : '')
   }), children);
 }
 Object.assign(__ds_scope, { StatusDot });
@@ -445,7 +571,7 @@ function Switch({
   const [internal, setInternal] = React.useState(!!defaultChecked);
   const on = checked != null ? checked : internal;
   return /*#__PURE__*/React.createElement("label", {
-    className: ['torc-switch', disabled && 'torc-switch--disabled', className].filter(Boolean).join(' '),
+    className: ['joints-switch', disabled && 'joints-switch--disabled', className].filter(Boolean).join(' '),
     style: style
   }, /*#__PURE__*/React.createElement("input", _extends({
     type: "checkbox",
@@ -463,9 +589,9 @@ function Switch({
       height: 1
     }
   }, rest)), /*#__PURE__*/React.createElement("span", {
-    className: 'torc-switch__track' + (on ? ' torc-switch__track--on' : '')
+    className: 'joints-switch__track' + (on ? ' joints-switch__track--on' : '')
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-switch__knob"
+    className: "joints-switch__knob"
   })), label && /*#__PURE__*/React.createElement("span", null, label));
 }
 Object.assign(__ds_scope, { Switch });
@@ -482,7 +608,7 @@ function Textarea({
   className,
   ...rest
 }) {
-  const cls = ['torc-input', 'torc-input--textarea', mono && 'torc-input--mono', invalid && 'torc-input--invalid', className].filter(Boolean).join(' ');
+  const cls = ['joints-input', 'joints-input--textarea', mono && 'joints-input--mono', invalid && 'joints-input--invalid', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("textarea", _extends({
     className: cls,
     rows: rows,
@@ -632,7 +758,7 @@ function Badge({
   className,
   ...rest
 }) {
-  const cls = ['torc-badge', tone !== 'neutral' && 'torc-badge--' + tone, className].filter(Boolean).join(' ');
+  const cls = ['joints-badge', tone !== 'neutral' && 'joints-badge--' + tone, className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("span", _extends({
     className: cls,
     style: style
@@ -672,7 +798,7 @@ function ProjectCard({
       ...style
     }
   }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "torc-project__head"
+    className: "joints-project__head"
   }, /*#__PURE__*/React.createElement("span", {
     style: {
       display: 'grid',
@@ -690,12 +816,12 @@ function ProjectCard({
   })), stateLabel && /*#__PURE__*/React.createElement(__ds_scope.StatusDot, {
     state: state
   }, stateLabel)), /*#__PURE__*/React.createElement("h3", {
-    className: "torc-project__title",
+    className: "joints-project__title",
     style: {
       marginTop: 'var(--space-4)'
     }
   }, title), /*#__PURE__*/React.createElement("p", {
-    className: "torc-project__body"
+    className: "joints-project__body"
   }, summary), tags.length > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -705,19 +831,19 @@ function ProjectCard({
   }, tags.map(t => /*#__PURE__*/React.createElement(__ds_scope.Badge, {
     key: t
   }, t))), /*#__PURE__*/React.createElement("div", {
-    className: "torc-project__meta"
+    className: "joints-project__meta"
   }, stack && /*#__PURE__*/React.createElement("span", {
-    className: "torc-project__meta-item"
+    className: "joints-project__meta-item"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "cpu",
     size: 13
   }), stack), contributors != null && /*#__PURE__*/React.createElement("span", {
-    className: "torc-project__meta-item"
+    className: "joints-project__meta-item"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "users",
     size: 13
   }), contributors), updated && /*#__PURE__*/React.createElement("span", {
-    className: "torc-project__meta-item"
+    className: "joints-project__meta-item"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "git-branch",
     size: 13
@@ -745,7 +871,7 @@ function Button({
   className,
   ...rest
 }) {
-  const cls = ['torc-btn', 'torc-btn--' + variant, size !== 'md' && 'torc-btn--' + size, mono && 'torc-btn--mono', block && 'torc-btn--block', className].filter(Boolean).join(' ');
+  const cls = ['joints-btn', 'joints-btn--' + variant, size !== 'md' && 'joints-btn--' + size, mono && 'joints-btn--mono', block && 'joints-btn--block', className].filter(Boolean).join(' ');
   const gl = size === 'sm' ? 15 : size === 'lg' ? 20 : 17;
   const body = /*#__PURE__*/React.createElement(React.Fragment, null, icon && /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: icon,
@@ -792,13 +918,13 @@ function EventCard({
     className: className,
     style: style
   }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "torc-event"
+    className: "joints-event"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "torc-event__date"
+    className: "joints-event__date"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-event__day"
+    className: "joints-event__day"
   }, day), /*#__PURE__*/React.createElement("span", {
-    className: "torc-event__month"
+    className: "joints-event__month"
   }, month)), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -807,7 +933,7 @@ function EventCard({
       minWidth: 0
     }
   }, kind && /*#__PURE__*/React.createElement("span", {
-    className: "torc-kicker"
+    className: "joints-kicker"
   }, kind), /*#__PURE__*/React.createElement("h4", {
     style: {
       margin: 0,
@@ -870,7 +996,7 @@ function IconButton({
   className,
   ...rest
 }) {
-  const cls = ['torc-iconbtn', variant !== 'plain' && 'torc-iconbtn--' + variant, size !== 'md' && 'torc-iconbtn--' + size, className].filter(Boolean).join(' ');
+  const cls = ['joints-iconbtn', variant !== 'plain' && 'joints-iconbtn--' + variant, size !== 'md' && 'joints-iconbtn--' + size, className].filter(Boolean).join(' ');
   const gl = size === 'sm' ? 15 : size === 'lg' ? 22 : 18;
   const glyph = /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: icon,
@@ -910,10 +1036,10 @@ function CodeBlock({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'torc-code ' + (className || ''),
+    className: 'joints-code ' + (className || ''),
     style: style
   }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "torc-code__bar"
+    className: "joints-code__bar"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: filename ? 'file-text' : 'terminal',
     size: 13
@@ -926,7 +1052,7 @@ function CodeBlock({
     label: "Copia",
     size: "sm"
   }))), /*#__PURE__*/React.createElement("pre", {
-    className: "torc-code__pre"
+    className: "joints-code__pre"
   }, /*#__PURE__*/React.createElement("code", null, children)));
 }
 Object.assign(__ds_scope, { CodeBlock });
@@ -951,18 +1077,18 @@ function Alert({
   className,
   ...rest
 }) {
-  const cls = ['torc-alert', tone !== 'neutral' && 'torc-alert--' + tone, className].filter(Boolean).join(' ');
+  const cls = ['joints-alert', tone !== 'neutral' && 'joints-alert--' + tone, className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("div", _extends({
     className: cls,
     role: tone === 'danger' ? 'alert' : 'status',
     style: style
   }, rest), /*#__PURE__*/React.createElement("span", {
-    className: "torc-alert__icon"
+    className: "joints-alert__icon"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: icon || GLYPH[tone],
     size: 18
   })), /*#__PURE__*/React.createElement("div", null, title && /*#__PURE__*/React.createElement("p", {
-    className: "torc-alert__title"
+    className: "joints-alert__title"
   }, title), children && /*#__PURE__*/React.createElement("div", null, children)));
 }
 Object.assign(__ds_scope, { Alert });
@@ -989,7 +1115,7 @@ function Spinner({
   }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "loader-circle",
     size: size,
-    className: "torc-spinner"
+    className: "joints-spinner"
   }));
 }
 Object.assign(__ds_scope, { Spinner });
@@ -1016,7 +1142,7 @@ function Checkbox({
   const [internal, setInternal] = React.useState(!!defaultChecked);
   const on = isOn != null ? isOn : internal;
   return /*#__PURE__*/React.createElement("label", {
-    className: ['torc-check', disabled && 'torc-check--disabled', className].filter(Boolean).join(' '),
+    className: ['joints-check', disabled && 'joints-check--disabled', className].filter(Boolean).join(' '),
     style: style
   }, /*#__PURE__*/React.createElement("input", _extends({
     type: type,
@@ -1035,9 +1161,9 @@ function Checkbox({
       height: 1
     }
   }, rest)), /*#__PURE__*/React.createElement("span", {
-    className: ['torc-check__box', radio && 'torc-check__box--radio', on && 'torc-check__box--on'].filter(Boolean).join(' ')
+    className: ['joints-check__box', radio && 'joints-check__box--radio', on && 'joints-check__box--on'].filter(Boolean).join(' ')
   }, on && (radio ? /*#__PURE__*/React.createElement("span", {
-    className: "torc-check__dot"
+    className: "joints-check__dot"
   }) : /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "check",
     size: 13,
@@ -1062,20 +1188,20 @@ function Field({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'torc-field ' + (className || ''),
+    className: 'joints-field ' + (className || ''),
     style: style
   }, rest), label && /*#__PURE__*/React.createElement("label", {
-    className: "torc-field__label",
+    className: "joints-field__label",
     htmlFor: htmlFor
   }, label, required && /*#__PURE__*/React.createElement("span", {
-    className: "torc-field__req"
+    className: "joints-field__req"
   }, " *")), children, error ? /*#__PURE__*/React.createElement("span", {
-    className: "torc-field__error"
+    className: "joints-field__error"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "triangle-alert",
     size: 13
   }), error) : hint && /*#__PURE__*/React.createElement("span", {
-    className: "torc-field__hint"
+    className: "joints-field__hint"
   }, hint));
 }
 Object.assign(__ds_scope, { Field });
@@ -1092,7 +1218,7 @@ function Input({
   className,
   ...rest
 }) {
-  const cls = ['torc-input', mono && 'torc-input--mono', invalid && 'torc-input--invalid', className].filter(Boolean).join(' ');
+  const cls = ['joints-input', mono && 'joints-input--mono', invalid && 'joints-input--invalid', className].filter(Boolean).join(' ');
   const input = /*#__PURE__*/React.createElement("input", _extends({
     className: cls,
     "aria-invalid": invalid || undefined,
@@ -1100,9 +1226,9 @@ function Input({
   }, rest));
   if (!icon) return input;
   return /*#__PURE__*/React.createElement("span", {
-    className: "torc-input-wrap"
+    className: "joints-input-wrap"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-input-wrap__icon"
+    className: "joints-input-wrap__icon"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: icon,
     size: 16
@@ -1123,9 +1249,9 @@ function Select({
   className,
   ...rest
 }) {
-  const cls = ['torc-input', 'torc-select', invalid && 'torc-input--invalid', className].filter(Boolean).join(' ');
+  const cls = ['joints-input', 'joints-select', invalid && 'joints-input--invalid', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("span", {
-    className: "torc-select-wrap"
+    className: "joints-select-wrap"
   }, /*#__PURE__*/React.createElement("select", _extends({
     className: cls,
     "aria-invalid": invalid || undefined,
@@ -1139,7 +1265,7 @@ function Select({
     key: o.value,
     value: o.value
   }, o.label)), children), /*#__PURE__*/React.createElement("span", {
-    className: "torc-select-wrap__chev"
+    className: "joints-select-wrap__chev"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "chevron-down",
     size: 16
@@ -1153,7 +1279,7 @@ try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function SiteFooter({
   columns = [],
-  tagline = 'Trieste Open Robotics Community',
+  tagline = 'Robotics Network Trieste',
   note,
   meta = [],
   style,
@@ -1161,12 +1287,12 @@ function SiteFooter({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("footer", _extends({
-    className: 'torc-footer ' + (className || ''),
+    className: 'joints-footer ' + (className || ''),
     style: style
   }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "torc-footer__inner"
+    className: "joints-footer__inner"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "torc-footer__col"
+    className: "joints-footer__col"
   }, /*#__PURE__*/React.createElement(__ds_scope.Logo, {
     variant: "lockup",
     height: 22
@@ -1187,16 +1313,16 @@ function SiteFooter({
       margin: 'var(--space-2) 0 0'
     }
   }, note)), columns.map(col => /*#__PURE__*/React.createElement("div", {
-    className: "torc-footer__col",
+    className: "joints-footer__col",
     key: col.title
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-kicker torc-kicker--muted"
+    className: "joints-kicker joints-kicker--muted"
   }, col.title), col.links.map(l => /*#__PURE__*/React.createElement("a", {
-    className: "torc-footer__link",
+    className: "joints-footer__link",
     key: l.label,
     href: l.href
   }, l.label))))), /*#__PURE__*/React.createElement("div", {
-    className: "torc-footer__bottom"
+    className: "joints-footer__bottom"
   }, meta.map(m => /*#__PURE__*/React.createElement("span", {
     key: m
   }, m))));
@@ -1218,10 +1344,10 @@ function SiteHeader({
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("header", _extends({
-    className: 'torc-header ' + (className || ''),
+    className: 'joints-header ' + (className || ''),
     style: style
   }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "torc-header__inner"
+    className: "joints-header__inner"
   }, /*#__PURE__*/React.createElement("a", {
     href: "/",
     onClick: e => {
@@ -1234,15 +1360,15 @@ function SiteHeader({
       display: 'flex',
       alignItems: 'center'
     },
-    "aria-label": "TORC \u2014 home"
+    "aria-label": "JoiNTS \u2014 home"
   }, /*#__PURE__*/React.createElement(__ds_scope.Logo, {
     variant: "lockup",
     height: 24
   })), /*#__PURE__*/React.createElement("nav", {
-    className: "torc-header__nav"
+    className: "joints-header__nav"
   }, links.map(l => /*#__PURE__*/React.createElement("a", {
     key: l.href,
-    className: 'torc-navlink' + (active === l.href || l.active ? ' torc-navlink--active' : ''),
+    className: 'joints-navlink' + (active === l.href || l.active ? ' joints-navlink--active' : ''),
     href: l.href,
     onClick: e => {
       if (onNavigate) {
@@ -1282,7 +1408,7 @@ function Tabs({
   const [internal, setInternal] = React.useState(tabs[0] && (tabs[0].value || tabs[0]));
   const current = value != null ? value : internal;
   return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'torc-tabs ' + (className || ''),
+    className: 'joints-tabs ' + (className || ''),
     role: "tablist",
     style: style
   }, rest), tabs.map(t => {
@@ -1293,7 +1419,7 @@ function Tabs({
       role: "tab",
       "aria-selected": current === v,
       type: "button",
-      className: 'torc-tab' + (current === v ? ' torc-tab--active' : ''),
+      className: 'joints-tab' + (current === v ? ' joints-tab--active' : ''),
       onClick: () => {
         if (value == null) setInternal(v);
         onChange && onChange(v);
@@ -1331,7 +1457,7 @@ const {
   EventCard
 } = window.TORCDesignSystem_49bcd9;
 function BuildsScreen() {
-  const D = window.TORC_DASH;
+  const D = window.JOINTS_DASH;
   const [only, setOnly] = React.useState(false);
   const rows = D.builds.filter(b => !only || b.state !== 'ok');
   const TONE = {
@@ -1490,7 +1616,7 @@ function BuildsScreen() {
     dash: true
   }, "Riprodurre in locale"), /*#__PURE__*/React.createElement(CodeBlock, {
     language: "bash"
-  }, 'torc build presa-mite --ref 77ac210 --local\ncolcon test --packages-select presa_mite'))));
+  }, 'joints build presa-mite --ref 77ac210 --local\ncolcon test --packages-select presa_mite'))));
 }
 Object.assign(window, {
   BuildsScreen
@@ -1637,7 +1763,7 @@ function DashShell({
       textTransform: 'uppercase',
       color: 'var(--text-muted)'
     }
-  }, "Officina TORC"), /*#__PURE__*/React.createElement(Icon, {
+  }, "Officina JoiNTS"), /*#__PURE__*/React.createElement(Icon, {
     name: "chevron-right",
     size: 13,
     style: {
@@ -1748,7 +1874,7 @@ function Spark({
     style: {
       flex: 1,
       height: v / max * 100 + '%',
-      background: i === data.length - 1 ? 'var(--accent)' : 'var(--torc-ink-500)',
+      background: i === data.length - 1 ? 'var(--accent)' : 'var(--joints-ink-500)',
       borderRadius: 2
     }
   })));
@@ -1790,7 +1916,7 @@ const {
 function OverviewScreen({
   go
 }) {
-  const D = window.TORC_DASH;
+  const D = window.JOINTS_DASH;
   const {
     DashMeter: Meter,
     DashSpark: Spark
@@ -1821,7 +1947,7 @@ function OverviewScreen({
       color: 'var(--text-muted)'
     }
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-kicker torc-kicker--muted"
+    className: "joints-kicker joints-kicker--muted"
   }, l), /*#__PURE__*/React.createElement(Icon, {
     name: ic,
     size: 16
@@ -2006,7 +2132,7 @@ const {
   EventCard
 } = window.TORCDesignSystem_49bcd9;
 function RigsScreen() {
-  const D = window.TORC_DASH;
+  const D = window.JOINTS_DASH;
   const {
     DashMeter: Meter,
     DashSpark: Spark
@@ -2254,7 +2380,7 @@ Object.assign(window, {
 
 // ui_kits/dashboard/dash-content.js
 try { (() => {
-window.TORC_DASH = {
+window.JOINTS_DASH = {
   rigs: [{
     id: 'harbor-01',
     name: 'Harbor 01',
@@ -2555,7 +2681,7 @@ function IntroPage() {
       fontSize: 'var(--text-4xl)',
       margin: 'var(--space-4) 0 var(--space-5)'
     }
-  }, "Introduzione"), /*#__PURE__*/React.createElement(P, null, "Questa documentazione raccoglie tutto ci\xF2 che serve per far girare i progetti TORC sulla tua macchina, contribuire codice e riusare gli strumenti che costruiamo. \xC8 scritta da chi li usa ogni giorno, quindi assume che tu voglia arrivare a un sistema che funziona, non a una panoramica."), /*#__PURE__*/React.createElement(Alert, {
+  }, "Introduzione"), /*#__PURE__*/React.createElement(P, null, "Questa documentazione raccoglie tutto ci\xF2 che serve per far girare i progetti JoiNTS sulla tua macchina, contribuire codice e riusare gli strumenti che costruiamo. \xC8 scritta da chi li usa ogni giorno, quindi assume che tu voglia arrivare a un sistema che funziona, non a una panoramica."), /*#__PURE__*/React.createElement(Alert, {
     tone: "info",
     title: "Serve una base di ROS 2"
   }, "Se non hai mai lanciato un nodo, parti da ", /*#__PURE__*/React.createElement("a", {
@@ -2594,11 +2720,11 @@ function InstallPage() {
     style: {
       color: 'var(--text-accent)'
     }
-  }, "torc_ws"), ". Contiene i pacchetti dei progetti attivi come submodule, cos\xEC una sola build ti d\xE0 tutto."), /*#__PURE__*/React.createElement(H2, null, "1 \xB7 Dipendenze di sistema"), /*#__PURE__*/React.createElement(CodeBlock, {
+  }, "joints_ws"), ". Contiene i pacchetti dei progetti attivi come submodule, cos\xEC una sola build ti d\xE0 tutto."), /*#__PURE__*/React.createElement(H2, null, "1 \xB7 Dipendenze di sistema"), /*#__PURE__*/React.createElement(CodeBlock, {
     language: "bash"
   }, 'sudo apt update && sudo apt install -y \\\n  ros-jazzy-desktop python3-colcon-common-extensions \\\n  ros-jazzy-rosbag2-storage-mcap'), /*#__PURE__*/React.createElement(H2, null, "2 \xB7 Clonare il workspace"), /*#__PURE__*/React.createElement(CodeBlock, {
     language: "bash"
-  }, 'git clone --recurse-submodules https://github.com/torc-trieste/torc_ws\ncd torc_ws\nrosdep install --from-paths src --ignore-src -y'), /*#__PURE__*/React.createElement(H2, null, "3 \xB7 Build"), /*#__PURE__*/React.createElement(CodeBlock, {
+  }, 'git clone --recurse-submodules https://github.com/joints-trieste/joints_ws\ncd joints_ws\nrosdep install --from-paths src --ignore-src -y'), /*#__PURE__*/React.createElement(H2, null, "3 \xB7 Build"), /*#__PURE__*/React.createElement(CodeBlock, {
     language: "bash"
   }, 'colcon build --symlink-install\nsource install/setup.bash'), /*#__PURE__*/React.createElement(Alert, {
     tone: "warn",
@@ -2697,7 +2823,7 @@ function DocsSidebar({
 }) {
   const {
     tree
-  } = window.TORC_DOCS;
+  } = window.JOINTS_DOCS;
   return /*#__PURE__*/React.createElement("nav", {
     style: {
       width: 268,
@@ -2879,7 +3005,7 @@ Object.assign(window, {
 
 // ui_kits/docs/docs-content.js
 try { (() => {
-window.TORC_DOCS = {
+window.JOINTS_DOCS = {
   tree: [{
     section: 'Iniziare',
     pages: [{
@@ -2914,7 +3040,7 @@ window.TORC_DOCS = {
       label: 'Parametri'
     }, {
       id: 'cli',
-      label: 'CLI torc'
+      label: 'CLI joints'
     }]
   }, {
     section: 'Community',
@@ -2944,7 +3070,7 @@ const {
 function EventsScreen({
   go
 }) {
-  const C = window.TORC_CONTENT;
+  const C = window.JOINTS_CONTENT;
   return /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement("section", {
     style: {
       padding: '80px var(--page-gutter-lg) var(--space-10)'
@@ -2996,7 +3122,7 @@ function EventsScreen({
     month: month,
     kind: kind,
     title: title,
-    where: "Officina TORC",
+    where: "Officina JoiNTS",
     style: {
       opacity: .6
     }
@@ -3067,15 +3193,15 @@ const SpecTable = NS.SpecTable || function SpecTable({
   style
 }) {
   return /*#__PURE__*/React.createElement("div", {
-    className: 'torc-spec' + (tight ? ' torc-spec--tight' : ''),
+    className: 'joints-spec' + (tight ? ' joints-spec--tight' : ''),
     style: style
   }, rows.map(([k, v, n]) => /*#__PURE__*/React.createElement("div", {
-    className: "torc-spec__row",
+    className: "joints-spec__row",
     key: k
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-spec__key"
+    className: "joints-spec__key"
   }, k), /*#__PURE__*/React.createElement("span", {
-    className: "torc-spec__val"
+    className: "joints-spec__val"
   }, v, n && /*#__PURE__*/React.createElement("em", null, " \xB7 ", n)))));
 };
 const ImagePlate = NS.ImagePlate || function ImagePlate({
@@ -3089,7 +3215,7 @@ const ImagePlate = NS.ImagePlate || function ImagePlate({
   style
 }) {
   return /*#__PURE__*/React.createElement("figure", {
-    className: 'torc-plate torc-hud' + (bleed ? ' torc-plate--bleed' : ''),
+    className: 'joints-plate joints-hud' + (bleed ? ' joints-plate--bleed' : ''),
     style: {
       position: 'relative',
       isolation: 'isolate',
@@ -3099,17 +3225,17 @@ const ImagePlate = NS.ImagePlate || function ImagePlate({
       ...style
     }
   }, src ? /*#__PURE__*/React.createElement("img", {
-    className: "torc-plate__media",
+    className: "joints-plate__media",
     src: src,
     alt: alt
   }) : /*#__PURE__*/React.createElement("span", {
-    className: "torc-plate__empty"
+    className: "joints-plate__empty"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-hud-label"
+    className: "joints-hud-label"
   }, "inserire fotografia", height ? '' : ' · ' + ratio.replace(/\s/g, ''))), index && /*#__PURE__*/React.createElement("span", {
-    className: "torc-plate__index"
+    className: "joints-plate__index"
   }, index), caption && /*#__PURE__*/React.createElement("figcaption", {
-    className: "torc-plate__caption"
+    className: "joints-plate__caption"
   }, caption));
 };
 function Bleed({
@@ -3137,19 +3263,19 @@ function SectionRule({
   right
 }) {
   return /*#__PURE__*/React.createElement("div", {
-    className: "torc-bleed-rule",
+    className: "joints-bleed-rule",
     style: {
       marginBottom: 'var(--space-12)'
     }
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-hud-label"
+    className: "joints-hud-label"
   }, index), /*#__PURE__*/React.createElement("span", {
-    className: "torc-hud-label",
+    className: "joints-hud-label",
     style: {
       color: 'var(--text-accent)'
     }
   }, label), right && /*#__PURE__*/React.createElement("span", {
-    className: "torc-hud-label",
+    className: "joints-hud-label",
     style: {
       marginLeft: 'auto'
     }
@@ -3158,9 +3284,9 @@ function SectionRule({
 function HomeScreen({
   go
 }) {
-  const C = window.TORC_CONTENT;
+  const C = window.JOINTS_CONTENT;
   return /*#__PURE__*/React.createElement("main", {
-    className: "torc-field",
+    className: "joints-field",
     "data-field": "survey",
     "data-field-depth": "open"
   }, /*#__PURE__*/React.createElement("section", {
@@ -3196,11 +3322,11 @@ function HomeScreen({
       gap: 'var(--space-6)'
     }
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-hud-label",
+    className: "joints-hud-label",
     style: {
       color: 'var(--text-accent)'
     }
-  }, "Trieste Open Robotics Community"), /*#__PURE__*/React.createElement("h1", {
+  }, "Robotics Network Trieste"), /*#__PURE__*/React.createElement("h1", {
     style: {
       fontSize: 'clamp(48px, 6vw, 96px)',
       lineHeight: .96,
@@ -3222,13 +3348,13 @@ function HomeScreen({
     mono: true,
     iconEnd: "arrow-right",
     onClick: () => go('/entra')
-  }, "Entra in TORC"), /*#__PURE__*/React.createElement(Button, {
+  }, "Entra in JoiNTS"), /*#__PURE__*/React.createElement(Button, {
     variant: "secondary",
     size: "lg",
     mono: true,
     onClick: () => go('/manifesto')
   }, "Manifesto"))))), /*#__PURE__*/React.createElement("div", {
-    className: "torc-ticks torc-ticks--major"
+    className: "joints-ticks joints-ticks--major"
   }), /*#__PURE__*/React.createElement(Bleed, {
     style: {
       paddingTop: 'var(--section-y)'
@@ -3263,11 +3389,11 @@ function HomeScreen({
       color: 'var(--text-secondary)',
       margin: 0
     }
-  }, "A Trieste c'\xE8 chi la robotica la fa davvero: progetta, scrive codice, fa muovere l'hardware. Mancava uno spazio dove farlo insieme, in modo aperto. TORC \xE8 quello spazio."), /*#__PURE__*/React.createElement(SpecTable, {
+  }, "A Trieste c'\xE8 chi la robotica la fa davvero: progetta, scrive codice, fa muovere l'hardware. Mancava uno spazio dove farlo insieme, in modo aperto. JoiNTS \xE8 quello spazio."), /*#__PURE__*/React.createElement(SpecTable, {
     tight: true,
     rows: [['forma', 'associazione senza scopo di lucro'], ['licenza', 'Apache-2.0', 'codice · CC BY-SA testi'], ['sede', 'Trieste, Italia', '45.6495 N · 13.7768 E'], ['ingresso', 'aperto', 'nessuna quota']]
   })))), /*#__PURE__*/React.createElement(Bleed, {
-    className: "torc-field",
+    className: "joints-field",
     "data-field": "strata",
     "data-field-depth": "open",
     "data-field-edge": "horizon",
@@ -3353,7 +3479,7 @@ function HomeScreen({
   }, /*#__PURE__*/React.createElement(ImagePlate, {
     ratio: "16 / 9",
     index: "FIG. 02",
-    caption: "Carso 02 \xB7 banco di prova \xB7 officina TORC"
+    caption: "Carso 02 \xB7 banco di prova \xB7 officina JoiNTS"
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -3361,7 +3487,7 @@ function HomeScreen({
       gap: 'var(--space-6)'
     }
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-hud-label"
+    className: "joints-hud-label"
   }, "Carso 02 \xB7 rover cingolato"), /*#__PURE__*/React.createElement(SpecTable, {
     rows: [['calcolatore', 'Jetson Orin NX 16 GB'], ['controllo', 'micro-ROS · STM32H7'], ['sensori', 'lidar 32ch · IMU 9DoF'], ['autonomia', '4 h', 'LiFePO4 24 V'], ['massa', '18.4 kg']]
   })))), /*#__PURE__*/React.createElement(Bleed, {
@@ -3404,7 +3530,7 @@ function HomeScreen({
     index: "FIG. 03",
     caption: "Demo night \xB7 Area Science Park"
   }), /*#__PURE__*/React.createElement(Quote, {
-    by: "Manifesto TORC"
+    by: "Manifesto JoiNTS"
   }, "La porta \xE8 aperta, l'asticella \xE8 alta.")))), /*#__PURE__*/React.createElement(Bleed, {
     style: {
       paddingTop: 'var(--section-y)'
@@ -3424,7 +3550,7 @@ function HomeScreen({
   }, e, {
     href: "#"
   }))))), /*#__PURE__*/React.createElement("section", {
-    className: "torc-field",
+    className: "joints-field",
     "data-field": "scan",
     "data-field-glow": "lit",
     style: {
@@ -3448,7 +3574,7 @@ function HomeScreen({
       gap: 'var(--space-6)'
     }
   }, /*#__PURE__*/React.createElement("span", {
-    className: "torc-hud-label",
+    className: "joints-hud-label",
     style: {
       color: 'var(--text-accent)'
     }
@@ -3485,9 +3611,9 @@ function HomeScreen({
     icon: "github"
   }, "GitHub"))), /*#__PURE__*/React.createElement(SpecTable, {
     tight: true,
-    rows: [['scrivici', 'ciao@torc.community'], ['codice', 'github.com/torc-trieste'], ['prossimo incontro', '18 set · 18:30']]
+    rows: [['scrivici', 'ciao@joints.community'], ['codice', 'github.com/joints-trieste'], ['prossimo incontro', '18 set · 18:30']]
   }))), /*#__PURE__*/React.createElement("div", {
-    className: "torc-ticks torc-ticks--major",
+    className: "joints-ticks joints-ticks--major",
     style: {
       marginTop: 'var(--space-16)'
     }
@@ -3653,7 +3779,7 @@ function JoinScreen({
       color: 'var(--text-body)'
     }
   }, t)))), /*#__PURE__*/React.createElement(Quote, {
-    by: "Manifesto TORC"
+    by: "Manifesto JoiNTS"
   }, "Chiunque condivida questa passione \xE8 benvenuto."), /*#__PURE__*/React.createElement(Button, {
     variant: "ghost",
     iconEnd: "arrow-right",
@@ -3679,7 +3805,7 @@ const {
 function ManifestoScreen({
   go
 }) {
-  const C = window.TORC_CONTENT;
+  const C = window.JOINTS_CONTENT;
   return /*#__PURE__*/React.createElement("main", {
     "data-theme": "light",
     "data-instrument": "off",
@@ -3687,7 +3813,7 @@ function ManifestoScreen({
       background: 'var(--bg-page)'
     }
   }, /*#__PURE__*/React.createElement("section", {
-    className: "torc-grid",
+    className: "joints-grid",
     style: {
       padding: '96px var(--page-gutter-lg) var(--space-16)',
       borderBottom: '1px solid var(--border-subtle)'
@@ -3715,8 +3841,8 @@ function ManifestoScreen({
       gap: 'var(--space-12)'
     }
   }, /*#__PURE__*/React.createElement(Quote, {
-    by: "TORC"
-  }, "TORC nasce per essere quel ponte."), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Kicker, {
+    by: "JoiNTS"
+  }, "JoiNTS nasce per essere quel ponte."), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Kicker, {
     dash: true
   }, "I nostri principi"), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3762,7 +3888,7 @@ function ManifestoScreen({
       marginLeft: 'auto'
     },
     onClick: () => go('/entra')
-  }, "Entra in TORC"))))));
+  }, "Entra in JoiNTS"))))));
 }
 Object.assign(window, {
   ManifestoScreen
@@ -3789,11 +3915,11 @@ function ProjectDetailScreen({
   slug,
   go
 }) {
-  const C = window.TORC_CONTENT;
+  const C = window.JOINTS_CONTENT;
   const p = C.projects.find(x => x.slug === slug) || C.projects[0];
   const [tab, setTab] = React.useState('Panoramica');
   return /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement("section", {
-    className: "torc-grid",
+    className: "joints-grid",
     style: {
       padding: '72px var(--page-gutter-lg) var(--space-10)',
       borderBottom: '1px solid var(--border-subtle)'
@@ -3804,7 +3930,7 @@ function ProjectDetailScreen({
       margin: '0 auto'
     }
   }, /*#__PURE__*/React.createElement("button", {
-    className: "torc-navlink",
+    className: "joints-navlink",
     style: {
       marginBottom: 'var(--space-6)',
       paddingLeft: 0,
@@ -3923,7 +4049,7 @@ function ProjectDetailScreen({
     title: "Cerchiamo una mano"
   }, "Serve chi abbia esperienza di calibrazione camera\u2013lidar. Se \xE8 il tuo campo, scrivici."), /*#__PURE__*/React.createElement(CodeBlock, {
     language: "bash"
-  }, 'git clone https://github.com/torc-trieste/' + p.slug + '\ncd ' + p.slug + ' && colcon build --symlink-install\nros2 launch ' + p.slug.replace('-', '_') + ' bringup.launch.py')), tab === 'Hardware' && /*#__PURE__*/React.createElement("div", {
+  }, 'git clone https://github.com/joints-trieste/' + p.slug + '\ncd ' + p.slug + ' && colcon build --symlink-install\nros2 launch ' + p.slug.replace('-', '_') + ' bringup.launch.py')), tab === 'Hardware' && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -3946,7 +4072,7 @@ function ProjectDetailScreen({
     name: ic,
     size: 16
   }), /*#__PURE__*/React.createElement("span", {
-    className: "torc-kicker"
+    className: "joints-kicker"
   }, k)), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 'var(--text-sm)',
@@ -4063,7 +4189,7 @@ const {
 function ProjectsScreen({
   go
 }) {
-  const C = window.TORC_CONTENT;
+  const C = window.JOINTS_CONTENT;
   const allTags = Array.from(new Set(C.projects.flatMap(p => p.tags)));
   const [tag, setTag] = React.useState(null);
   const [q, setQ] = React.useState('');
@@ -4175,10 +4301,10 @@ Object.assign(window, {
 
 // ui_kits/website/content.js
 try { (() => {
-// Placeholder content for the torc.community kit. Copy is written in the
-// TORC voice (Italian, first-person plural, concrete); project names and
+// Placeholder content for the joints.community kit. Copy is written in the
+// JoiNTS voice (Italian, first-person plural, concrete); project names and
 // figures are illustrative, not real association data.
-window.TORC_CONTENT = {
+window.JOINTS_CONTENT = {
   nav: [{
     label: 'Manifesto',
     href: '/manifesto'
@@ -4293,7 +4419,7 @@ window.TORC_CONTENT = {
     month: 'ott',
     kind: 'sfida',
     title: 'Chi passa il varco più stretto?',
-    where: 'Officina TORC',
+    where: 'Officina JoiNTS',
     when: '19:00 → 22:00'
   }],
   principles: [{
@@ -4328,7 +4454,7 @@ window.TORC_CONTENT = {
         label: 'Eventi',
         href: '/eventi'
       }, {
-        label: 'Entra in TORC',
+        label: 'Entra in JoiNTS',
         href: '/entra'
       }]
     }, {
@@ -4346,7 +4472,7 @@ window.TORC_CONTENT = {
     }, {
       title: 'Contatti',
       links: [{
-        label: 'ciao@torc.community',
+        label: 'ciao@joints.community',
         href: '#'
       }, {
         label: 'Newsletter',
@@ -4356,7 +4482,7 @@ window.TORC_CONTENT = {
         href: '#'
       }]
     }],
-    meta: ['Testi CC BY-SA 4.0 · codice Apache-2.0', 'Trieste, Italia', '© 2026 TORC']
+    meta: ['Testi CC BY-SA 4.0 · codice Apache-2.0', 'Trieste, Italia', '© 2026 JoiNTS']
   }
 };
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/website/content.js", error: String((e && e.message) || e) }); }

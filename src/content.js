@@ -2,7 +2,7 @@
 //
 // Everything here is REAL: the manifesto text is verbatim from the association's
 // founding document, the links and the address are live. If a number or a date
-// is not something TORC can stand behind, it does not belong in this file —
+// is not something JoiNTS can stand behind, it does not belong in this file —
 // the design system's rule is no invented metrics, and an honest empty state
 // beats a placeholder project.
 //
@@ -11,7 +11,7 @@
 // emoji. `·` separates, `→` points, `—` asides.
 
 export const SITE = {
-  title: 'TORC — Trieste Open Robotics Community',
+  title: 'JoiNTS — Robotics Network Trieste',
   description:
     'Associazione di robotica a Trieste. Progettiamo, scriviamo codice e facciamo muovere hardware. Tutto open source, dal primo commit.',
   email: 'info@torc.it',
@@ -38,7 +38,7 @@ export const FOOTER = {
       links: [
         { label: 'Manifesto', href: '/manifesto/' },
         { label: 'Incontri', href: '/incontri/' },
-        { label: 'Entra in TORC', href: '/entra/' },
+        { label: 'Entra in JoiNTS', href: '/entra/' },
       ],
     },
     {

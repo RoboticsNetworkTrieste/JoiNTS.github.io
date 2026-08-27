@@ -31,7 +31,7 @@ export function NotifyBlock() {
           <p style={{ fontSize: '17px', lineHeight: 1.6, color: 'var(--text-secondary)', margin: '12px 0 0', maxWidth: '52ch' }}>Lascia la tua email e ti scriviamo quando fissiamo le prime date.</p>
         </div>
         <form onSubmit={onSubmit} style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
-          <input type="hidden" name="_subject" value="Nuova iscrizione agli avvisi TORC" />
+          <input type="hidden" name="_subject" value="Nuova iscrizione agli avvisi JoiNTS" />
           {/* Formspree's honeypot: a bot fills it, a person never sees it. */}
           <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} />
           <Field label="Email">

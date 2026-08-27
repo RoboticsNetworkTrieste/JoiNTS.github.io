@@ -1,0 +1,39 @@
+<!-- @dsCard group="Components" viewport="700x380" name="Content — ProjectCard, EventCard, Stat, Principle, Quote, Code" subtitle="The page-level patterns of joints.community" -->
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{padding:24px}</style>
+</head><body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const NS = window.TORCDesignSystem_49bcd9;
+const { ProjectCard, EventCard, StatBlock, PrincipleItem, Quote, CodeBlock, SectionHeading } = NS;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div style={{display:'flex',flexDirection:'column',gap:20}}>
+    <SectionHeading kicker="Progetti" title="Poche cose, fatte fino in fondo." sub="Scegliamo con cura i progetti su cui investire le nostre energie e li portiamo a termine." />
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+      <ProjectCard title="Harbor SLAM" summary="Localizzazione robusta per droni di superficie nel Porto Vecchio, dove il GNSS non basta."
+        state="live" stateLabel="sviluppo attivo" tags={['slam','percezione']} stack="ROS 2 Jazzy" contributors={6} updated="commit 3g" href="#" />
+      <div style={{display:'flex',flexDirection:'column',gap:16}}>
+        <EventCard day="18" month="set" kind="meetup" title="Demo night: bracci e presa" where="Area Science Park" when="18:30 → 21:00" href="#" />
+        <div style={{display:'flex',gap:32}}>
+          <StatBlock value="12" label="progetti aperti" />
+          <StatBlock value="40" accentPart="+" label="persone" />
+          <StatBlock value="100" accentPart="%" label="open source" />
+        </div>
+      </div>
+    </div>
+    <div style={{display:'grid',gridTemplateColumns:'1.15fr 1fr',gap:24,alignItems:'start'}}>
+      <PrincipleItem number={2} title="Costruiamo sistemi reali.">Non ci bastano le parole. Il risultato del nostro lavoro è codice che gira, hardware che si muove, sistemi che funzionano.</PrincipleItem>
+      <div style={{display:'flex',flexDirection:'column',gap:20}}>
+        <Quote by="Manifesto JoiNTS">La porta è aperta, l'asticella è alta.</Quote>
+        <CodeBlock language="bash">{'git clone https://github.com/joints-trieste/harbor-slam\ncolcon build --symlink-install'}</CodeBlock>
+      </div>
+    </div>
+  </div>
+);
+</script>
+</body></html>

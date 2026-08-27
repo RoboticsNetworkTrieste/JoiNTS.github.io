@@ -1,7 +1,7 @@
 /** Display-type pull quote on an accent left rule. */
 export interface QuoteProps {
   children?: React.ReactNode;
-  /** Attribution name, or "Manifesto TORC". */
+  /** Attribution name, or "Manifesto JoiNTS". */
   by?: string;
   /** Role/affiliation appended after a middot. */
   role?: string;

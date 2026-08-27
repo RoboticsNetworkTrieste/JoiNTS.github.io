@@ -14,6 +14,6 @@
   --glow-accent-soft:0 8px 32px -14px rgba(79,209,160,.55);
   --glow-dot:0 0 12px rgba(79,209,160,.75);
 
-  --ring-accent:0 0 0 var(--focus-ring-w) var(--torc-green-400);
-  --ring-offset-ink:0 0 0 var(--focus-ring-offset) var(--torc-ink-900);
+  --ring-accent:0 0 0 var(--focus-ring-w) var(--joints-green-400);
+  --ring-offset-ink:0 0 0 var(--focus-ring-offset) var(--joints-ink-900);
 }

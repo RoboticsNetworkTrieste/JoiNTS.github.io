@@ -1,4 +1,4 @@
-/* TORC — Trieste Open Robotics Community
+/* JoiNTS — Robotics Network Trieste
    Global entry point. Consumers link this single file.
    Imports only — never declare rules here. */
 @import url('./tokens/fonts.css');

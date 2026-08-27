@@ -1,5 +1,5 @@
 /**
- * A TORC project tile: glyph, live state, title, one-paragraph summary, topic badges, mono meta row.
+ * A JoiNTS project tile: glyph, live state, title, one-paragraph summary, topic badges, mono meta row.
  * @startingPoint section="Content" subtitle="Project tile with state and repo meta" viewport="700x300"
  */
 export interface ProjectCardProps {

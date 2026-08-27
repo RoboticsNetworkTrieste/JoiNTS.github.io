@@ -23,15 +23,15 @@ const pad = (n: number) => String(n).padStart(2, '0');
 
 <Base title={SITE.title} description={SITE.description}>
 
-<section class="torc-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:128px 64px 72px">
+<section class="joints-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:128px 64px 72px">
 <div style="max-width:1280px;margin:0 auto">
 <div style="display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center">
 <div>
-<div style="display:flex;align-items:center;gap:12px"><span style="width:24px;height:1.5px;background:var(--accent)"></span><span class="torc-kicker">Trieste Open Robotics Community</span></div>
+<div style="display:flex;align-items:center;gap:12px"><span style="width:24px;height:1.5px;background:var(--accent)"></span><span class="joints-kicker">Robotics Network Trieste</span></div>
 <h1 style="font-family:var(--font-display);font-size:clamp(52px,6.4vw,92px);font-weight:600;line-height:.98;letter-spacing:-.03em;color:var(--text-strong);margin:24px 0 0;max-width:20ch">Diamo forma alle idee.</h1>
 <p style="font-size:20px;line-height:1.62;color:var(--text-secondary);max-width:56ch;margin:24px 0 0;text-wrap:pretty">Una comunità no-profit di chi progetta, scrive codice e costruisce robotica, spinta dalla passione tecnica e decisa a diffonderla.</p>
 <div class="btnrow" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
-<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in TORC</Button>
+<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in JoiNTS</Button>
 <Button variant="secondary" size="lg" mono href="/manifesto/">Leggi il manifesto</Button>
 </div>
 </div>
@@ -39,8 +39,8 @@ const pad = (n: number) => String(n).padStart(2, '0');
 <Logo variant="stacked" height={46} />
 </div>
 </div>
-<div class="torc-ticks torc-ticks--major" style="margin-top:72px"></div>
-<div style="display:flex;justify-content:flex-end;margin-top:10px"><span class="torc-hud-label">45.6495 N · Trieste</span></div>
+<div class="joints-ticks joints-ticks--major" style="margin-top:72px"></div>
+<div style="display:flex;justify-content:flex-end;margin-top:10px"><span class="joints-hud-label">45.6495 N · Trieste</span></div>
 </div>
 </section>
 
@@ -60,7 +60,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 </div>
 </section>
 
-<section class="torc-field" data-field="strata" data-field-depth="open" data-field-edge="horizon" style="padding:80px 64px 0">
+<section class="joints-field" data-field="strata" data-field-depth="open" data-field-edge="horizon" style="padding:80px 64px 0">
 <div class="statsrow" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)">
 {STATS.map((s, i) => (
   <div style={`padding:36px ${i === 0 ? '32px 36px 0' : i === STATS.length - 1 ? '0 36px 32px' : '32px'}`}>
@@ -99,7 +99,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
 {DISCIPLINE.map((d, i) => (
   <div style={card}>
-    <span class="torc-hud-label" style="color:var(--text-accent)">{pad(i + 1)}</span>
+    <span class="joints-hud-label" style="color:var(--text-accent)">{pad(i + 1)}</span>
     <h3 style={cardTitle}>{d.title}</h3>
     <p style={cardBody}>{d.body}</p>
   </div>
@@ -117,7 +117,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 <div style="height:112px"></div>
 </div>
 
-<section class="torc-field" data-field="scan" data-field-glow="lit" style="padding:112px 64px;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+<section class="joints-field" data-field="scan" data-field-glow="lit" style="padding:112px 64px;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
 <div style="max-width:1280px;margin:0 auto">
 <SectionRule index="05 / 08" label="Hackathon e sfide" />
 <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end">
@@ -140,8 +140,8 @@ const pad = (n: number) => String(n).padStart(2, '0');
 <!-- The honest empty state. It stays until there is a real repository to
      show — the design system's rule is that a plate says what is missing
      rather than faking it. -->
-<div class="torc-field torc-hud" data-field="schematic" data-field-depth="open" style="border:1px solid var(--border-subtle);border-radius:3px;padding:56px 40px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
-<span class="torc-hud-label">Stato · in apertura</span>
+<div class="joints-field joints-hud" data-field="schematic" data-field-depth="open" style="border:1px solid var(--border-subtle);border-radius:3px;padding:56px 40px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+<span class="joints-hud-label">Stato · in apertura</span>
 <h2 style="font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.025em;color:var(--text-strong);margin:0">Nessun repository pubblico, per ora.</h2>
 <p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0;max-width:52ch">Il primo arriva con il lancio open. Ogni progetto che sviluppiamo è open source: è un principio, non un'opzione.</p>
 <div style="display:flex;gap:12px;margin-top:8px">
@@ -164,11 +164,11 @@ const pad = (n: number) => String(n).padStart(2, '0');
 <section style="padding:0 64px 112px">
 <div style="max-width:1280px;margin:0 auto;background:var(--surface-accent);border:1px solid var(--border-accent);border-radius:3px;padding:64px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:end">
 <div>
-<span class="torc-hud-label" style="color:var(--text-accent)">08 / 08 · Entra in TORC</span>
+<span class="joints-hud-label" style="color:var(--text-accent)">08 / 08 · Entra in JoiNTS</span>
 <h2 style="font-family:var(--font-display);font-size:48px;font-weight:600;line-height:1.02;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0">Iniziamo a costruire.</h2>
 <p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:20px 0 0;max-width:50ch">Se leggendo il manifesto hai pensato «questo è il luogo che stavo cercando», allora probabilmente lo è.</p>
 <div class="btnrow" style="display:flex;gap:12px;margin-top:28px">
-<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in TORC</Button>
+<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in JoiNTS</Button>
 <Button variant="secondary" size="lg" mono icon="message-square" href={SITE.whatsapp}>WhatsApp</Button>
 </div>
 </div>

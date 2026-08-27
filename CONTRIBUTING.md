@@ -45,7 +45,7 @@ import { Button } from '../../design-system/components/core/Button.jsx';
 import { SpecTable } from '../../design-system/components/content/SpecTable.jsx';
 import { ROWS_MEETUP } from '../content.js';
 ---
-<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in TORC</Button>
+<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in JoiNTS</Button>
 <SpecTable rows={ROWS_MEETUP} />
 ```
 
@@ -79,12 +79,12 @@ These come straight from `readme.md`; they are the ones easiest to break by acci
 `design-system/` is a **vendored copy**, not a place to patch. It mirrors the Claude
 Design project:
 
-> **TORC Design System** — `49bcd965-cdbe-405f-b699-45183069cb45`
+> **JOINTS Design System** — `49bcd965-cdbe-405f-b699-45183069cb45`
 > https://claude.ai/design/p/49bcd965-cdbe-405f-b699-45183069cb45
 
 Edit there, then re-sync here, so the design project and the site never drift apart. A
 token changed only in this repo is a token that will be silently reverted by the next
-sync — and worse, it will be wrong in every other TORC surface (the docs site, the
+sync — and worse, it will be wrong in every other JoiNTS surface (the docs site, the
 dashboard, the slide decks) that reads from the same project.
 
 ### What is vendored, and what is not
@@ -92,25 +92,28 @@ dashboard, the slide decks) that reads from the same project.
 Present and complete:
 
 - `styles.css`, `tokens/` (10 files), `components/components.css`
-- component sources for `brand/`, `content/`, `core/`, `forms/`, `feedback/` and `icon/`
-  — every component the site actually uses, plus `.d.ts` contracts and `.prompt.md` notes
-  for most of them
+- component sources for every group — `brand/`, `content/`, `core/`, `forms/`,
+  `feedback/`, `icon/` and `navigation/` — each with its `.d.ts` contract and
+  `.prompt.md` notes, plus the `*.card.html` gallery cards (they only render inside
+  claude.ai/design, but they keep the mirror complete)
 - `_ds_manifest.json`, `_adherence.oxlintrc.json`, `readme.md`, `SKILL.md`
-- `assets/` — 18 woff2 subsets, 12 background fields, 5 brand elements, 82 icons, 6 logo marks
+- `assets/` — 18 woff2 subsets, 12 background fields, 5 brand elements, 82 icons,
+  `logo.svg` plus the full 9-cut logo set (dark / light / knockout / mono / small
+  wordmarks, ligature icons, accent tile, favicon)
 - `_ds_bundle.js` — all 30 components, precompiled. The site no longer loads it (it
   imports the sources directly), but it is kept so the mirror stays complete.
 
+Note the site still builds its own header and footer in `src/components/` rather than
+using the vendored `navigation/` sources.
+
 Not vendored, and available upstream if you need them:
 
-- sources for the `navigation/` group (`SiteHeader`, `SiteFooter`, `Tabs`) — this site
-  builds its own header and footer in `src/components/`
-- `*.card.html` gallery cards, which only render inside claude.ai/design
 - `guidelines/` — 24 rendered specimen cards (colour ramps, type scale, spacing, motion)
-- `ui_kits/`, `slides/`, `templates/`
-- `assets/logo/TORC Robotics Association Logo.pdf` — the 13-page delivered logo document.
-  It exceeds the sync tool's 256 KiB read limit; download it from the design project
-  directly. It is raster-only and has never been read, so if it contradicts `readme.md`,
-  the PDF wins — say so and the system gets corrected.
+- `ui_kits/`, `slides/`, `templates/`, `explorations/`
+- `uploads/` — the delivered originals: the JoiNTS v2.0 logotype SVGs and rebrand spec,
+  and the withdrawn v1.0 logo document (`TORC Robotics Association Logo.pdf`, 13 pages,
+  raster-only — it exceeds the sync tool's 256 KiB read limit; download it from the
+  design project directly)
 
 ## Checking your change
 

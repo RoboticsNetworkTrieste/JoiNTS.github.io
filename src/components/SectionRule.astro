@@ -13,7 +13,7 @@ const { index, label, note, mb = '48px' } = Astro.props;
 ---
 
 <div class="sechead" style={`display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:${mb}`}>
-<span class="torc-hud-label">{index}</span>
-<span class="torc-hud-label" style="color:var(--text-accent)">{label}</span>
-{note && <span class="torc-hud-label" style="margin-left:auto">{note}</span>}
+<span class="joints-hud-label">{index}</span>
+<span class="joints-hud-label" style="color:var(--text-accent)">{label}</span>
+{note && <span class="joints-hud-label" style="margin-left:auto">{note}</span>}
 </div>

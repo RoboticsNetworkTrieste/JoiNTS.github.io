@@ -1,4 +1,4 @@
-A mono, uppercase, wide-tracked eyebrow. Sits above headings and labels metadata blocks — the fastest way to make copy read as TORC.
+A mono, uppercase, wide-tracked eyebrow. Sits above headings and labels metadata blocks — the fastest way to make copy read as JoiNTS.
 
 ```jsx
 <Kicker dash>Manifesto</Kicker>

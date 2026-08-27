@@ -1,7 +1,7 @@
-# TORC Design System
-**TORC — Trieste Open Robotics Community**
+# JoiNTS Design System
+**JoiNTS — Robotics Network Trieste**
 
-A non-profit association of people in and around Trieste who build robotics for real: professionals, researchers, students and self-taught engineers who design, write code and make hardware move. TORC is explicitly **not** a company, not a service provider, not a school. It exists to be the *bridge* between people who can build and the concrete problems the territory has — and everything it produces is open source.
+A non-profit association of people in and around Trieste who build robotics for real: professionals, researchers, students and self-taught engineers who design, write code and make hardware move. JoiNTS is explicitly **not** a company, not a service provider, not a school. It exists to be the *bridge* between people who can build and the concrete problems the territory has — and everything it produces is open source.
 
 This design system is the association's visual and verbal toolkit: the delivered logo system, the palette derived from it, a three-family type system, tokens, 28 React components, and a full recreation of the association's public website.
 
@@ -11,13 +11,12 @@ This design system is the association's visual and verbal toolkit: the delivered
 
 | Source | What it is | Where it went |
 |---|---|---|
-| `uploads/torc-wordmark-dark.svg`, `torc-wordmark-light.svg` | Wordmark, light-ink and forest-ink versions | `assets/logo/` |
-| `uploads/torc-icon-dark.svg`, `torc-icon-light.svg`, `torc-icon-on-accent.svg`, `torc-favicon.svg` | Ring mark: standalone, inverted, app tile, favicon | `assets/logo/` |
-| `uploads/torc-element-torque.svg`, `-grid.svg`, `-network.svg`, `-network-trace.svg`, `-duotone.svg` | Five graphic elements / brand motifs | `assets/elements/` |
-| `uploads/TORC Robotics Association Logo.pdf` | 13-page logo document | `assets/logo/` (see caveat) |
+| `uploads/joints-logo-primary-transparent.svg` | The delivered v2.0 logotype (converted outlines, transparent ground) | Geometry source for every cut in `assets/logo/` and for `Logo.jsx` |
+| `uploads/joints-logo-primary-on-forest-ink.svg` | The same logotype on Forest Ink | Reference rendering of the primary version |
+| `uploads/joints-prompt-design-system.md` | The v2.0 rebrand spec — name, logotype construction, palette, misuse rules | Applied across the whole system |
 | Manifesto (pasted text, Italian) | The association's founding document — 7 principles | Verbatim in `ui_kits/website/content.js`, quoted throughout |
 
-**Caveat on the PDF:** the 13 pages are raster-only (no extractable text) and every render attempt timed out in this environment, so it was copied in untouched but never read. Everything visual in this system is derived from the delivered SVGs. If the PDF contains clear-space rules, minimum sizes, font names or misuse examples that contradict what is written here, the PDF wins — please tell us and we will correct it.
+**v1.0 note:** the previous name and mark were withdrawn after a registered-trademark dispute, and every v1.0 asset was removed from this project. The five graphic elements were re-issued under `joints-element-*` names, with the old rotation device replaced by the **linkage** device (links + pins).
 
 No codebase, Figma file or existing website was provided. There was therefore no source component inventory: the component set below is an authored standard set, sized to what the association actually needs (a public site + docs-flavoured surfaces).
 
@@ -25,22 +24,25 @@ No codebase, Figma file or existing website was provided. There was therefore no
 
 ## Brand identity
 
-The mark is a **ring** (the "O" of TORC) with a **torque arc** sweeping over it and a **terminal dot** at the arc's end — rotation, force applied, a measurable result. The wordmark repeats the device twice: an arc over the O, an arc under the C. These are delivered assets; **never redraw, re-trace, recolour or approximate them.**
+The logotype is **JoiNTS** in Red Hat Display ExtraBold outlines: `J` `O` — extra space — the **I+N ligature** — extra space — `T` `S`. The ligature is the signature: the light **I *is* the N's first stem** — one letter completing another, the community as mechanism. Two **pin joints** articulate it: a light-ringed pin at the cap of the I, an accent-ringed pin at the foot of the N's right stem — the points where the parts connect and still move. `N` and `TS` carry the accent because they make the acronym legible: **JOIN** the **N**etwork, **TS** = Trieste. The name reads on all three levels at once, and *joint* is everyday ROS/URDF vocabulary. These are delivered assets; **never redraw, re-trace, recolour or approximate them.**
 
-- **Icon** — the ring + arc alone. Favicons, avatars, compact headers.
-- **Wordmark / lockup** — "TORC" with both arcs. The default identity.
-- **Tile** — ring in ink on an accent square, corner radius 22%. The only sanctioned inversion.
-- **Stacked** — wordmark over "TRIESTE OPEN ROBOTICS COMMUNITY" in mono caps.
+- **Wordmark / lockup** — the full logotype. The default identity; primary version in negative on Forest Ink, secondary on light grounds.
+- **Icon** — the joint alone: an accent link running between two pin rings, square format, no letterforms. The icon is never a letter.
+- **Tile** — the joint in ink on an accent square, corner radius 22%, single colour.
+- **Stacked** — wordmark over "ROBOTICS NETWORK TRIESTE" in mono caps. The bottom pin overhangs the baseline, so the descriptor gets a full extra line of air.
+- **Cuts** — `-small` (below ~28px: same open rings, ring stroke thickened to 44u so the hole survives), `-mono` (single ink; the I detached from the diagonal by a sliver so it stays a letter), `-knockout` (transparent pin cores, for photography). The pins are always open rings, at every size — never filled.
 
-Clear space: at least the height of the O ring on all sides. Minimum sizes: 20px wordmark height, 16px icon. Never stretch, outline, shadow, gradient-fill, or place the light-ink version on a light ground.
+Construction: em = 1000, cap height 700; link stroke 146 (= the I stem of Red Hat Display 800); pins r 78, ring 34, outer Ø 190; butt caps (the pins cover the stroke corners). Stacking order is non-negotiable: diagonal → right stem → TS → JO → **I over the diagonal** (or the letter loses its cap and the mark reads "JONTS") → top pin → bottom pin. The extra space before the I is load-bearing for the same reason.
+
+Clear space: **one pin outer diameter (190 units) on all sides**. **Align on cap-height and baseline, never on the bounding box** — the pins overhang above and below, and box-centring makes the logo look misaligned next to text. Minimum 28px wordmark height for ring-pin cuts; below that, the small cut. Never stretch, outline, shadow, gradient-fill, **never separate the I from the N into two stems, never tint the I in accent**, and never place the light version on a light ground.
 
 ---
 
 ## CONTENT FUNDAMENTALS
 
-**Language.** Italian first — TORC is a Trieste association and writes to its city in its own language. English is acceptable for code, READMEs and international project docs. Never mix the two inside one sentence; loanwords already standard in the field (open source, commit, hackathon, lidar, meetup) stay in English and are not italicised.
+**Language.** Italian first — JoiNTS is a Trieste association and writes to its city in its own language. English is acceptable for code, READMEs and international project docs. Never mix the two inside one sentence; loanwords already standard in the field (open source, commit, hackathon, lidar, meetup) stay in English and are not italicised.
 
-**Voice: first-person plural, always.** "Facciamo robotica", "Costruiamo sistemi reali", "Scegliamo con cura". TORC speaks as a group of people who build, never as an institution ("l'associazione si propone di…" is wrong). The reader is addressed informally as **tu**, and only when it matters: "Se leggendo queste righe hai pensato…", "Raccontaci cosa sai fare".
+**Voice: first-person plural, always.** "Facciamo robotica", "Costruiamo sistemi reali", "Scegliamo con cura". JoiNTS speaks as a group of people who build, never as an institution ("l'associazione si propone di…" is wrong). The reader is addressed informally as **tu**, and only when it matters: "Se leggendo queste righe hai pensato…", "Raccontaci cosa sai fare".
 
 **Register: concrete, technical, unhurried, slightly understated.** The proof is always a working thing. Prefer "codice che gira, hardware che si muove" over "soluzioni innovative". Name real places (Porto Vecchio, il Carso, Area Science Park), real hardware (Jetson Orin, ESP32, lidar 32ch), real states ("build rossa da 2 giorni").
 
@@ -48,13 +50,13 @@ Clear space: at least the height of the O ring on all sides. Minimum sizes: 20px
 
 **Structure.** Short declarative sentences. Statements end with a full stop *even as headlines* — the seven principles are written that way ("Costruiamo sistemi reali."). Em dashes for asides. Lists are numbered when they are commitments, bulleted only for machine facts.
 
-**Casing.** Sentence case everywhere in prose and UI. UPPERCASE only in mono contexts: kickers, labels, badges, tab strips, meta rows. Never title case in Italian. "TORC" is always four capitals.
+**Casing.** Sentence case everywhere in prose and UI. UPPERCASE only in mono contexts: kickers, labels, badges, tab strips, meta rows. Never title case in Italian. The name is written **"JoiNTS"** — capital J, N, T, S — and only inside all-caps mono contexts may it be set JOINTS. The statutory name is **JoiNTS APS**: the APS qualifier is mandatory (ex art. 12 CTS) in acts, correspondence and communications to the public.
 
 **Numbers & units.** Italian conventions: `18:30`, `4h`, `24V`, `18 set`. Time ranges use `→` (`18:30 → 21:00`). Relative time is short and mono: `3g`, `1s`, `2m`, `ultimo commit 3g`.
 
 **Emoji: never.** Not in UI, not in copy, not in headings, not in commit-flavoured microcopy. State is carried by an icon or a coloured dot. Unicode characters used as punctuation, not decoration: `·` separator, `→` direction, `—` aside.
 
-**Button and CTA style.** Imperative, 2–4 words, action first: "Entra in TORC", "Leggi il manifesto", "Proponi una demo", "Vedi il repo", "Iniziamo a costruire". Never "Scopri di più", never "Clicca qui".
+**Button and CTA style.** Imperative, 2–4 words, action first: "Entra in JoiNTS", "Leggi il manifesto", "Proponi una demo", "Vedi il repo", "Iniziamo a costruire". Never "Scopri di più", never "Clicca qui".
 
 **Error and empty states are factual, never apologetic.** "URL non valido." "Nessun progetto con questi filtri." "Serve chi abbia esperienza di calibrazione camera–lidar." No "Ops!", no exclamation marks, no anthropomorphised robot jokes.
 
@@ -70,18 +72,18 @@ Clear space: at least the height of the O ring on all sides. Minimum sizes: 20px
 ## VISUAL FOUNDATIONS
 
 ### Ground: two grounds, one register
-TORC has **two grounds**, and the choice between them is editorial, not a preference toggle.
+JoiNTS has **two grounds**, and the choice between them is editorial, not a preference toggle.
 
 **Ink** — `--bg-page` `#08130F`, a green-tinted carbon taken from the favicon ground, not a neutral black. This is the operator ground: heroes, hardware photography, section breaks, title and closing slides, the dashboard. Machined, quiet, photography-led.
 
-**Paper** — `[data-theme="light"]`, ground `--torc-paper-100` `#EFEDE6`. A warm neutral, deliberately not white and not green-tinted, so it sits beside ink without turning cold. This is the reading ground: documentation, site body copy, content and numbers slides, anything past a screenful of text.
+**Paper** — `[data-theme="light"]`, ground `--joints-paper-100` `#EFEDE6`. A warm neutral, deliberately not white and not green-tinted, so it sits beside ink without turning cold. This is the reading ground: documentation, site body copy, content and numbers slides, anything past a screenful of text.
 
 The rule of thumb: **ink for what you look at, paper for what you read.** A deck alternates — ink title, paper content, paper numbers, ink closing — so the ink lands as punctuation instead of droning for twenty slides. Within either ground there are exactly **two levels per artefact**: the ground and one step of surface. Never a third background colour.
 
 Every ground layer, field and scrim exists on both sides: on ink the field art is drawn in light strokes and the veil darkens toward the edges; on paper the art is forest ink and the veil lightens. Same attribute vocabulary, both directions.
 
 ### Colour
-One accent. `--torc-green-400` `#4FD1A0` on ink; `--torc-green-500` `#2FB98A` on paper (contrast). The green is used **sparingly and meaningfully**: the arc in the mark, kickers, links, the single primary button, live state, and the lit end of a rule. Large accent fills appear once per page at most (the closing CTA card).
+One accent. `--joints-green-400` `#4FD1A0` on ink; `--joints-green-500` `#2FB98A` on paper (contrast). The green is used **sparingly and meaningfully**: the N, TS and lower pin in the mark, kickers, links, the single primary button, live state, and the lit end of a rule. Large accent fills appear once per page at most (the closing CTA card).
 
 Signals read like **instrument LEDs** and sit deliberately far from the accent hue, so status never reads as brand: blue `#3FA9F5` (info), amber `#FFB020` (warning), red `#FF5247` (danger), each with a `-600` step for light grounds and a `-900` tint for backgrounds. They are **status-only**: never decoration, never a chart palette for its own sake. Neutrals are the ink ramp (950→500) and the sage/mist ramp; the greenish tint runs through both, so nothing in the palette is truly grey.
 
@@ -97,7 +99,7 @@ Everything is aliased: design against `--text-body`, `--surface-1`, `--border-su
 - **Red Hat Text** (400/500/600) — body and UI. Same forms, tuned for 13–20px. Paragraphs at 17px/1.62, max 66ch.
 - **Red Hat Mono** (400/500/600) — the *telemetry voice*: kickers, labels, badges, tab strips, meta rows, timestamps, code. Uppercase + `0.14em` tracking for kickers, sentence case + `0.02em` for metadata.
 
-All three are self-hosted in `assets/fonts/` (latin + latin-ext woff2). Note the delivered wordmark is outlines, not live text — set "TORC" as type only when the SVG cannot be used, and never re-letter the logo.
+All three are self-hosted in `assets/fonts/` (latin + latin-ext woff2). Note the delivered wordmark is outlines, not live text — set "JoiNTS" as type only when the SVG cannot be used, and never re-letter the logo.
 
 The signature type move is a three-part block: mono kicker (often with a 24px accent dash) → Poppins display statement → Plex Sans paragraph.
 
@@ -108,19 +110,19 @@ Every section opens on a **full-width hairline with a section index**: `01 / 06 
 
 ### Annotation — the HUD layer
 This is what makes the system read as engineering rather than marketing:
-- **`.torc-hud`** — machined corner brackets (top-left, bottom-right) around a plate or figure.
-- **`.torc-ticks`** — a measurement tick strip at 8px pitch, major tick every fifth. Used as a section separator and along the bottom edge of hero bands.
-- **`.torc-hud-label`** — 10px mono, 0.22em, uppercase, tabular figures. Figure indices (`FIG. 02`), coordinates (`45.6495 N`), timestamps, section counters.
+- **`.joints-hud`** — machined corner brackets (top-left, bottom-right) around a plate or figure.
+- **`.joints-ticks`** — a measurement tick strip at 8px pitch, major tick every fifth. Used as a section separator and along the bottom edge of hero bands.
+- **`.joints-hud-label`** — 10px mono, 0.22em, uppercase, tabular figures. Figure indices (`FIG. 02`), coordinates (`45.6495 N`), timestamps, section counters.
 - **`SpecTable`** — datasheet rows: mono uppercase key, mono tabular value. Numbers, not adjectives.
 All mono type is set with `font-variant-numeric: tabular-nums` so columns of figures align.
 
 ### Photography is the hero
-In this register the loudest element on any page is a **photograph of real hardware**, full-bleed, cool and slightly desaturated (`saturate(.78) contrast(1.04)`), always annotated with a figure index and a factual caption (subject · place · date). `ImagePlate` is the only sanctioned frame for it; with no `src` it renders an explicitly labelled empty plate rather than faking an image. **We have no photography yet — every plate in the kits is a placeholder waiting for real shots of TORC hardware.**
+In this register the loudest element on any page is a **photograph of real hardware**, full-bleed, cool and slightly desaturated (`saturate(.78) contrast(1.04)`), always annotated with a figure index and a factual caption (subject · place · date). `ImagePlate` is the only sanctioned frame for it; with no `src` it renders an explicitly labelled empty plate rather than faking an image. **We have no photography yet — every plate in the kits is a placeholder waiting for real shots of JoiNTS hardware.**
 
 ### Backgrounds & texture
 Behind and between the photographs, backgrounds are **structural, not pictorial**. Nothing in this system is a flat fill.
 
-**Grounds** (`.torc-field`) — every full-width surface (slide, hero, band) gets one layered ground: **scrim → wash → drawn field → grain**, over `--bg-page`. The class carries the layer stack; the variants are data attributes — `data-field` (art), `data-field-glow`, `data-field-depth`, `data-field-edge`:
+**Grounds** (`.joints-field`) — every full-width surface (slide, hero, band) gets one layered ground: **scrim → wash → drawn field → grain**, over `--bg-page`. The class carries the layer stack; the variants are data attributes — `data-field` (art), `data-field-glow`, `data-field-depth`, `data-field-edge`:
 - `data-field="survey"` — quoted blueprint plate, tiles at 240px. The default for content-bearing surfaces.
 - `data-field="contour"` — Karst isolines. Title and quote surfaces.
 - `data-field="schematic"` — 45°-only PCB traces and vias. Code and technical surfaces; also the empty state of every `ImagePlate`.
@@ -131,10 +133,10 @@ Behind and between the photographs, backgrounds are **structural, not pictorial*
 
 Art always sits *under* the scrim, so type never fights it. Source SVGs live in `assets/backgrounds/`; alphas are baked at mist 4–15%, so a field reads as machined structure at 1:1 and disappears at thumbnail size.
 - **Instrument density** (`data-instrument="full|quiet|off"`) — how loud the HUD chrome runs. `full` for the dashboard and technical diagrams (grid, ticks and brackets all present); `quiet` for the site and decks, where structure should be sensed rather than seen; `off` for long-form reading, which also drops the drawn field entirely. Set it on any container; it re-scales `--border-grid`, `--border-tick` and `--border-hud` for everything inside.
-- **Tick strips** (`.torc-ticks`) — the precision motif; separates major bands.
-- **Blueprint grid** (`.torc-grid`) / **45° duotone stripes** (`.torc-stripes`) — the flat single-layer predecessors. Still fine for a small panel or a fill behind a mark; use `.torc-field` for anything full-width.
-- **The five delivered elements** — torque arcs, grid + square, node network, horizontal trace, duotone ring. These are **small decorative marks, not illustrations**: use them at **48–96px** as a corner mark, a card glyph, or (the trace) a full-width 20–44px rule. One per screen. Never scale one up to fill a hero, a column or a slide half.
-- **Lit rule** (`.torc-rule`) — a hairline fading ink → accent, under section kickers.
+- **Tick strips** (`.joints-ticks`) — the precision motif; separates major bands.
+- **Blueprint grid** (`.joints-grid`) / **45° duotone stripes** (`.joints-stripes`) — the flat single-layer predecessors. Still fine for a small panel or a fill behind a mark; use `.joints-field` for anything full-width.
+- **The five elements** — linkage (a chain of links and pins, also a section divider), grid + square, node network, horizontal trace, duotone ring. These are **small decorative marks, not illustrations**: use them at **48–96px** as a corner mark, a card glyph, or (the trace) a full-width 20–44px rule. One per screen. Never scale one up to fill a hero, a column or a slide half.
+- **Lit rule** (`.joints-rule`) — a hairline fading ink → accent, under section kickers.
 
 No decorative gradients. The only gradients in the system are the field scrims and washes, and they exist to build depth and protect legibility — no mesh, no glow around elements, no bluish-purple anything. If imagery is added later it should be cool-toned, low-saturation documentary photography of real hardware and real places — workshop light, not studio gloss.
 
@@ -149,10 +151,10 @@ A card is: `--surface-1` fill, 1px hairline, 3px radius, 24px padding, **no shad
 Dark UI separates with hairlines, not drop shadows. Shadows are reserved for things that genuinely float — menus, dialogs, popovers (`--shadow-md/lg/xl`, cool and near-black). Glow is **functional only**: `--glow-dot` on the pulsing live indicator. No glow on buttons, no glow on cards, no glow as decoration.
 
 ### Transparency & blur
-Used in three places only: the sticky header scrim (`--surface-header`, 88% ink + 14px blur), glass card fills (4–7% mist, 12px blur), and scrims over imagery (60% ink). Alphas are tokens (`--torc-alpha-*`) — never write a raw `rgba()` in a design.
+Used in three places only: the sticky header scrim (`--surface-header`, 88% ink + 14px blur), glass card fills (4–7% mist, 12px blur), and scrims over imagery (60% ink). Alphas are tokens (`--joints-alpha-*`) — never write a raw `rgba()` in a design.
 
 ### Motion — servo, not spring
-Short, firm, mechanical. `--ease-servo` `cubic-bezier(.33,0,.15,1)` is the signature: quick departure, decisive stop, **no overshoot, no bounce, no elastic**. Durations: 140ms hover/press, 220ms enter/exit, 380ms section reveal, 1100ms for a full rotation (spinners, the torque arc). Reveals are opacity + a 8–12px rise, never scale-in. `prefers-reduced-motion` kills everything.
+Short, firm, mechanical. `--ease-servo` `cubic-bezier(.33,0,.15,1)` is the signature: quick departure, decisive stop, **no overshoot, no bounce, no elastic**. Durations: 140ms hover/press, 220ms enter/exit, 380ms section reveal, 1100ms for a full rotation (spinners). Reveals are opacity + a 8–12px rise, never scale-in. `prefers-reduced-motion` kills everything.
 
 ### States
 - **Hover** — surfaces lighten one step (`--surface-glass`), borders go from default to strong or accent; the primary button lightens to `green-300`. Interactive cards draw a 1.5px accent bar across the top edge. Text links change colour only, plus an underline at 3px offset.
@@ -197,7 +199,7 @@ Short, firm, mechanical. `--ease-servo` `cubic-bezier(.33,0,.15,1)` is the signa
 - `SKILL.md` — Agent-Skill front matter for use in Claude Code.
 - `thumbnail.html` — the design system's homepage tile.
 
-**`tokens/`** — `fonts.css` (@font-face), `colors.css`, `typography.css`, `spacing.css`, `shape.css`, `elevation.css`, `motion.css`, `semantic.css` (aliases + light theme), `base.css` (resets, element defaults, `.torc-kicker` / `.torc-grid` / `.torc-stripes` / `.torc-rule` utilities).
+**`tokens/`** — `fonts.css` (@font-face), `colors.css`, `typography.css`, `spacing.css`, `shape.css`, `elevation.css`, `motion.css`, `semantic.css` (aliases + light theme), `base.css` (resets, element defaults, `.joints-kicker` / `.joints-grid` / `.joints-stripes` / `.joints-rule` utilities).
 
 **`components/`** — `components.css` (the class layer every component uses) plus:
 
@@ -213,18 +215,18 @@ Short, firm, mechanical. `--ease-servo` `cubic-bezier(.33,0,.15,1)` is the signa
 
 Each directory has `<Name>.jsx` + `<Name>.d.ts` (props + adherence contract) + `<Name>.prompt.md` (when to use, example, variants) and one `*.card.html` gallery card.
 
-**`guidelines/`** — 24 specimen cards: ink ramp, sage & mist, torque green, signals, text tokens, surfaces & borders, light theme, display/body/mono/pairing/families type, space scale, blueprint grid, radii, control heights, elevation & glow, motion, logo variants, graphic elements, backgrounds.
+**`guidelines/`** — 24 specimen cards: ink ramp, sage & mist, Torque Mint, signals, text tokens, surfaces & borders, light theme, display/body/mono/pairing/families type, space scale, blueprint grid, radii, control heights, elevation & glow, motion, logo variants, graphic elements, backgrounds.
 
 **`ui_kits/website/`** — the association's public site: `index.html` (interactive, in-page routing) + `HomeScreen`, `ManifestoScreen`, `ProjectsScreen`, `ProjectDetailScreen`, `EventsScreen`, `JoinScreen`, `content.js`, and its own `README.md`.
 
-**`ui_kits/docs/`** — `docs.torc.community`: sidebar tree + sticky TOC + breadcrumbs + prev/next, three real pages (Introduzione, Installazione with verified command blocks, `harbor_slam` reference with Topic/Parametri/Servizi tabs), and the prose primitives used inside articles.
+**`ui_kits/docs/`** — `docs.joints.community`: sidebar tree + sticky TOC + breadcrumbs + prev/next, three real pages (Introduzione, Installazione with verified command blocks, `harbor_slam` reference with Topic/Parametri/Servizi tabs), and the prose primitives used inside articles.
 
-**`ui_kits/dashboard/`** — *Officina TORC*, the internal console: icon rail + top bar shell, rig fleet with battery/CPU/temperature meters and telemetry tabs, CI build table with filters. Two rail views are intentionally left as "not designed yet" states.
+**`ui_kits/dashboard/`** — *Officina JoiNTS*, the internal console: icon rail + top bar shell, rig fleet with battery/CPU/temperature meters and telemetry tabs, CI build table with filters. Two rail views are intentionally left as "not designed yet" states.
 
 **`slides/`** — eight 1280×720 slide archetypes (title, section divider, content, comparison, stats, code, quote, closing) as standalone HTML, plus the deck rules in `slides/README.md`.
 
-**`templates/site-page/`** — `SitePage.dc.html`, the starting template consuming projects get: a full ink-ground TORC page (sticky header, blueprint-grid hero, project grid, principles, accent CTA, footer) built from this system's components, plus `ds-base.js` which loads `styles.css` + the compiled bundle.
+**`templates/site-page/`** — `SitePage.dc.html`, the starting template consuming projects get: a full ink-ground JoiNTS page (sticky header, blueprint-grid hero, project grid, principles, accent CTA, footer) built from this system's components, plus `ds-base.js` which loads `styles.css` + the compiled bundle.
 
-**`assets/`** — `logo/` (all delivered marks + the source PDF), `elements/` (five brand motifs), `icons/` (82 Lucide SVGs), `fonts/` (18 woff2 subsets), `logo.svg` (default mark).
+**`assets/`** — `logo/` (the full cut set: dark / light / knockout / mono / small wordmarks, ligature icons, accent tile, favicon), `elements/` (five brand motifs), `icons/` (82 Lucide SVGs), `fonts/` (18 woff2 subsets), `logo.svg` (default mark).
 
 **`uploads/`** — the original delivered files, untouched.

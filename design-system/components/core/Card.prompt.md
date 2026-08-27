@@ -1,4 +1,4 @@
-Every panel, tile and modal body in TORC is a Card. Hairline border + 14px radius; shadows are reserved for floating layers.
+Every panel, tile and modal body in JoiNTS is a Card. Hairline border + 14px radius; shadows are reserved for floating layers.
 
 ```jsx
 <Card>…</Card>

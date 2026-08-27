@@ -17,7 +17,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, '') || Astro.site!.href;
-const ogImage = new URL('/social/torc-icon-on-accent.svg', Astro.site).href;
+const ogImage = new URL('/social/joints-icon-on-accent.svg', Astro.site).href;
 ---
 
 <!DOCTYPE html>
@@ -30,12 +30,12 @@ const ogImage = new URL('/social/torc-icon-on-accent.svg', Astro.site).href;
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
 
-  <link rel="icon" type="image/svg+xml" href="/social/torc-favicon.svg" />
-  <link rel="apple-touch-icon" href="/social/torc-icon-on-accent.svg" />
+  <link rel="icon" type="image/svg+xml" href="/social/joints-favicon.svg" />
+  <link rel="apple-touch-icon" href="/social/joints-icon-on-accent.svg" />
   <meta name="theme-color" content="#08130F" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="TORC" />
+  <meta property="og:site_name" content="JoiNTS" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:url" content={canonical} />
   <meta property="og:title" content={title} />

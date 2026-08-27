@@ -6,16 +6,16 @@ import { PRINCIPLES } from '../content.js';
 ---
 
 <Base
-  title="Manifesto — TORC"
-  description="Il manifesto di TORC: i sette principi dell'associazione, per esteso."
+  title="Manifesto — JoiNTS"
+  description="Il manifesto di JoiNTS: i sette principi dell'associazione, per esteso."
 >
 
-<section class="torc-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:112px 64px 64px">
+<section class="joints-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:112px 64px 64px">
 <div style="max-width:1280px;margin:0 auto">
-<span class="torc-kicker">Manifesto v1.0 · testo integrale</span>
+<span class="joints-kicker">Manifesto v1.0 · testo integrale</span>
 <h1 style="font-family:var(--font-display);font-size:clamp(40px,4.6vw,64px);font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0;max-width:26ch">Manifesto della community.</h1>
-<div class="torc-ticks torc-ticks--major" style="margin-top:56px"></div>
-<div style="display:flex;justify-content:space-between;margin-top:10px"><span class="torc-hud-label">Manifesto</span><span class="torc-hud-label">45.6495 N · Trieste · torc.it</span></div>
+<div class="joints-ticks joints-ticks--major" style="margin-top:56px"></div>
+<div style="display:flex;justify-content:space-between;margin-top:10px"><span class="joints-hud-label">Manifesto</span><span class="joints-hud-label">45.6495 N · Trieste · torc.it</span></div>
 </div>
 </section>
 
@@ -25,26 +25,26 @@ import { PRINCIPLES } from '../content.js';
 <section style="padding:96px 64px">
 <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:80px;align-items:start">
 <nav style="position:sticky;top:104px;display:flex;flex-direction:column;gap:10px">
-<span class="torc-hud-label">Indice</span>
+<span class="joints-hud-label">Indice</span>
 <a href="#premessa" style="font-family:var(--font-mono);font-size:13px;color:var(--text-accent);text-decoration:none">Premessa</a>
 <a href="#principi" style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);text-decoration:none">01—07 Principi</a>
 <a href="#conclusione" style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);text-decoration:none">Conclusione</a>
 <div style="margin-top:16px"><Button variant="ghost" size="sm" mono icon="download">PDF</Button></div>
 </nav>
 <article style="max-width:66ch">
-<div id="premessa" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:32px"><span class="torc-hud-label" style="color:var(--text-accent)">Premessa</span></div>
+<div id="premessa" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin-bottom:32px"><span class="joints-hud-label" style="color:var(--text-accent)">Premessa</span></div>
 <p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0 0 24px">A Trieste, e nell'area che la circonda, ci sono persone che la robotica la fanno davvero: ogni giorno, professionisti, ricercatori e studenti progettano, scrivono codice e costruiscono sistemi che funzionano realmente, con competenza e metodo. Allo stesso tempo, questo territorio è pieno di sfide e problemi concreti che aspettano solo di incontrare chi abbia le capacità, la curiosità e la voglia di affrontarli.</p>
 <p style="font-family:var(--font-display);font-size:28px;font-weight:500;line-height:1.24;letter-spacing:-.02em;color:var(--text-strong);margin:32px 0">Eppure, tra questi due mondi manca ancora un ponte.</p>
 <p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0 0 24px">Esistono realtà che fanno divulgazione, didattica, robotica educativa, e il loro ruolo è fondamentale. Ma manca uno spazio dove chi sa costruire possa incontrarsi per fare ricerca insieme, in modo aperto, sotto la spinta di un interesse genuino.</p>
-<p style="font-family:var(--font-display);font-size:28px;font-weight:500;line-height:1.24;letter-spacing:-.02em;color:var(--text-strong);margin:32px 0">TORC nasce per essere quel ponte.</p>
+<p style="font-family:var(--font-display);font-size:28px;font-weight:500;line-height:1.24;letter-spacing:-.02em;color:var(--text-strong);margin:32px 0">JoiNTS nasce per essere quel ponte.</p>
 <p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0">Non siamo un'azienda, non siamo un fornitore di servizi, non siamo una scuola. Siamo una comunità di persone che condividono una passione e una convinzione: che le idee migliori nascano quando si lavora fianco a fianco, senza vincoli, su ciò che vale la pena costruire.</p>
 
-<div id="principi" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin:72px 0 32px"><span class="torc-hud-label" style="color:var(--text-accent)">I nostri principi</span><span class="torc-hud-label" style="margin-left:auto">01 — 07</span></div>
+<div id="principi" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin:72px 0 32px"><span class="joints-hud-label" style="color:var(--text-accent)">I nostri principi</span><span class="joints-hud-label" style="margin-left:auto">01 — 07</span></div>
 {PRINCIPLES.map((p) => (
   <PrincipleItem number={p.number} title={p.title}>{p.body}</PrincipleItem>
 ))}
 
-<div id="conclusione" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin:72px 0 32px"><span class="torc-hud-label" style="color:var(--text-accent)">Conclusione</span></div>
+<div id="conclusione" style="display:flex;align-items:center;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);margin:72px 0 32px"><span class="joints-hud-label" style="color:var(--text-accent)">Conclusione</span></div>
 <p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0 0 24px">Crediamo che da questo modo di lavorare — aperto, concreto, guidato dalla passione — possano nascere le competenze, le collaborazioni e le imprese che renderanno Trieste un punto di riferimento per la robotica.</p>
 <p style="font-size:19px;line-height:1.68;color:var(--text-body);margin:0">Non promettiamo rivoluzioni: promettiamo di costruire, insieme, e di condividere apertamente tutto ciò che impariamo lungo il percorso.</p>
 </article>
@@ -52,10 +52,10 @@ import { PRINCIPLES } from '../content.js';
 </section>
 </div>
 
-<section class="torc-field" data-field="scan" data-field-glow="lit" style="padding:96px 64px;border-top:1px solid var(--border-subtle)">
+<section class="joints-field" data-field="scan" data-field-glow="lit" style="padding:96px 64px;border-top:1px solid var(--border-subtle)">
 <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
 <h2 style="font-family:var(--font-display);font-size:40px;font-weight:600;line-height:1.08;letter-spacing:-.03em;color:var(--text-strong);margin:0;max-width:30ch">Se leggendo queste righe hai pensato «questo è il luogo che stavo cercando», allora probabilmente lo è.</h2>
-<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in TORC</Button>
+<Button variant="primary" size="lg" mono iconEnd="arrow-right" href="/entra/">Entra in JoiNTS</Button>
 </div>
 </section>
 

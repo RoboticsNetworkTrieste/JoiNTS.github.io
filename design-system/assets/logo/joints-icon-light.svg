@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="180" height="180" role="img" aria-label="JoiNTS - Robotics Network Trieste">
+<title>JoiNTS</title>
+<mask id="jk" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><rect width="100" height="100" fill="#fff"></rect><circle cx="30" cy="72" r="15"></circle><circle cx="70" cy="28" r="15"></circle></mask>
+<line x1="30" y1="72" x2="70" y2="28" stroke="#177A59" stroke-width="13" mask="url(#jk)"></line>
+<circle cx="30" cy="72" r="11" fill="none" stroke="#0F231B" stroke-width="8"></circle>
+<circle cx="70" cy="28" r="11" fill="none" stroke="#177A59" stroke-width="8"></circle>
+</svg>

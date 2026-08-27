@@ -1,0 +1,33 @@
+<!-- @dsCard group="Components" viewport="700x260" name="Feedback — Alert, StatusDot, Spinner" subtitle="Inline messages and activity states" -->
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{padding:24px}</style>
+</head><body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const NS = window.TORCDesignSystem_49bcd9;
+const { Alert, StatusDot, Spinner, Divider } = NS;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div style={{display:'flex',flexDirection:'column',gap:12}}>
+    <Alert tone="ok" title="Proposta inviata">Ti scriviamo entro una settimana.</Alert>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
+      <Alert tone="warn">La build su Jazzy è rossa da 2 giorni.</Alert>
+      <Alert tone="info">Il meetup di settembre cambia sede.</Alert>
+    </div>
+    <Divider />
+    <div style={{display:'flex',alignItems:'center',gap:24,flexWrap:'wrap'}}>
+      <StatusDot state="live">sviluppo attivo</StatusDot>
+      <StatusDot state="info">in revisione</StatusDot>
+      <StatusDot state="warn">build rossa</StatusDot>
+      <StatusDot state="danger">bloccato</StatusDot>
+      <StatusDot>archiviato</StatusDot>
+      <Spinner size={20} />
+    </div>
+  </div>
+);
+</script>
+</body></html>

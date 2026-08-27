@@ -6,7 +6,7 @@
   --dur-fast:140ms; /* @kind other */   /* hover, press */
   --dur-base:220ms; /* @kind other */   /* enter/exit, expand */
   --dur-slow:380ms; /* @kind other */   /* page/section reveal */
-  --dur-rotate:1100ms; /* @kind other *//* torque arc spin */
+  --dur-rotate:1100ms; /* @kind other *//* full-rotation spin (spinners) */
 
   --ease-standard:cubic-bezier(.2,0,.2,1); /* @kind other */
   --ease-out:cubic-bezier(0,0,.2,1); /* @kind other */

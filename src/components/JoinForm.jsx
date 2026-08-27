@@ -24,7 +24,7 @@ export function JoinForm() {
 
   return (
     <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-      <input type="hidden" name="_subject" value="Nuova richiesta di adesione a TORC" />
+      <input type="hidden" name="_subject" value="Nuova richiesta di adesione a JoiNTS" />
       {/* Formspree's honeypot: a bot fills it, a person never sees it. */}
       <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} />
 
@@ -53,7 +53,7 @@ export function JoinForm() {
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
         <Button variant="primary" size="lg" mono type="submit" disabled={state === 'sending'} iconEnd="arrow-right">Invia richiesta</Button>
-        <span className="torc-hud-label">Rispondiamo via email a {SITE.email}</span>
+        <span className="joints-hud-label">Rispondiamo via email a {SITE.email}</span>
       </div>
 
       {state === 'ok' && (

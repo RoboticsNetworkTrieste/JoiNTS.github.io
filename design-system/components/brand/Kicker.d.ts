@@ -1,4 +1,4 @@
-/** Uppercase mono eyebrow — TORC's signature label above a heading or beside a rule. */
+/** Uppercase mono eyebrow — JoiNTS's signature label above a heading or beside a rule. */
 export interface KickerProps {
   children?: React.ReactNode;
   /** Prefix a 24px accent dash. Use on section headers, not inside cards. */

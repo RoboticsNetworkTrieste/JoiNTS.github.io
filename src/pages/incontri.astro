@@ -9,15 +9,15 @@ import { ROWS_MEETUP, ROADMAP } from '../content.js';
 ---
 
 <Base
-  title="Incontri — TORC"
+  title="Incontri — JoiNTS"
   description="Meetup e hackathon: un intervento tecnico, un problema aperto, il tempo per discuterne. Il calendario si definisce al primo incontro."
 >
 
-<section class="torc-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:112px 64px 64px">
+<section class="joints-field" data-field="contour" data-field-glow="wash" data-field-depth="hero" style="padding:112px 64px 64px">
 <div style="max-width:1280px;margin:0 auto">
-<span class="torc-kicker">Incontri</span>
+<span class="joints-kicker">Incontri</span>
 <h1 style="font-family:var(--font-display);font-size:clamp(40px,4.6vw,64px);font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0;max-width:26ch">Ci incontriamo di persona per confrontarci e condividere ciò che impariamo.</h1>
-<div class="torc-ticks torc-ticks--major" style="margin-top:48px"></div>
+<div class="joints-ticks joints-ticks--major" style="margin-top:48px"></div>
 </div>
 </section>
 
@@ -44,14 +44,14 @@ import { ROWS_MEETUP, ROADMAP } from '../content.js';
 <div style="height:96px"></div>
 </div>
 
-<section class="torc-field" data-field="survey" data-field-glow="lit" data-field-depth="open" style="padding:96px 64px;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+<section class="joints-field" data-field="survey" data-field-glow="lit" data-field-depth="open" style="padding:96px 64px;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
 <div style="max-width:1280px;margin:0 auto">
 <SectionRule index="03 / 04" label="Hackathon e sfide" mb="40px" />
 <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end">
 <div>
 <h2 style="font-family:var(--font-display);font-size:44px;font-weight:600;line-height:1.04;letter-spacing:-.03em;color:var(--text-strong);margin:0;max-width:22ch">Due giorni, un obiettivo, un repository.</h2>
 <p style="font-size:18px;line-height:1.62;color:var(--text-secondary);margin:24px 0 0;max-width:52ch">Il lavoro procede più rapidamente quando un gruppo si concentra su un solo problema, entro un tempo definito. Da uno sprint nasce il primo repository, che l'associazione porta poi a termine.</p>
-<span class="torc-hud-label" style="display:block;margin-top:24px">Il risultato resta pubblico, con la storia dei commit</span>
+<span class="joints-hud-label" style="display:block;margin-top:24px">Il risultato resta pubblico, con la storia dei commit</span>
 </div>
 <div style="display:flex;gap:56px">
 <StatBlock value="48" accentPart="h" label="durata dello sprint" />
@@ -74,8 +74,8 @@ import { ROWS_MEETUP, ROADMAP } from '../content.js';
         rendered the idle dot. Kept as-is — making it live is a design change,
         not part of this migration. */}
     {step.dot
-      ? <div style="display:flex;align-items:center;gap:10px"><span class="torc-hud-label">{String(i + 1).padStart(2, '0')}</span><StatusDot /></div>
-      : <span class="torc-hud-label">{String(i + 1).padStart(2, '0')}</span>}
+      ? <div style="display:flex;align-items:center;gap:10px"><span class="joints-hud-label">{String(i + 1).padStart(2, '0')}</span><StatusDot /></div>
+      : <span class="joints-hud-label">{String(i + 1).padStart(2, '0')}</span>}
     <h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--text-strong);margin:0">{step.title}</h3>
     <p style="font-size:16px;line-height:1.56;color:var(--text-secondary);margin:0">{step.body}</p>
   </div>

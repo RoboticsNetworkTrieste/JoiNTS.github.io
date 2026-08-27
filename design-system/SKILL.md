@@ -1,6 +1,6 @@
 ---
-name: torc-design
-description: Use this skill to generate well-branded interfaces and assets for TORC (Trieste Open Robotics Community), either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for protoyping.
+name: joints-design
+description: Use this skill to generate well-branded interfaces and assets for JoiNTS (Robotics Network Trieste), either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for protoyping.
 user-invocable: true
 ---
 
