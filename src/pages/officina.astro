@@ -1,0 +1,33 @@
+---
+// Officina JoiNTS — the members' console.
+//
+// client:only, not client:load: every pixel here depends on the member's token
+// and on live GitHub data, so there is nothing worth prerendering, and the
+// token is read from localStorage which does not exist at build time.
+//
+// noindex because the page is useless to a search engine and to anyone without
+// a token. It is not a security measure — the console's real gate is that
+// GitHub will not return org data to a token that is not a member's.
+import Base from '../layouts/Base.astro';
+import Officina from '../officina/Officina.jsx';
+---
+
+<Base
+  bare
+  noindex
+  title="Officina — JoiNTS"
+  description="Console interna di JoiNTS: repository, attività e board dell'organizzazione GitHub."
+>
+  <Officina client:only="react" />
+
+  <noscript>
+    <div style="max-width:560px;margin:0 auto;padding:96px 32px;display:flex;flex-direction:column;gap:16px">
+      <span class="joints-kicker">Officina</span>
+      <h1 style="font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.025em;color:var(--text-strong);margin:0">Serve JavaScript.</h1>
+      <p style="font-size:17px;line-height:1.62;color:var(--text-secondary);margin:0">
+        La console parla con l'API di GitHub dal browser: senza JavaScript non ha dati da mostrare.
+        Il resto del sito funziona comunque — <a href="/">torna alla home</a>.
+      </p>
+    </div>
+  </noscript>
+</Base>

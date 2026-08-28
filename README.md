@@ -19,9 +19,12 @@ src/pages/          one file per URL — this is where the content lives
   progetti.astro      /progetti/
   incontri.astro      /incontri/
   entra.astro         /entra/
+  officina.astro      /officina/ — the members' console, noindex
 src/content.js      ALL the copy and data. Most edits belong here, not in a page.
 src/layouts/        the page shell: <head>, header, footer
 src/components/     pieces shared across pages, plus the two form islands
+src/officina/       the console: GitHub API layer, board, views. Client-side
+                    only — it runs on the member's own token.
 design-system/      the JoiNTS Design System, vendored. The source of truth for
                     every colour, size, font, icon and component.
 public/             copied to the site root as-is: CNAME, favicon, social image
@@ -69,6 +72,33 @@ form on `/entra/`. Those are the only parts of the site that need JavaScript to 
 
 Everything else — including every button, badge and spec table — is static markup by the
 time it is served.
+
+## The members' console (`/officina/`)
+
+Officina JoiNTS reads the organisation's repositories, activity and Projects boards, and
+writes card moves back to GitHub. It runs entirely in the browser on a token the member
+supplies.
+
+**It is a member console, not a secret area, and the difference matters.** The page is
+public HTML that anyone can load. What is gated is the *data*: GitHub returns nothing
+about the org unless the token belongs to an active member, which the console checks
+against `/user/memberships/orgs/{org}` before showing anything.
+
+Why a pasted token and not a "Log in with GitHub" button: this site is static, so there
+is no server to hold an OAuth client secret, and a secret shipped to a browser is not a
+secret. GitHub's device flow needs no secret but its token endpoint sends no CORS
+headers, so a browser cannot complete it either. The token lives in `localStorage`, goes
+to `api.github.com` and nowhere else, and "Esci" clears it.
+
+To make this a real login wall, add a backend — a small Cloudflare Worker doing the OAuth
+code exchange is enough — and replace `token` and the gate in
+[`src/officina/Officina.jsx`](src/officina/Officina.jsx). Everything else in
+[`src/officina/gh.js`](src/officina/gh.js) stays as it is.
+
+Members need a fine-grained token owned by the org, with Metadata / Contents / Issues /
+Pull requests read, Members read, and **Projects read-and-write** — without the last one
+the board loads but cards cannot be moved, and the console says so rather than failing
+silently.
 
 ## Deploying
 

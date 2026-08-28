@@ -13,9 +13,13 @@ import textFont from '../../design-system/assets/fonts/red-hat-text-400-latin.wo
 interface Props {
   title: string;
   description: string;
+  // `bare` drops the site chrome and runs the HUD at full density: the console
+  // brings its own rail and top bar. `noindex` keeps a page out of search.
+  bare?: boolean;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, bare = false, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, '') || Astro.site!.href;
 const ogImage = new URL('/social/joints-icon-on-accent.svg', Astro.site).href;
 ---
@@ -29,6 +33,7 @@ const ogImage = new URL('/social/joints-icon-on-accent.svg', Astro.site).href;
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
 
   <link rel="icon" type="image/svg+xml" href="/social/joints-favicon.svg" />
   <link rel="apple-touch-icon" href="/social/joints-icon-on-accent.svg" />
@@ -50,11 +55,17 @@ const ogImage = new URL('/social/joints-icon-on-accent.svg', Astro.site).href;
 
 <body>
   <!-- data-instrument="quiet": the HUD chrome is sensed, not seen. The site
-       and the decks run quiet; only the dashboard runs "full". -->
-  <div data-instrument="quiet" style="background:var(--bg-page);min-height:100vh">
-    <SiteHeader />
-    <slot />
-    <SiteFooter />
-  </div>
+       and the decks run quiet; only the console runs "full". -->
+  {bare ? (
+    <div data-instrument="full" style="background:var(--bg-page-deep);min-height:100vh">
+      <slot />
+    </div>
+  ) : (
+    <div data-instrument="quiet" style="background:var(--bg-page);min-height:100vh">
+      <SiteHeader />
+      <slot />
+      <SiteFooter />
+    </div>
+  )}
 </body>
 </html>

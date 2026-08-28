@@ -50,8 +50,10 @@ import { ROWS_MEETUP } from '../content.js';
 ```
 
 These render at build time. A component only needs `client:load` if it has state a
-visitor changes — on this site that is just the two forms. **Adding `client:load` to
-something that does not need it ships React to every visitor for no reason.**
+visitor changes — on this site that is the two forms, and `/officina/`, which is
+`client:only` because it has nothing to render until the member's token comes back from
+`localStorage`. **Adding `client:load` to something that does not need it ships React to
+every visitor for no reason.**
 
 ## Things the design system will not forgive
 

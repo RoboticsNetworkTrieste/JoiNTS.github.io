@@ -15,8 +15,8 @@ export const SITE = {
   description:
     'Associazione di robotica a Trieste. Progettiamo, scriviamo codice e facciamo muovere hardware. Tutto open source, dal primo commit.',
   email: 'info@joint.ts.it',
-  github: 'https://github.com/TriesteOpenRoboticsCommunity',
-  githubLabel: 'github.com/TriesteOpenRoboticsCommunity',
+  github: 'https://github.com/RoboticsNetworkTrieste',
+  githubLabel: 'github.com/RoboticsNetworkTrieste',
   whatsapp: 'https://chat.whatsapp.com/J99EPLX7dGtDGLHxT2mzm9',
   coords: '45.6495 N · 13.7768 E',
 };
@@ -47,6 +47,7 @@ export const FOOTER = {
         { label: 'Progetti', href: '/progetti/' },
         { label: 'GitHub', href: SITE.github },
         { label: 'WhatsApp', href: SITE.whatsapp },
+        { label: 'Officina · soci', href: '/officina/' },
       ],
     },
     {
