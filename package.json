@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "torc.it — the public site of JoiNTS (Robotics Network Trieste)",
+  "description": "joint.ts.it — the public site of JoiNTS (Robotics Network Trieste)",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

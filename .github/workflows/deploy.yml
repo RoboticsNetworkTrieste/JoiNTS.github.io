@@ -1,4 +1,4 @@
-name: Build and deploy torc.it
+name: Build and deploy joint.ts.it
 
 # Every push to main rebuilds the site and publishes it. Nothing is committed
 # back — dist/ is an artifact, not a branch.

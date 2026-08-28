@@ -1,6 +1,6 @@
-# torc.it
+# joint.ts.it
 
-The public site of **JoiNTS — Robotics Network Trieste**, at [torc.it](https://torc.it).
+The public site of **JoiNTS — Robotics Network Trieste**, at [joint.ts.it](https://joint.ts.it).
 
 Built with [Astro](https://astro.build). Five pages, real URLs, and almost no JavaScript:
 three of the five ship **zero** bytes of it, and the other two ship only the form they

@@ -2,11 +2,11 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
-// torc.it is a custom domain on GitHub Pages, so the site lives at the root.
+// joint.ts.it is a custom domain on GitHub Pages, so the site lives at the root.
 // If it ever moves to <org>.github.io/<repo>/, set `base` here and route every
 // internal link through import.meta.env.BASE_URL.
 export default defineConfig({
-  site: 'https://torc.it',
+  site: 'https://joint.ts.it',
   integrations: [react()],
 
   // Directory output: /manifesto/ is emitted as manifesto/index.html.

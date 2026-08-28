@@ -1,8 +1,8 @@
-/* @ds-bundle: {"format":4,"namespace":"TORCDesignSystem_49bcd9","components":[{"name":"Kicker","sourcePath":"components/brand/Kicker.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"CodeBlock","sourcePath":"components/content/CodeBlock.jsx"},{"name":"EventCard","sourcePath":"components/content/EventCard.jsx"},{"name":"ImagePlate","sourcePath":"components/content/ImagePlate.jsx"},{"name":"PrincipleItem","sourcePath":"components/content/PrincipleItem.jsx"},{"name":"ProjectCard","sourcePath":"components/content/ProjectCard.jsx"},{"name":"Quote","sourcePath":"components/content/Quote.jsx"},{"name":"SectionHeading","sourcePath":"components/content/SectionHeading.jsx"},{"name":"SpecTable","sourcePath":"components/content/SpecTable.jsx"},{"name":"StatBlock","sourcePath":"components/content/StatBlock.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Spinner.jsx"},{"name":"StatusDot","sourcePath":"components/feedback/StatusDot.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"ICONS","sourcePath":"components/icon/Icon.jsx"},{"name":"ICON_NAMES","sourcePath":"components/icon/Icon.jsx"},{"name":"Icon","sourcePath":"components/icon/Icon.jsx"},{"name":"SiteFooter","sourcePath":"components/navigation/SiteFooter.jsx"},{"name":"SiteHeader","sourcePath":"components/navigation/SiteHeader.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"}],"sourceHashes":{"components/brand/Kicker.jsx":"c33f3abcdbdf","components/brand/Logo.jsx":"996f1db104c3","components/content/CodeBlock.jsx":"abef407d0030","components/content/EventCard.jsx":"6dbb4ef32f48","components/content/ImagePlate.jsx":"4b0f90be099a","components/content/PrincipleItem.jsx":"f8f1e8f0ee14","components/content/ProjectCard.jsx":"fe27b30aae70","components/content/Quote.jsx":"6ecb09ca517f","components/content/SectionHeading.jsx":"77192444a412","components/content/SpecTable.jsx":"780a5a8a44c5","components/content/StatBlock.jsx":"976589c6a95d","components/core/Badge.jsx":"625128fca1ab","components/core/Button.jsx":"f5577f524d3e","components/core/Card.jsx":"8e05bbe82ca1","components/core/Divider.jsx":"de29fecc73ab","components/core/IconButton.jsx":"99edcb6bc6e8","components/core/Tag.jsx":"be6f3fad9578","components/feedback/Alert.jsx":"a11cd417970e","components/feedback/Spinner.jsx":"6c2262d9c6a6","components/feedback/StatusDot.jsx":"755a47e7c6f4","components/forms/Checkbox.jsx":"4d459936ee15","components/forms/Field.jsx":"eb1cbeec5048","components/forms/Input.jsx":"2b74baa128a4","components/forms/Select.jsx":"e855bef8d884","components/forms/Switch.jsx":"ef349bceed0c","components/forms/Textarea.jsx":"86c18e7403f8","components/icon/Icon.jsx":"2830b5c7b45c","components/navigation/SiteFooter.jsx":"2fb46e5cd77d","components/navigation/SiteHeader.jsx":"aff506b85b8c","components/navigation/Tabs.jsx":"ab1c6f8b4c38","ui_kits/dashboard/BuildsScreen.jsx":"9ce9de3d7c2f","ui_kits/dashboard/DashShell.jsx":"de6a4f2a7960","ui_kits/dashboard/OverviewScreen.jsx":"8776e82c5f2b","ui_kits/dashboard/RigsScreen.jsx":"e5fda5df8206","ui_kits/dashboard/dash-content.js":"337881cfb732","ui_kits/docs/DocsArticle.jsx":"b518bdb56cba","ui_kits/docs/DocsPages.jsx":"121d00b1ef53","ui_kits/docs/DocsSidebar.jsx":"3a86f32961da","ui_kits/docs/docs-content.js":"5fc1dc2f5755","ui_kits/website/EventsScreen.jsx":"e94716ae35dc","ui_kits/website/HomeScreen.jsx":"efb72e2daaa3","ui_kits/website/JoinScreen.jsx":"f5572ab2998c","ui_kits/website/ManifestoScreen.jsx":"28a9bd8f1ad4","ui_kits/website/ProjectDetailScreen.jsx":"a038d67e7445","ui_kits/website/ProjectsScreen.jsx":"105666289d14","ui_kits/website/content.js":"b5481288ea8f"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"JoiNTSDesignSystem_49bcd9","components":[{"name":"Kicker","sourcePath":"components/brand/Kicker.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"CodeBlock","sourcePath":"components/content/CodeBlock.jsx"},{"name":"EventCard","sourcePath":"components/content/EventCard.jsx"},{"name":"ImagePlate","sourcePath":"components/content/ImagePlate.jsx"},{"name":"PrincipleItem","sourcePath":"components/content/PrincipleItem.jsx"},{"name":"ProjectCard","sourcePath":"components/content/ProjectCard.jsx"},{"name":"Quote","sourcePath":"components/content/Quote.jsx"},{"name":"SectionHeading","sourcePath":"components/content/SectionHeading.jsx"},{"name":"SpecTable","sourcePath":"components/content/SpecTable.jsx"},{"name":"StatBlock","sourcePath":"components/content/StatBlock.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Spinner.jsx"},{"name":"StatusDot","sourcePath":"components/feedback/StatusDot.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"ICONS","sourcePath":"components/icon/Icon.jsx"},{"name":"ICON_NAMES","sourcePath":"components/icon/Icon.jsx"},{"name":"Icon","sourcePath":"components/icon/Icon.jsx"},{"name":"SiteFooter","sourcePath":"components/navigation/SiteFooter.jsx"},{"name":"SiteHeader","sourcePath":"components/navigation/SiteHeader.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"}],"sourceHashes":{"components/brand/Kicker.jsx":"c33f3abcdbdf","components/brand/Logo.jsx":"996f1db104c3","components/content/CodeBlock.jsx":"abef407d0030","components/content/EventCard.jsx":"6dbb4ef32f48","components/content/ImagePlate.jsx":"4b0f90be099a","components/content/PrincipleItem.jsx":"f8f1e8f0ee14","components/content/ProjectCard.jsx":"fe27b30aae70","components/content/Quote.jsx":"6ecb09ca517f","components/content/SectionHeading.jsx":"77192444a412","components/content/SpecTable.jsx":"780a5a8a44c5","components/content/StatBlock.jsx":"976589c6a95d","components/core/Badge.jsx":"625128fca1ab","components/core/Button.jsx":"f5577f524d3e","components/core/Card.jsx":"8e05bbe82ca1","components/core/Divider.jsx":"de29fecc73ab","components/core/IconButton.jsx":"99edcb6bc6e8","components/core/Tag.jsx":"be6f3fad9578","components/feedback/Alert.jsx":"a11cd417970e","components/feedback/Spinner.jsx":"6c2262d9c6a6","components/feedback/StatusDot.jsx":"755a47e7c6f4","components/forms/Checkbox.jsx":"4d459936ee15","components/forms/Field.jsx":"eb1cbeec5048","components/forms/Input.jsx":"2b74baa128a4","components/forms/Select.jsx":"e855bef8d884","components/forms/Switch.jsx":"ef349bceed0c","components/forms/Textarea.jsx":"86c18e7403f8","components/icon/Icon.jsx":"2830b5c7b45c","components/navigation/SiteFooter.jsx":"2fb46e5cd77d","components/navigation/SiteHeader.jsx":"aff506b85b8c","components/navigation/Tabs.jsx":"ab1c6f8b4c38","ui_kits/dashboard/BuildsScreen.jsx":"9ce9de3d7c2f","ui_kits/dashboard/DashShell.jsx":"de6a4f2a7960","ui_kits/dashboard/OverviewScreen.jsx":"8776e82c5f2b","ui_kits/dashboard/RigsScreen.jsx":"e5fda5df8206","ui_kits/dashboard/dash-content.js":"337881cfb732","ui_kits/docs/DocsArticle.jsx":"b518bdb56cba","ui_kits/docs/DocsPages.jsx":"121d00b1ef53","ui_kits/docs/DocsSidebar.jsx":"3a86f32961da","ui_kits/docs/docs-content.js":"5fc1dc2f5755","ui_kits/website/EventsScreen.jsx":"e94716ae35dc","ui_kits/website/HomeScreen.jsx":"efb72e2daaa3","ui_kits/website/JoinScreen.jsx":"f5572ab2998c","ui_kits/website/ManifestoScreen.jsx":"28a9bd8f1ad4","ui_kits/website/ProjectDetailScreen.jsx":"a038d67e7445","ui_kits/website/ProjectsScreen.jsx":"105666289d14","ui_kits/website/content.js":"b5481288ea8f"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
-const __ds_ns = (window.TORCDesignSystem_49bcd9 = window.TORCDesignSystem_49bcd9 || {});
+const __ds_ns = (window.JoiNTSDesignSystem_49bcd9 = window.JoiNTSDesignSystem_49bcd9 || {});
 
 const __ds_scope = {};
 
@@ -1455,7 +1455,7 @@ const {
   StatBlock,
   CodeBlock,
   EventCard
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function BuildsScreen() {
   const D = window.JOINTS_DASH;
   const [only, setOnly] = React.useState(false);
@@ -1648,7 +1648,7 @@ const {
   StatBlock,
   CodeBlock,
   EventCard
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 const RAIL = [{
   id: 'overview',
   icon: 'gauge',
@@ -1912,7 +1912,7 @@ const {
   StatBlock,
   CodeBlock,
   EventCard
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function OverviewScreen({
   go
 }) {
@@ -2130,7 +2130,7 @@ const {
   StatBlock,
   CodeBlock,
   EventCard
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function RigsScreen() {
   const D = window.JOINTS_DASH;
   const {
@@ -2527,7 +2527,7 @@ const {
   PrincipleItem,
   CodeBlock,
   Quote
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 const H2 = ({
   children
 }) => /*#__PURE__*/React.createElement("h2", {
@@ -2667,7 +2667,7 @@ const {
   PrincipleItem,
   CodeBlock,
   Quote
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function IntroPage() {
   const {
     DocsH2: H2,
@@ -2816,7 +2816,7 @@ const {
   PrincipleItem,
   CodeBlock,
   Quote
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function DocsSidebar({
   current,
   go
@@ -3066,7 +3066,7 @@ const {
   Button,
   Icon,
   Divider
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function EventsScreen({
   go
 }) {
@@ -3164,7 +3164,7 @@ Object.assign(window, {
 // ui_kits/website/HomeScreen.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const NS = window.TORCDesignSystem_49bcd9;
+const NS = window.JoiNTSDesignSystem_49bcd9;
 const {
   Button,
   IconButton,
@@ -3640,7 +3640,7 @@ const {
   Divider,
   Icon,
   Quote
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function JoinScreen({
   go
 }) {
@@ -3801,7 +3801,7 @@ const {
   Button,
   Card,
   Divider
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function ManifestoScreen({
   go
 }) {
@@ -3910,7 +3910,7 @@ const {
   Icon,
   Alert,
   EventCard
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function ProjectDetailScreen({
   slug,
   go
@@ -4185,7 +4185,7 @@ const {
   Switch,
   Divider,
   Kicker
-} = window.TORCDesignSystem_49bcd9;
+} = window.JoiNTSDesignSystem_49bcd9;
 function ProjectsScreen({
   go
 }) {

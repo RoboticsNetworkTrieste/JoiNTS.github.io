@@ -1,4 +1,4 @@
-# Working on torc.it
+# Working on joint.ts.it
 
 The site is deliberately small and deliberately constrained. The constraint is the
 design system, and it is in this repository so that nobody has to guess.
@@ -106,14 +106,20 @@ Present and complete:
 Note the site still builds its own header and footer in `src/components/` rather than
 using the vendored `navigation/` sources.
 
+One deliberate local deviation: the runtime namespace in `_ds_bundle.js`,
+`_ds_manifest.json` and the `*.card.html` cards is renamed here to
+`JoiNTSDesignSystem_49bcd9`, while upstream still carries the pre-rebrand identifier
+(it is fixed at project creation). After re-syncing any of those files, re-apply the
+rename so no pre-rebrand naming comes back into this repo.
+
 Not vendored, and available upstream if you need them:
 
 - `guidelines/` — 24 rendered specimen cards (colour ramps, type scale, spacing, motion)
 - `ui_kits/`, `slides/`, `templates/`, `explorations/`
 - `uploads/` — the delivered originals: the JoiNTS v2.0 logotype SVGs and rebrand spec,
-  and the withdrawn v1.0 logo document (`TORC Robotics Association Logo.pdf`, 13 pages,
-  raster-only — it exceeds the sync tool's 256 KiB read limit; download it from the
-  design project directly)
+  and the withdrawn v1.0 logo document (a 13-page raster-only PDF, still under its
+  pre-rebrand filename upstream — it exceeds the sync tool's 256 KiB read limit;
+  download it from the design project directly)
 
 ## Checking your change
 
