@@ -13,6 +13,7 @@ import { StatusDot } from '../../design-system/components/feedback/StatusDot.jsx
 import { Spinner } from '../../design-system/components/feedback/Spinner.jsx';
 import { Field } from '../../design-system/components/forms/Field.jsx';
 import { Input } from '../../design-system/components/forms/Input.jsx';
+import { Checkbox } from '../../design-system/components/forms/Checkbox.jsx';
 import { Tile, Rule, Empty, Lang, Meta, panel, mono } from './parts.jsx';
 import Board from './Board.jsx';
 import * as gh from './gh.js';
@@ -26,12 +27,24 @@ const RAIL = [
 const TOKEN_URL =
   'https://github.com/settings/personal-access-tokens/new?name=Officina%20JoiNTS&description=Console%20interna%20JoiNTS';
 
+// The console locks itself after this long without input. The page cannot be
+// walled — see gh.js — so the one thing that is actually in our hands is how
+// long a usable token stays loaded in a browser someone walked away from.
+const IDLE_MS = 30 * 60 * 1000;
+
 // ── The gate ───────────────────────────────────────────────────────────────
 
-function Gate({ onAuth, initialError }) {
+function Gate({ onAuth, notice }) {
   const [value, setValue] = React.useState('');
+  const [remember, setRemember] = React.useState(false);
   const [busy, setBusy] = React.useState(false);
-  const [error, setError] = React.useState(initialError || null);
+  const [error, setError] = React.useState(null);
+
+  // A notice from the previous session (expired token, idle lock) shows until
+  // the member starts typing, then gets out of the way.
+  const message = error
+    ? { tone: 'danger', title: 'Accesso non riuscito', text: error }
+    : !value && notice ? notice : null;
 
   async function submit(e) {
     e.preventDefault();
@@ -41,7 +54,7 @@ function Gate({ onAuth, initialError }) {
     setError(null);
     try {
       const user = await gh.verify(tok);
-      gh.token.set(tok);
+      gh.token.set(tok, remember);
       onAuth(user);
     } catch (err) {
       setError(err.message);
@@ -87,7 +100,18 @@ function Gate({ onAuth, initialError }) {
             />
           </Field>
 
-          {error && <Alert tone="danger" title="Accesso non riuscito">{error}</Alert>}
+          {message && <Alert tone={message.tone} title={message.title}>{message.text}</Alert>}
+
+          <Checkbox
+            label="Ricordami su questo computer"
+            checked={remember}
+            onChange={(e) => setRemember(e.target.checked)}
+          />
+          <span style={{ ...mono, letterSpacing: 'var(--ls-mono)', textTransform: 'none', marginTop: 'calc(var(--space-3) * -1)' }}>
+            {remember
+              ? 'Il token resta finché non esci. Usalo solo su un computer tuo.'
+              : 'Senza questa opzione il token si cancella quando chiudi il browser.'}
+          </span>
 
           <Button variant="primary" size="md" type="submit" block disabled={busy || !value.trim()}
             iconEnd={busy ? undefined : 'arrow-right'}>
@@ -300,6 +324,23 @@ function Console({ user, onExit }) {
 
   React.useEffect(() => { load(); }, [load]);
 
+  // Idle lock. Any real input resets the countdown; loading data does not, so a
+  // console left open on a projector locks on schedule.
+  React.useEffect(() => {
+    let timer;
+    const arm = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => onExit('idle'), IDLE_MS);
+    };
+    const events = ['pointerdown', 'keydown', 'wheel'];
+    events.forEach((e) => window.addEventListener(e, arm, { passive: true }));
+    arm();
+    return () => {
+      clearTimeout(timer);
+      events.forEach((e) => window.removeEventListener(e, arm));
+    };
+  }, [onExit]);
+
   const initials = (user.name || user.login).slice(0, 2).toUpperCase();
 
   return (
@@ -401,7 +442,7 @@ function Console({ user, onExit }) {
 export default function Officina() {
   const [state, setState] = React.useState('checking');
   const [user, setUser] = React.useState(null);
-  const [gateError, setGateError] = React.useState(null);
+  const [notice, setNotice] = React.useState(null);
 
   React.useEffect(() => {
     const tok = gh.token.get();
@@ -412,18 +453,20 @@ export default function Officina() {
       .catch((e) => {
         if (!live) return;
         gh.token.clear();
-        setGateError(e.message);
+        setNotice({ tone: 'danger', title: 'Accesso non riuscito', text: e.message });
         setState('locked');
       });
     return () => { live = false; };
   }, []);
 
-  // Memoised: Console derives its data loader from it, and a fresh identity on
-  // every render would restart that loader.
-  const exit = React.useCallback(() => {
+  // Memoised: Console derives its data loader and its idle timer from it, and a
+  // fresh identity on every render would restart both.
+  const exit = React.useCallback((reason) => {
     gh.token.clear();
     setUser(null);
-    setGateError(null);
+    setNotice(reason === 'idle'
+      ? { tone: 'info', title: 'Sessione chiusa', text: 'Nessuna attività per 30 minuti. Reincolla il token per rientrare.' }
+      : null);
     setState('locked');
   }, []);
 
@@ -437,7 +480,7 @@ export default function Officina() {
     );
   }
   if (state === 'locked') {
-    return <Gate initialError={gateError} onAuth={(u) => { setUser(u); setState('ready'); }} />;
+    return <Gate notice={notice} onAuth={(u) => { setNotice(null); setUser(u); setState('ready'); }} />;
   }
   return <Console user={user} onExit={exit} />;
 }

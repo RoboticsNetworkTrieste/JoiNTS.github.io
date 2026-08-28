@@ -22,15 +22,26 @@ const TOKEN_KEY = 'joints.officina.token';
 const REST = 'https://api.github.com';
 const GQL = 'https://api.github.com/graphql';
 
+// Session storage by default, localStorage only if the member asks to be
+// remembered. Since the page itself cannot be walled, the compensating control
+// is exposure time: a token that dies with the browser is a token that cannot
+// be found later on a shared laptop.
 export const token = {
   get: () => {
-    try { return localStorage.getItem(TOKEN_KEY) || ''; } catch { return ''; }
+    try { return sessionStorage.getItem(TOKEN_KEY) || localStorage.getItem(TOKEN_KEY) || ''; } catch { return ''; }
   },
-  set: (v) => {
-    try { localStorage.setItem(TOKEN_KEY, v); } catch { /* private mode: session only */ }
+  set: (v, persist = false) => {
+    try {
+      (persist ? localStorage : sessionStorage).setItem(TOKEN_KEY, v);
+      // Never leave a copy in the store we did not choose.
+      (persist ? sessionStorage : localStorage).removeItem(TOKEN_KEY);
+    } catch { /* private mode: the token just does not survive a reload */ }
   },
   clear: () => {
-    try { localStorage.removeItem(TOKEN_KEY); } catch { /* nothing to clear */ }
+    try {
+      sessionStorage.removeItem(TOKEN_KEY);
+      localStorage.removeItem(TOKEN_KEY);
+    } catch { /* nothing to clear */ }
   },
 };
 

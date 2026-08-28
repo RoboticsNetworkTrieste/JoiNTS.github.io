@@ -82,18 +82,30 @@ supplies.
 **It is a member console, not a secret area, and the difference matters.** The page is
 public HTML that anyone can load. What is gated is the *data*: GitHub returns nothing
 about the org unless the token belongs to an active member, which the console checks
-against `/user/memberships/orgs/{org}` before showing anything.
+against `/user/memberships/orgs/{org}` before rendering anything. With no token the page
+shows only the gate — but that is a mask over empty state, not access control, and the
+console's own markup and labels are in the JS bundle for anyone who looks.
 
 Why a pasted token and not a "Log in with GitHub" button: this site is static, so there
 is no server to hold an OAuth client secret, and a secret shipped to a browser is not a
 secret. GitHub's device flow needs no secret but its token endpoint sends no CORS
-headers, so a browser cannot complete it either. The token lives in `localStorage`, goes
-to `api.github.com` and nowhere else, and "Esci" clears it.
+headers, so a browser cannot complete it either.
 
-To make this a real login wall, add a backend — a small Cloudflare Worker doing the OAuth
-code exchange is enough — and replace `token` and the gate in
-[`src/officina/Officina.jsx`](src/officina/Officina.jsx). Everything else in
-[`src/officina/gh.js`](src/officina/gh.js) stays as it is.
+**Why there is no real wall, and what it would take.** A wall has to be enforced by
+whatever serves the page, and GitHub Pages serves static files to everyone. Putting
+Cloudflare Access in front of `joint.ts.it` would not help while the site is on Pages:
+`roboticsnetworktrieste.github.io/officina/` stays reachable and bypasses the custom
+domain entirely. A genuine wall therefore means moving hosting — Cloudflare Pages plus
+Cloudflare Access with GitHub as the identity provider is free up to 50 users and needs
+no session code of our own. **We looked at this in August 2026 and chose to stay on
+GitHub Pages**, accepting a data gate. If that is revisited, the swap is contained: the
+gate in [`src/officina/Officina.jsx`](src/officina/Officina.jsx) and `token` in
+[`src/officina/gh.js`](src/officina/gh.js); the rest of the API layer is unaffected.
+
+Since the page cannot be walled, the compensating control is **exposure time**. The token
+goes to `sessionStorage` and dies with the browser unless the member ticks "Ricordami su
+questo computer"; the console locks itself after 30 minutes without input (`IDLE_MS`);
+"Esci" clears both stores. The token is sent to `api.github.com` and nowhere else.
 
 Members need a fine-grained token owned by the org, with Metadata / Contents / Issues /
 Pull requests read, Members read, and **Projects read-and-write** — without the last one
