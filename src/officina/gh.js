@@ -7,7 +7,8 @@
 // a browser is not a secret. The device flow needs no secret, but its token
 // endpoint sends no CORS headers, so a browser cannot complete it either.
 // What is left, and what this uses, is a token the member creates and pastes.
-// It is kept in localStorage and sent to api.github.com and nowhere else.
+// It is kept in sessionStorage (localStorage only on request) and sent to
+// api.github.com and nowhere else.
 //
 // So be precise about what this is: a MEMBER CONSOLE, not a secret area. The
 // page is public HTML — anyone can load it. What is gated is the *data*:
@@ -124,8 +125,17 @@ export async function verify(tok) {
   try {
     membership = await rest(`/user/memberships/orgs/${ORG}`, { tok });
   } catch (e) {
+    // A 403/404 here has TWO causes and they need different fixes: the account
+    // really is not a member, or the token is not allowed to read membership
+    // (owned by a personal account instead of the org, or missing Members:read).
+    // Blaming membership alone sends a member hunting in the wrong place.
     if (e.kind === 'missing' || e.status === 403) {
-      throw new GhError(`L'account ${user.login} non risulta membro di ${ORG}.`, { status: e.status, kind: 'member' });
+      throw new GhError(
+        `Non riesco a confermare che ${user.login} sia membro di ${ORG}. ` +
+        `Di solito il token è intestato all'account personale invece che all'organizzazione, ` +
+        `oppure gli manca il permesso Members in lettura. Controlla "Resource owner" sul token.`,
+        { status: e.status, kind: 'member' }
+      );
     }
     throw e;
   }

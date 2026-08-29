@@ -121,7 +121,9 @@ function Gate({ onAuth, notice }) {
           <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
             <span style={mono}>Come si crea</span>
             <ol style={{ margin: 0, paddingLeft: '1.2em', fontSize: 'var(--text-sm)', lineHeight: 'var(--lh-relaxed)', color: 'var(--text-secondary)' }}>
-              <li>Apri un <strong style={{ color: 'var(--text-body)' }}>fine-grained token</strong> e come proprietario scegli {gh.ORG}.</li>
+              <li>Apri un <strong style={{ color: 'var(--text-body)' }}>fine-grained token</strong> e in
+                <strong style={{ color: 'var(--text-body)' }}> Resource owner</strong> scegli {gh.ORG}:
+                di default GitHub propone il tuo account personale, e con quello la console non entra.</li>
               <li>Permessi sui repository: Metadata, Contents, Issues e Pull requests in lettura.</li>
               <li>Permessi sull'organizzazione: Members in lettura e <strong style={{ color: 'var(--text-body)' }}>Projects in scrittura</strong> — senza quest'ultimo la board si vede ma non si sposta.</li>
               <li>Dai una scadenza breve. Se scade, torni qui e ne incolli uno nuovo.</li>
