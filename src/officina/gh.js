@@ -429,3 +429,70 @@ export async function moveIdea(id, categoryId) {
     { id, cat: categoryId }
   );
 }
+
+// One idea in full: the body people refine over time, and the thread hanging
+// off it. This is where an idea is actually developed — the wall is only the
+// index — so it carries everything needed to read and continue the thinking.
+export async function idea(id) {
+  const data = await graphql(
+    `query($id:ID!){
+      node(id:$id){ ... on Discussion {
+        id number title body url createdAt lastEditedAt
+        upvoteCount viewerHasUpvoted viewerCanUpvote
+        author{ login avatarUrl }
+        category{ id name }
+        comments(first:100){ nodes{
+          id body createdAt author{ login avatarUrl }
+        } }
+      } }
+    }`,
+    { id }
+  );
+  const d = data.node;
+  if (!d) throw new GhError('Idea non trovata.', { kind: 'missing' });
+  return {
+    id: d.id,
+    number: d.number,
+    title: d.title,
+    body: d.body || '',
+    url: d.url,
+    created: d.createdAt,
+    edited: d.lastEditedAt,
+    votes: d.upvoteCount,
+    voted: d.viewerHasUpvoted,
+    canVote: d.viewerCanUpvote,
+    author: d.author?.login || '—',
+    avatar: d.author?.avatarUrl || null,
+    categoryId: d.category?.id || null,
+    category: d.category?.name || '—',
+    comments: (d.comments?.nodes || []).map((c) => ({
+      id: c.id,
+      body: c.body || '',
+      created: c.createdAt,
+      author: c.author?.login || '—',
+      avatar: c.author?.avatarUrl || null,
+    })),
+  };
+}
+
+export async function commentIdea(id, body) {
+  const data = await graphql(
+    `mutation($id:ID!,$body:String!){
+      addDiscussionComment(input:{discussionId:$id,body:$body}){
+        comment{ id body createdAt author{ login avatarUrl } }
+      }
+    }`,
+    { id, body }
+  );
+  const c = data.addDiscussionComment.comment;
+  return { id: c.id, body: c.body, created: c.createdAt, author: c.author?.login || '—', avatar: c.author?.avatarUrl || null };
+}
+
+export async function editIdea(id, { title, body }) {
+  await graphql(
+    `mutation($id:ID!,$title:String!,$body:String!){
+      updateDiscussion(input:{discussionId:$id,title:$title,body:$body}){ discussion{ id } }
+    }`,
+    { id, title, body }
+  );
+}

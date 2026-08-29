@@ -12,7 +12,8 @@ import { Spinner } from '../../design-system/components/feedback/Spinner.jsx';
 import { Input } from '../../design-system/components/forms/Input.jsx';
 import { Textarea } from '../../design-system/components/forms/Textarea.jsx';
 import { Select } from '../../design-system/components/forms/Select.jsx';
-import { panel, mono, Empty, Rule } from './parts.jsx';
+import { panel, mono, Empty } from './parts.jsx';
+import Markdown from './md.jsx';
 import * as gh from './gh.js';
 
 function Vote({ idea, busy, onToggle }) {
@@ -42,16 +43,16 @@ function Vote({ idea, busy, onToggle }) {
   );
 }
 
-function Card({ idea, categories, busy, onToggle, onMove }) {
+function Card({ idea, categories, busy, onToggle, onMove, onOpen }) {
   return (
     <article style={{ ...panel, padding: 'var(--space-5)', display: 'flex', gap: 'var(--space-4)', alignItems: 'flex-start' }}>
       <Vote idea={idea} busy={busy} onToggle={onToggle} />
       <div style={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-        <a href={idea.url} target="_blank" rel="noreferrer" style={{
+        <button type="button" onClick={() => onOpen(idea)} style={{
           fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', fontWeight: 'var(--fw-semibold)',
           letterSpacing: 'var(--ls-heading)', lineHeight: 'var(--lh-snug)', color: 'var(--text-strong)',
-          textDecoration: 'none',
-        }}>{idea.title}</a>
+          background: 'none', border: 0, padding: 0, textAlign: 'left', cursor: 'pointer',
+        }}>{idea.title}</button>
 
         {idea.body && idea.body !== idea.title && (
           <p style={{
@@ -157,13 +158,181 @@ function Capture({ data, onCreated }) {
   );
 }
 
-export default function Ideas() {
+
+// ── One idea, in full ──────────────────────────────────────────────────────
+//
+// The asynchronous half of the tool: read the current state of an idea, edit
+// the text as thinking firms up, and continue the thread. Editing writes to
+// the same discussion body, so the idea itself improves over time instead of
+// being buried under a pile of comments.
+function Detail({ id, user, categories, onBack }) {
+  const [idea, setIdea] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+  const [editing, setEditing] = React.useState(false);
+  const [draft, setDraft] = React.useState({ title: '', body: '' });
+  const [comment, setComment] = React.useState('');
+  const [busy, setBusy] = React.useState(false);
+  const [actionError, setActionError] = React.useState(null);
+
+  const load = React.useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const d = await gh.idea(id);
+      setIdea(d);
+      setDraft({ title: d.title, body: d.body });
+    } catch (e) {
+      setError(e);
+    } finally {
+      setLoading(false);
+    }
+  }, [id]);
+
+  React.useEffect(() => { load(); }, [load]);
+
+  const mine = idea && user && idea.author === user.login;
+
+  async function save() {
+    if (!draft.title.trim()) return;
+    setBusy(true);
+    setActionError(null);
+    try {
+      await gh.editIdea(idea.id, { title: draft.title.trim(), body: draft.body });
+      setIdea((v) => ({ ...v, title: draft.title.trim(), body: draft.body }));
+      setEditing(false);
+    } catch (e) {
+      setActionError(e.message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function send(e) {
+    e.preventDefault();
+    if (!comment.trim()) return;
+    setBusy(true);
+    setActionError(null);
+    try {
+      const c = await gh.commentIdea(idea.id, comment.trim());
+      setIdea((v) => ({ ...v, comments: [...v.comments, c] }));
+      setComment('');
+    } catch (err) {
+      setActionError(err.message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function vote() {
+    const next = !idea.voted;
+    setIdea((v) => ({ ...v, voted: next, votes: v.votes + (next ? 1 : -1) }));
+    try {
+      const s = await gh.setUpvote(idea.id, next);
+      setIdea((v) => ({ ...v, voted: s.viewerHasUpvoted, votes: s.upvoteCount }));
+    } catch {
+      setIdea((v) => ({ ...v, voted: !next, votes: v.votes + (next ? -1 : 1) }));
+    }
+  }
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', padding: 'var(--space-12)' }}>
+        <Spinner size={18} /><span style={mono}>Apro l'idea</span>
+      </div>
+    );
+  }
+  if (error) return <Empty title="Idea non caricata." body={error.message} action={
+    <Button variant="secondary" size="sm" icon="arrow-left" onClick={onBack}>Torna al muro</Button>} />;
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)', maxWidth: '80ch' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
+        <Button variant="ghost" size="sm" icon="arrow-left" onClick={onBack}>Tutte le idee</Button>
+        <span style={{ marginLeft: 'auto', display: 'flex', gap: 'var(--space-2)' }}>
+          {mine && !editing && <Button variant="ghost" size="sm" icon="file-text" onClick={() => setEditing(true)}>Modifica</Button>}
+          <Button variant="secondary" size="sm" iconEnd="external-link" href={idea.url}>Apri su GitHub</Button>
+        </span>
+      </div>
+
+      <article style={{ ...panel, padding: 'var(--space-6)', display: 'flex', gap: 'var(--space-5)', alignItems: 'flex-start' }}>
+        <Vote idea={idea} busy={busy} onToggle={vote} />
+        <div style={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+          {editing ? (
+            <>
+              <Input value={draft.title} onChange={(e) => setDraft({ ...draft, title: e.target.value })} aria-label="Titolo" />
+              <Textarea rows={12} value={draft.body} onChange={(e) => setDraft({ ...draft, body: e.target.value })}
+                aria-label="Testo dell'idea"
+                placeholder="Il problema, cosa proveresti, cosa serve. Markdown accettato." />
+              <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
+                <Button variant="primary" size="sm" onClick={save} disabled={busy || !draft.title.trim()}>
+                  {busy ? 'Salvo…' : 'Salva'}
+                </Button>
+                <Button variant="ghost" size="sm" onClick={() => { setEditing(false); setDraft({ title: idea.title, body: idea.body }); }}>Annulla</Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 style={{
+                fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 'var(--fw-semibold)',
+                lineHeight: 'var(--lh-snug)', letterSpacing: 'var(--ls-display)', color: 'var(--text-strong)', margin: 0,
+              }}>{idea.title}</h2>
+              <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', ...mono, letterSpacing: 'var(--ls-mono)', textTransform: 'none' }}>
+                <span>{idea.author}</span>
+                <span>{gh.rel(idea.created)}</span>
+                {idea.edited && <span>modificata {gh.rel(idea.edited)}</span>}
+                <span>{idea.category}</span>
+              </div>
+              {idea.body ? <Markdown text={idea.body} /> : (
+                <p style={{ ...mono, letterSpacing: 'var(--ls-mono)', textTransform: 'none', margin: 0 }}>
+                  Nessun dettaglio, per ora.{mine ? ' Aggiungilo con Modifica.' : ''}
+                </p>
+              )}
+            </>
+          )}
+        </div>
+      </article>
+
+      {actionError && <Alert tone="danger" title="Operazione non riuscita">{actionError}</Alert>}
+
+      <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+        <span style={mono}>Discussione · {idea.comments.length}</span>
+
+        {idea.comments.map((c) => (
+          <div key={c.id} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)',
+            borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)' }}>
+            <div style={{ display: 'flex', gap: 'var(--space-3)', ...mono, letterSpacing: 'var(--ls-mono)', textTransform: 'none' }}>
+              <span style={{ color: 'var(--text-body)' }}>{c.author}</span>
+              <span>{gh.rel(c.created)}</span>
+            </div>
+            <Markdown text={c.body} style={{ fontSize: 'var(--text-sm)' }} />
+          </div>
+        ))}
+
+        <form onSubmit={send} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)',
+          borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)' }}>
+          <Textarea rows={3} value={comment} onChange={(e) => setComment(e.target.value)}
+            aria-label="Scrivi un commento"
+            placeholder="Aggiungi qualcosa: un vincolo, un pezzo che hai in cantina, un dubbio." />
+          <span>
+            <Button variant="primary" size="sm" type="submit" disabled={busy || !comment.trim()}>
+              {busy ? 'Invio…' : 'Commenta'}
+            </Button>
+          </span>
+        </form>
+      </section>
+    </div>
+  );
+}
+
+export default function Ideas({ user }) {
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
   const [busy, setBusy] = React.useState({});
   const [filter, setFilter] = React.useState('all');
   const [sort, setSort] = React.useState('votes');
+  const [openId, setOpenId] = React.useState(null);
 
   const load = React.useCallback(async () => {
     setLoading(true);
@@ -207,6 +376,13 @@ export default function Ideas() {
     } finally {
       setBusy((b) => { const n = { ...b }; delete n[idea.id]; return n; });
     }
+  }
+
+  // An open idea takes over the view: developing one deserves the whole
+  // surface, and a cramped overlay would discourage writing anything long.
+  if (openId) {
+    return <Detail id={typeof openId === 'string' ? openId : openId.id} user={user}
+      categories={data ? data.categories : []} onBack={() => { setOpenId(null); load(); }} />;
   }
 
   if (loading && !data) {
@@ -277,7 +453,7 @@ export default function Ideas() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(min(100%,320px),1fr))', gap: 'var(--space-4)', alignItems: 'start' }}>
           {visible.map((idea) => (
             <Card key={idea.id} idea={idea} categories={data.categories}
-              busy={!!busy[idea.id]} onToggle={toggle} onMove={move} />
+              busy={!!busy[idea.id]} onToggle={toggle} onMove={move} onOpen={setOpenId} />
           ))}
         </div>
       )}

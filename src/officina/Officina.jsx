@@ -462,7 +462,7 @@ function Console({ user, onExit }) {
 
           {data && view === 'overview' && <Overview data={data} projects={projects} onReload={load} />}
           {data && view === 'repos' && <Repos data={data} />}
-          {view === 'ideas' && <Ideas />}
+          {view === 'ideas' && <Ideas user={user} />}
           {data && view === 'activity' && (
             <>
               <Rule label="Attività" note={`${data.events.length} eventi`} action={

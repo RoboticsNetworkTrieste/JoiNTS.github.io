@@ -123,6 +123,17 @@ wall of cards, and the word "discussion" never appears.
 Categories act as the wall's zones and an idea can be moved between them. Promotion to
 actual work stays a separate, later decision, and belongs on the board.
 
+Opening an idea gives it the whole surface: the full text, an editor for the author to
+refine it as the thinking firms up, and the comment thread. Editing rewrites the
+discussion body rather than adding a comment, so the idea itself improves over time
+instead of being buried under replies — which is the point of an asynchronous tool.
+
+Markdown in bodies and comments is rendered by [`src/officina/md.jsx`](src/officina/md.jsx),
+a deliberately partial renderer that builds React elements rather than setting innerHTML.
+GitHub does return a sanitised `bodyHTML`, but the ideas repo is public — anyone with a
+GitHub account can post there — and injecting third-party HTML into a page that holds a
+member's token is not a trade worth making for nicer typography.
+
 Members need a fine-grained token owned by the org, with Metadata / Contents / Issues /
 Pull requests read, Members read, and **Projects read-and-write** — without the last one
 the board loads but cards cannot be moved, and the console says so rather than failing
