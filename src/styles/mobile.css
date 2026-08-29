@@ -35,6 +35,22 @@
     row-gap: var(--space-4);
   }
 
+  /* A grid or flex child will not shrink below its own content unless told to,
+     so one nowrap row inside a column sets a floor for the whole page. This is
+     what made the closing card 382px wide inside a 338px column. */
+  [data-instrument="quiet"] [style*="grid-template-columns"] > * { min-width: 0; }
+
+  /* Inline flex rows wrap rather than run off the edge. flex-wrap only takes
+     effect when a row genuinely does not fit, so anything that already fitted
+     is untouched — and overflowing is never the better outcome. */
+  [data-instrument="quiet"] [style*="display:flex"] { flex-wrap: wrap; }
+
+  /* The closing call-to-action card carries 56px of padding each side for
+     desktop, which leaves almost no column on a phone. */
+  [data-instrument="quiet"] .cta {
+    padding: var(--space-8) var(--space-5) !important;
+  }
+
   /* Long single words (URLs, addresses) must not push the page sideways. */
   [data-instrument="quiet"] .joints-spec__val,
   [data-instrument="quiet"] a[href^="mailto:"] {
