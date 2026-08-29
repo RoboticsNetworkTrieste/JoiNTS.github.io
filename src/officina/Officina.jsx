@@ -159,7 +159,9 @@ function Gate({ onAuth, notice }) {
                 <li><strong style={{ color: 'var(--text-body)' }}>Resource owner: {gh.ORG}</strong> — GitHub
                   propone il tuo account personale, e con quello la console non entra. È l'errore più comune.</li>
                 <li>Repository access: all repositories.</li>
-                <li>Repository: Metadata, Contents, Issues, Pull requests in lettura.</li>
+                <li>Repository: Metadata, Contents, Issues, Pull requests in lettura, e
+                  <strong style={{ color: 'var(--text-body)' }}>Discussions in scrittura</strong> —
+                  senza, il muro delle idee resta vuoto.</li>
                 <li>Organization: Members in lettura, <strong style={{ color: 'var(--text-body)' }}>Projects in scrittura</strong> —
                   senza, la board si vede ma non si sposta.</li>
                 <li>Potrebbe restare in attesa di approvazione di un owner dell'organizzazione.</li>

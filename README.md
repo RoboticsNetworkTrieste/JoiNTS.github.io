@@ -135,9 +135,13 @@ GitHub account can post there — and injecting third-party HTML into a page tha
 member's token is not a trade worth making for nicer typography.
 
 Members need a fine-grained token owned by the org, with Metadata / Contents / Issues /
-Pull requests read, Members read, and **Projects read-and-write** — without the last one
-the board loads but cards cannot be moved, and the console says so rather than failing
-silently.
+Pull requests read, **Discussions read-and-write** (the idea wall), Members read, and
+**Projects read-and-write** (moving cards). Each missing permission disables exactly one
+part of the console and says so, rather than failing silently.
+
+A classic token with `repo`, `read:org` and `project` covers all of it in three
+checkboxes, which is why the gate offers that route first — see the note above about
+fine-grained tokens defaulting their Resource owner to the personal account.
 
 ## Deploying
 
