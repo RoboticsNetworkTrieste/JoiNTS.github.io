@@ -23,11 +23,14 @@ const path = norm(Astro.url.pathname);
       {NAV.map((item) => (
         <a class="hdr__link" href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
       ))}
-      <span class="hdr__actions">
-        <Button size="sm" variant="secondary" icon="lock" href="/officina/">Area soci</Button>
-        <Button size="sm" variant="primary" href="/entra/">Entra</Button>
-      </span>
     </nav>
+    {/* A sibling of the nav, not a child: on narrow screens it has to sit on
+        the logo's row while the links drop below, and flex `order` can only
+        reorder elements that share a parent. */}
+    <span class="hdr__actions">
+      <Button size="sm" variant="secondary" icon="lock" href="/officina/">Area soci</Button>
+      <Button size="sm" variant="primary" href="/entra/">Entra</Button>
+    </span>
   </div>
 </header>
 
@@ -44,10 +47,11 @@ const path = norm(Astro.url.pathname);
     backdrop-filter: blur(14px);
     border-bottom: var(--border-hairline) solid var(--border-subtle);
   }
+  /* No gap: the nav's auto margin does the separating, so the spacing between
+     nav and actions stays deliberate rather than inheriting a row gap. */
   .hdr__row {
     display: flex;
     align-items: center;
-    gap: var(--space-8);
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
@@ -72,26 +76,26 @@ const path = norm(Astro.url.pathname);
   .hdr__link:hover { color: var(--text-body); text-decoration: none; }
   .hdr__link[aria-current="page"] { color: var(--text-accent); }
   .hdr__actions {
-    margin-left: var(--space-3);
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    margin-left: var(--space-3);
   }
 
-  /* Below this width the row cannot hold logo + links + both actions, so the
-     header stops being one line and becomes two: identity, then navigation. */
+  /* Below this width the row cannot hold logo + links + both actions on one
+     line, so it becomes two: logo and actions on top, links underneath. */
   @media (max-width: 860px) {
     .hdr { height: auto; padding: var(--space-3) var(--space-5); }
-    .hdr__row { flex-wrap: wrap; gap: var(--space-3); }
+    .hdr__row { flex-wrap: wrap; row-gap: var(--space-3); }
+    .hdr__actions { order: 2; margin-left: auto; }
     .hdr__nav {
+      order: 3;
       width: 100%;
       margin-left: 0;
       flex-wrap: wrap;
       row-gap: var(--space-2);
     }
-    .hdr__actions { margin-left: auto; }
-  }
-  @media (max-width: 380px) {
-    .hdr__actions { width: 100%; margin-left: 0; }
+    /* The links carry their own padding; pull the row flush with the logo. */
+    .hdr__link:first-child { padding-left: 0; }
   }
 </style>
