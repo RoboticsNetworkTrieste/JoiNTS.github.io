@@ -1,0 +1,43 @@
+/* ── Mobile layout corrections ──────────────────────────────────────────────
+   The site was authored desktop-first: every page declares its columns as an
+   inline `style` attribute, and inline styles beat any stylesheet. Converting
+   the ~20 of them into classes would touch every page for no visual gain on
+   desktop, so the small-screen behaviour lives here instead, in one file.
+   That is what the !important below is for — overriding inline attributes,
+   not winning a specificity fight.
+
+   Everything is inside the breakpoint, so the desktop layout is untouched.
+   Scoped to [data-instrument="quiet"] — the public site — so the Officina
+   console, which lays itself out and runs at "full" density, is unaffected. */
+
+@media (max-width: 820px) {
+  /* 64px of gutter on each side leaves a phone almost no column to read in. */
+  [data-instrument="quiet"] section {
+    padding-left: var(--space-5) !important;
+    padding-right: var(--space-5) !important;
+  }
+
+  /* Multi-column page grids become one column. This is what was forcing the
+     document wider than the viewport, which is why the page appeared to sit
+     in the left half of a black canvas when zoomed out. */
+  [data-instrument="quiet"] [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Design-system rows that assume desktop width. Overridden here rather than
+     in design-system/, which is a vendored mirror — see CONTRIBUTING.md. */
+  [data-instrument="quiet"] .joints-spec__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+  [data-instrument="quiet"] .joints-event {
+    grid-template-columns: auto minmax(0, 1fr);
+    row-gap: var(--space-4);
+  }
+
+  /* Long single words (URLs, addresses) must not push the page sideways. */
+  [data-instrument="quiet"] .joints-spec__val,
+  [data-instrument="quiet"] a[href^="mailto:"] {
+    overflow-wrap: anywhere;
+  }
+}
