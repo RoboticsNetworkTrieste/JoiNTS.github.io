@@ -107,6 +107,22 @@ goes to `sessionStorage` and dies with the browser unless the member ticks "Rico
 questo computer"; the console locks itself after 30 minutes without input (`IDLE_MS`);
 "Esci" clears both stores. The token is sent to `api.github.com` and nowhere else.
 
+### Idee — the idea wall
+
+`/officina/` → *Idee* is where project ideas get proposed, discussed and voted on before
+anyone decides they are work. It is stored as **GitHub Discussions** in the repo named by
+`IDEAS_REPO` in [`src/officina/gh.js`](src/officina/gh.js), which needs Discussions
+enabled under Settings → General → Features.
+
+Discussions rather than a Projects board on purpose: a kanban frames an idea as a ticket
+before anyone has decided it is one, and "Da fare / In corso" is the wrong question to
+ask of a half-formed thought. Discussions bring threads, upvotes, notifications and
+permanence for free. The storage is not the presentation — the console renders them as a
+wall of cards, and the word "discussion" never appears.
+
+Categories act as the wall's zones and an idea can be moved between them. Promotion to
+actual work stays a separate, later decision, and belongs on the board.
+
 Members need a fine-grained token owned by the org, with Metadata / Contents / Issues /
 Pull requests read, Members read, and **Projects read-and-write** — without the last one
 the board loads but cards cannot be moved, and the console says so rather than failing

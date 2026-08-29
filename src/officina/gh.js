@@ -336,3 +336,96 @@ export function describe(ev) {
       return { icon: 'activity', verb: ev.type.replace(/Event$/, ''), repo, url: null };
   }
 }
+
+// ── Idee ───────────────────────────────────────────────────────────────────
+//
+// Backed by GitHub Discussions, which are the storage and not the shape: they
+// give threads, upvotes, notifications and permanence for nothing, while the
+// console renders them as a wall of cards. Projects were the wrong home — a
+// kanban frames an idea as a ticket before anyone has decided it is one, and
+// "Da fare / In corso" is the wrong question to ask of a half-formed thought.
+//
+// Point this at whichever repo should hold the association's ideas; it needs
+// Discussions enabled in that repo's Settings → Features.
+export const IDEAS_REPO = 'JoiNTS.github.io';
+
+export async function ideas() {
+  const data = await graphql(
+    `query($owner:String!,$repo:String!){
+      repository(owner:$owner,name:$repo){
+        id
+        hasDiscussionsEnabled
+        discussionCategories(first:25){ nodes{ id name description isAnswerable } }
+        discussions(first:100, orderBy:{field:CREATED_AT, direction:DESC}){
+          nodes{
+            id number title bodyText url createdAt
+            upvoteCount viewerHasUpvoted viewerCanUpvote
+            author{ login avatarUrl }
+            category{ id name }
+            comments{ totalCount }
+          }
+        }
+      }
+    }`,
+    { owner: ORG, repo: IDEAS_REPO }
+  );
+  const r = data.repository;
+  if (!r) throw new GhError(`Repository ${ORG}/${IDEAS_REPO} non trovato.`, { kind: 'missing' });
+  return {
+    repositoryId: r.id,
+    enabled: r.hasDiscussionsEnabled,
+    categories: r.discussionCategories.nodes || [],
+    items: (r.discussions.nodes || []).map((d) => ({
+      id: d.id,
+      number: d.number,
+      title: d.title,
+      body: d.bodyText || '',
+      url: d.url,
+      created: d.createdAt,
+      votes: d.upvoteCount,
+      voted: d.viewerHasUpvoted,
+      canVote: d.viewerCanUpvote,
+      author: d.author?.login || '—',
+      avatar: d.author?.avatarUrl || null,
+      categoryId: d.category?.id || null,
+      category: d.category?.name || '—',
+      comments: d.comments?.totalCount ?? 0,
+    })),
+  };
+}
+
+export async function createIdea({ repositoryId, categoryId, title, body }) {
+  // GitHub requires a body; when someone only writes a headline, the headline
+  // is the idea, so send it rather than refusing the post.
+  const data = await graphql(
+    `mutation($repo:ID!,$cat:ID!,$title:String!,$body:String!){
+      createDiscussion(input:{repositoryId:$repo,categoryId:$cat,title:$title,body:$body}){
+        discussion{ id number url }
+      }
+    }`,
+    { repo: repositoryId, cat: categoryId, title, body: body.trim() || title }
+  );
+  return data.createDiscussion.discussion;
+}
+
+export async function setUpvote(id, on) {
+  const m = on ? 'addUpvote' : 'removeUpvote';
+  const data = await graphql(
+    `mutation($id:ID!){
+      ${m}(input:{subjectId:$id}){
+        subject{ ... on Discussion { upvoteCount viewerHasUpvoted } }
+      }
+    }`,
+    { id }
+  );
+  return data[m].subject;
+}
+
+export async function moveIdea(id, categoryId) {
+  await graphql(
+    `mutation($id:ID!,$cat:ID!){
+      updateDiscussion(input:{discussionId:$id,categoryId:$cat}){ discussion{ id } }
+    }`,
+    { id, cat: categoryId }
+  );
+}

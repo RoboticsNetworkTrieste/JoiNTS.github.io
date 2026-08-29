@@ -16,11 +16,13 @@ import { Input } from '../../design-system/components/forms/Input.jsx';
 import { Checkbox } from '../../design-system/components/forms/Checkbox.jsx';
 import { Tile, Rule, Empty, Lang, Meta, panel, mono } from './parts.jsx';
 import Board from './Board.jsx';
+import Ideas from './Ideas.jsx';
 import * as gh from './gh.js';
 
 const RAIL = [
   { id: 'overview', icon: 'gauge', label: 'Panoramica' },
   { id: 'repos', icon: 'folder-git-2', label: 'Repository' },
+  { id: 'ideas', icon: 'lightbulb', label: 'Idee' },
   { id: 'activity', icon: 'activity', label: 'Attività' },
 ];
 
@@ -460,6 +462,7 @@ function Console({ user, onExit }) {
 
           {data && view === 'overview' && <Overview data={data} projects={projects} onReload={load} />}
           {data && view === 'repos' && <Repos data={data} />}
+          {view === 'ideas' && <Ideas />}
           {data && view === 'activity' && (
             <>
               <Rule label="Attività" note={`${data.events.length} eventi`} action={
