@@ -24,13 +24,26 @@ const RAIL = [
   { id: 'activity', icon: 'activity', label: 'Attività' },
 ];
 
-const TOKEN_URL =
+// Classic tokens accept their scopes as URL parameters, so this link opens the
+// form with the three boxes already ticked: the member picks an expiry and
+// clicks generate. Fine-grained tokens cannot be pre-filled the same way, and
+// their Resource owner field defaults to the personal account — the single most
+// common reason a token that looks right is refused.
+const TOKEN_CLASSIC =
+  'https://github.com/settings/tokens/new?description=Officina%20JoiNTS&scopes=repo,read:org,project';
+const TOKEN_FINE =
   'https://github.com/settings/personal-access-tokens/new?name=Officina%20JoiNTS&description=Console%20interna%20JoiNTS';
 
 // The console locks itself after this long without input. The page cannot be
 // walled — see gh.js — so the one thing that is actually in our hands is how
 // long a usable token stays loaded in a browser someone walked away from.
 const IDLE_MS = 30 * 60 * 1000;
+
+const code = {
+  fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)',
+  background: 'var(--accent-quiet)', color: 'var(--text-body)',
+  padding: '1px 5px', borderRadius: 'var(--radius-sm)',
+};
 
 // ── The gate ───────────────────────────────────────────────────────────────
 
@@ -118,17 +131,39 @@ function Gate({ onAuth, notice }) {
             {busy ? 'Verifico…' : 'Entra'}
           </Button>
 
-          <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-            <span style={mono}>Come si crea</span>
-            <ol style={{ margin: 0, paddingLeft: '1.2em', fontSize: 'var(--text-sm)', lineHeight: 'var(--lh-relaxed)', color: 'var(--text-secondary)' }}>
-              <li>Apri un <strong style={{ color: 'var(--text-body)' }}>fine-grained token</strong> e in
-                <strong style={{ color: 'var(--text-body)' }}> Resource owner</strong> scegli {gh.ORG}:
-                di default GitHub propone il tuo account personale, e con quello la console non entra.</li>
-              <li>Permessi sui repository: Metadata, Contents, Issues e Pull requests in lettura.</li>
-              <li>Permessi sull'organizzazione: Members in lettura e <strong style={{ color: 'var(--text-body)' }}>Projects in scrittura</strong> — senza quest'ultimo la board si vede ma non si sposta.</li>
-              <li>Dai una scadenza breve. Se scade, torni qui e ne incolli uno nuovo.</li>
-            </ol>
-            <Button variant="secondary" size="sm" iconEnd="external-link" href={TOKEN_URL}>Crea il token su GitHub</Button>
+          <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)', display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
+            <span style={mono}>Come si crea · due strade</span>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--text-body)' }}>
+                Veloce — token classic
+              </span>
+              <p style={{ fontSize: 'var(--text-sm)', lineHeight: 'var(--lh-relaxed)', color: 'var(--text-secondary)', margin: 0 }}>
+                Il link apre il modulo con i permessi già spuntati (<span style={code}>repo</span>,{' '}
+                <span style={code}>read:org</span>, <span style={code}>project</span>). Scegli una
+                scadenza, genera, incolla qui. Nient'altro da configurare.
+              </p>
+              <Button variant="secondary" size="sm" iconEnd="external-link" href={TOKEN_CLASSIC}>Crea token classic</Button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--text-body)' }}>
+                Più stretta — token fine-grained
+              </span>
+              <p style={{ fontSize: 'var(--text-sm)', lineHeight: 'var(--lh-relaxed)', color: 'var(--text-secondary)', margin: 0 }}>
+                Vede solo {gh.ORG} invece di tutti i tuoi repository, ma va compilata a mano.
+              </p>
+              <ol style={{ margin: 0, paddingLeft: '1.2em', fontSize: 'var(--text-sm)', lineHeight: 'var(--lh-relaxed)', color: 'var(--text-secondary)' }}>
+                <li><strong style={{ color: 'var(--text-body)' }}>Resource owner: {gh.ORG}</strong> — GitHub
+                  propone il tuo account personale, e con quello la console non entra. È l'errore più comune.</li>
+                <li>Repository access: all repositories.</li>
+                <li>Repository: Metadata, Contents, Issues, Pull requests in lettura.</li>
+                <li>Organization: Members in lettura, <strong style={{ color: 'var(--text-body)' }}>Projects in scrittura</strong> —
+                  senza, la board si vede ma non si sposta.</li>
+                <li>Potrebbe restare in attesa di approvazione di un owner dell'organizzazione.</li>
+              </ol>
+              <Button variant="secondary" size="sm" iconEnd="external-link" href={TOKEN_FINE}>Crea token fine-grained</Button>
+            </div>
           </div>
         </form>
 
