@@ -114,6 +114,12 @@ anyone decides they are work. It is stored as **GitHub Discussions** in the repo
 `IDEAS_REPO` in [`src/officina/gh.js`](src/officina/gh.js), which needs Discussions
 enabled under Settings → General → Features.
 
+That repo is **`operations`, which is private**, and deliberately so: half-formed ideas
+are internal thinking, and in a public repo anyone with a GitHub account could read them
+and post their own. Note that GitHub does not include Discussions on private repositories
+in the Free plan — if the option is missing in that repo's settings, that is why, and the
+view says so rather than showing an unexplained empty wall.
+
 Discussions rather than a Projects board on purpose: a kanban frames an idea as a ticket
 before anyone has decided it is one, and "Da fare / In corso" is the wrong question to
 ask of a half-formed thought. Discussions bring threads, upvotes, notifications and

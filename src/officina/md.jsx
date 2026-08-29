@@ -1,10 +1,13 @@
 // A small, deliberately partial Markdown renderer.
 //
-// It builds React elements rather than setting innerHTML. GitHub does return
-// a sanitised `bodyHTML`, but the ideas repo is public — anyone with a GitHub
-// account can post there — and injecting third-party HTML into a page holding
-// a member's token is not a trade worth making for nicer typography. React
+// It builds React elements rather than setting innerHTML. GitHub does return a
+// sanitised `bodyHTML`, but injecting third-party HTML into a page that holds a
+// member's API token is not a trade worth making for nicer typography. React
 // escapes text by default, so nothing here can execute.
+//
+// The ideas repo is private now, so the authors are org members rather than
+// anyone on GitHub — which lowers the risk but does not change the reasoning:
+// a member's account can be compromised too, and this costs nothing.
 //
 // Supports what people actually write in an idea: paragraphs, headings, lists,
 // quotes, fenced code, and inline code/bold/italic/links. Anything else falls

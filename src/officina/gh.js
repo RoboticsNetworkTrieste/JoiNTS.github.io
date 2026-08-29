@@ -347,7 +347,12 @@ export function describe(ev) {
 //
 // Point this at whichever repo should hold the association's ideas; it needs
 // Discussions enabled in that repo's Settings → Features.
-export const IDEAS_REPO = 'JoiNTS.github.io';
+//
+// `operations` is private, which is deliberate: half-formed ideas are internal
+// thinking, and in the public site repo anyone with a GitHub account could read
+// them and post their own. A member's token already reaches private org repos,
+// so nothing else changes.
+export const IDEAS_REPO = 'operations';
 
 export async function ideas() {
   const data = await graphql(

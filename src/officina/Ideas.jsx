@@ -408,7 +408,7 @@ export default function Ideas({ user }) {
     return (
       <Empty
         title="Le discussioni non sono attive."
-        body={`Il muro delle idee vive nelle Discussions di ${gh.ORG}/${gh.IDEAS_REPO}. Attivale in Settings → General → Features → Discussions, poi ricarica.`}
+        body={`Il muro delle idee vive nelle Discussions di ${gh.ORG}/${gh.IDEAS_REPO}. Attivale in Settings → General → Features → Discussions, poi ricarica. Se la voce non compare su un repository privato, dipende dal piano dell'organizzazione: su GitHub le Discussions sui repository privati non sono incluse nel piano gratuito.`}
         action={<Button variant="secondary" size="sm" iconEnd="external-link"
           href={`https://github.com/${gh.ORG}/${gh.IDEAS_REPO}/settings`}>Apri le impostazioni</Button>}
       />
