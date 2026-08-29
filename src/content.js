@@ -1,4 +1,4 @@
-// All copy and data for joint.ts.it, in one place.
+// All copy and data for join.ts.it, in one place.
 //
 // Everything here is REAL: the manifesto text is verbatim from the association's
 // founding document, the links and the address are live. If a number or a date
@@ -14,7 +14,7 @@ export const SITE = {
   title: 'JoiNTS — Robotics Network Trieste',
   description:
     'Associazione di robotica a Trieste. Progettiamo, scriviamo codice e facciamo muovere hardware. Tutto open source, dal primo commit.',
-  email: 'info@joint.ts.it',
+  email: 'info@join.ts.it',
   github: 'https://github.com/RoboticsNetworkTrieste',
   githubLabel: 'github.com/RoboticsNetworkTrieste',
   whatsapp: 'https://chat.whatsapp.com/J99EPLX7dGtDGLHxT2mzm9',
@@ -58,7 +58,7 @@ export const FOOTER = {
       ],
     },
   ],
-  meta: ['Testi CC BY-SA 4.0 · codice Apache-2.0', 'joint.ts.it · Trieste, Italia', 'APS in costituzione'],
+  meta: ['Testi CC BY-SA 4.0 · codice Apache-2.0', 'join.ts.it · Trieste, Italia', 'APS in costituzione'],
 };
 
 // The seven principles, verbatim from the manifesto. Titles keep their full stop.
@@ -128,7 +128,7 @@ export const ESITI = [
 // no tone means it is announced but not open yet, and says so.
 export const CHANNELS = [
   { name: 'GitHub', text: 'Tutti i repository, pubblici dal primo commit.', badge: 'attivo', tone: 'ok', href: SITE.github },
-  { name: 'Sito', text: 'joint.ts.it — manifesto, progetti e prossimi incontri.', badge: 'attivo', tone: 'ok' },
+  { name: 'Sito', text: 'join.ts.it — manifesto, progetti e prossimi incontri.', badge: 'attivo', tone: 'ok' },
   { name: 'WhatsApp', text: 'Il canale di confronto quotidiano tra i soci.', badge: 'attivo', tone: 'ok', href: SITE.whatsapp },
   { name: 'LinkedIn', text: 'Il riferimento per ricercatori, università e aziende.', badge: 'in apertura', muted: true },
   { name: 'Newsletter', text: 'Aggiornamenti sui repository e sui prossimi incontri.', badge: 'in apertura', muted: true },

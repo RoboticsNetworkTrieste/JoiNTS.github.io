@@ -1,4 +1,4 @@
-name: Build and deploy joint.ts.it
+name: Build and deploy join.ts.it
 
 # Every push to main rebuilds the site and publishes it. Nothing is committed
 # back — dist/ is an artifact, not a branch.
@@ -41,7 +41,7 @@ jobs:
 
       - name: Check nothing is missing from the build
         run: |
-          for page in index manifesto/index progetti/index incontri/index entra/index; do
+          for page in index manifesto/index progetti/index incontri/index entra/index officina/index; do
             test -s "dist/$page.html" || { echo "missing dist/$page.html"; exit 1; }
           done
           # The custom domain is served from the artifact, not from the branch.

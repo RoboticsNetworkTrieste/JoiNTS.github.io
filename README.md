@@ -1,6 +1,6 @@
-# joint.ts.it
+# join.ts.it
 
-The public site of **JoiNTS — Robotics Network Trieste**, at [joint.ts.it](https://joint.ts.it).
+The public site of **JoiNTS — Robotics Network Trieste**, at [join.ts.it](https://join.ts.it).
 
 Built with [Astro](https://astro.build). Five pages, real URLs, and almost no JavaScript:
 three of the five ship **zero** bytes of it, and the other two ship only the form they
@@ -93,7 +93,7 @@ headers, so a browser cannot complete it either.
 
 **Why there is no real wall, and what it would take.** A wall has to be enforced by
 whatever serves the page, and GitHub Pages serves static files to everyone. Putting
-Cloudflare Access in front of `joint.ts.it` would not help while the site is on Pages:
+Cloudflare Access in front of `join.ts.it` would not help while the site is on Pages:
 `roboticsnetworktrieste.github.io/officina/` stays reachable and bypasses the custom
 domain entirely. A genuine wall therefore means moving hosting — Cloudflare Pages plus
 Cloudflare Access with GitHub as the identity provider is free up to 50 users and needs

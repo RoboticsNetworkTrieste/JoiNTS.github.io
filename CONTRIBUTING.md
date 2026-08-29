@@ -1,4 +1,4 @@
-# Working on joint.ts.it
+# Working on join.ts.it
 
 The site is deliberately small and deliberately constrained. The constraint is the
 design system, and it is in this repository so that nobody has to guess.
