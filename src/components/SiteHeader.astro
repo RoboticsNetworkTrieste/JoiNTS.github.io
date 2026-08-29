@@ -1,6 +1,11 @@
 ---
 // Sticky blurred header. The nav is real links now, so the active state comes
 // from the URL rather than from router state.
+//
+// Layout lives in the scoped <style> below rather than in inline attributes,
+// because the header has to reflow on narrow screens and inline styles cannot
+// carry a media query. Values are design-system tokens; the two that are not
+// (72px header, 1440px column) predate this file and are kept as they were.
 import { Logo } from '../../design-system/components/brand/Logo.jsx';
 import { Button } from '../../design-system/components/core/Button.jsx';
 import { NAV } from '../content.js';
@@ -11,18 +16,82 @@ const norm = (p: string) => (p.endsWith('/') ? p : p + '/');
 const path = norm(Astro.url.pathname);
 ---
 
-<header style="position:sticky;top:0;z-index:60;height:72px;display:flex;align-items:center;padding:0 64px;background:var(--surface-header);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle)">
-<div style="display:flex;align-items:center;gap:32px;width:100%;max-width:1440px;margin:0 auto">
-<a href="/" style="display:flex;align-items:center" aria-label="JoiNTS — home"><Logo variant="lockup" height={24} /></a>
-<nav style="display:flex;align-items:center;gap:4px;margin-left:auto">
-{NAV.map((item) => (
-  <a
-    href={item.href}
-    aria-current={path === item.href ? 'page' : undefined}
-    style={`display:inline-flex;align-items:center;height:32px;padding:0 12px;font-size:15px;font-weight:500;text-decoration:none;color:${path === item.href ? 'var(--text-accent)' : 'var(--text-secondary)'}`}
-  >{item.label}</a>
-))}
-<span style="margin-left:12px"><Button size="sm" variant="primary" href="/entra/">Entra</Button></span>
-</nav>
-</div>
+<header class="hdr">
+  <div class="hdr__row">
+    <a href="/" class="hdr__home" aria-label="JoiNTS — home"><Logo variant="lockup" height={24} /></a>
+    <nav class="hdr__nav">
+      {NAV.map((item) => (
+        <a class="hdr__link" href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+      ))}
+      <span class="hdr__actions">
+        <Button size="sm" variant="secondary" icon="lock" href="/officina/">Area soci</Button>
+        <Button size="sm" variant="primary" href="/entra/">Entra</Button>
+      </span>
+    </nav>
+  </div>
 </header>
+
+<style>
+  .hdr {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--page-gutter-lg);
+    background: var(--surface-header);
+    backdrop-filter: blur(14px);
+    border-bottom: var(--border-hairline) solid var(--border-subtle);
+  }
+  .hdr__row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .hdr__home { display: flex; align-items: center; }
+  .hdr__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin-left: auto;
+  }
+  .hdr__link {
+    display: inline-flex;
+    align-items: center;
+    height: var(--control-h-sm);
+    padding: 0 var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    color: var(--text-secondary);
+  }
+  .hdr__link:hover { color: var(--text-body); text-decoration: none; }
+  .hdr__link[aria-current="page"] { color: var(--text-accent); }
+  .hdr__actions {
+    margin-left: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  /* Below this width the row cannot hold logo + links + both actions, so the
+     header stops being one line and becomes two: identity, then navigation. */
+  @media (max-width: 860px) {
+    .hdr { height: auto; padding: var(--space-3) var(--space-5); }
+    .hdr__row { flex-wrap: wrap; gap: var(--space-3); }
+    .hdr__nav {
+      width: 100%;
+      margin-left: 0;
+      flex-wrap: wrap;
+      row-gap: var(--space-2);
+    }
+    .hdr__actions { margin-left: auto; }
+  }
+  @media (max-width: 380px) {
+    .hdr__actions { width: 100%; margin-left: 0; }
+  }
+</style>
