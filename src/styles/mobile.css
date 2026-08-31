@@ -51,6 +51,27 @@
     padding: var(--space-8) var(--space-5) !important;
   }
 
+  /* A number beside its title is a two-column relationship, not a row of
+     items: wrapping it drops the title to the next line and loses the indent,
+     so the list reads ragged. Keep the row intact and let the title wrap
+     inside its own column. Declared after the blanket rule above, which it
+     deliberately overrides. */
+  [data-instrument="quiet"] .numrow { flex-wrap: nowrap; }
+
+  /* The stats band spaces its three figures for a row: first flush left, last
+     flush right. Stacked, that asymmetry becomes a ragged left edge and far
+     too much air between figures. */
+  [data-instrument="quiet"] .statsrow > div {
+    padding: var(--space-4) 0 !important;
+  }
+
+  /* A sticky index has nothing to stick beside once its grid is one column —
+     it just scrolls over the article it is supposed to index. The site header
+     is a <header> and keeps its own stickiness. */
+  [data-instrument="quiet"] nav[style*="position:sticky"] {
+    position: static !important;
+  }
+
   /* Long single words (URLs, addresses) must not push the page sideways. */
   [data-instrument="quiet"] .joints-spec__val,
   [data-instrument="quiet"] a[href^="mailto:"] {

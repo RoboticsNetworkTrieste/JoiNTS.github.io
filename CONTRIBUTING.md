@@ -108,6 +108,20 @@ Present and complete:
 Note the site still builds its own header and footer in `src/components/` rather than
 using the vendored `navigation/` sources.
 
+### Known upstream bug: `.joints-field` means two things
+
+`components.css` defines `.joints-field` as the **form Field wrapper**
+(`display:flex;flex-direction:column`), and `tokens/backgrounds.css` defines the same
+class as the **layered background ground**. Both stylesheets load, so any element using
+it as a ground is also a flex column — and a child with `margin:0 auto` then shrinks to
+its content instead of filling, because auto side margins on a flex item centre it.
+
+That silently mis-sized the home page's stats band. It is corrected locally in
+[`src/styles/ds-fixes.css`](src/styles/ds-fixes.css) rather than in `design-system/`,
+which a re-sync would overwrite. **The real fix belongs upstream**: give the ground its
+own class (`.joints-ground`) and leave `.joints-field` to forms. Until that lands, keep
+the local override.
+
 One deliberate local deviation: the runtime namespace in `_ds_bundle.js`,
 `_ds_manifest.json` and the `*.card.html` cards is renamed here to
 `JoiNTSDesignSystem_49bcd9`, while upstream still carries the pre-rebrand identifier

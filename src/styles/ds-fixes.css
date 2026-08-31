@@ -1,0 +1,24 @@
+/* ── Corrections to the vendored design system ──────────────────────────────
+   design-system/ is a mirror of the Claude Design project (see CONTRIBUTING),
+   so it is not patched here. Anything that has to be corrected locally lives
+   in this file, with the upstream fix described, so a re-sync cannot silently
+   undo it and nobody has to re-diagnose it.
+
+   ── .joints-field is two different components ──
+   components.css defines it as the form Field wrapper:
+       .joints-field{display:flex;flex-direction:column;gap:var(--space-2)}
+   backgrounds.css defines it as the layered background ground:
+       .joints-field{background-color:...;background-image:scrim,wash,art,grain}
+
+   Both load, so every <section class="joints-field"> used as a ground is also
+   a flex column. A child with `margin:0 auto` then behaves as a flex item with
+   auto side margins: it shrinks to its content and centres, instead of filling
+   the section. The stats band on the home page rendered 150px wide inside a
+   353px column because of this — visible on a phone, subtly wrong on desktop
+   all along.
+
+   The upstream fix is to give the ground its own name (`.joints-ground`) and
+   leave `.joints-field` to forms. Until then, restore block layout where the
+   class is used as a ground. Scoped to <section> so real form Fields, which
+   are divs and set display inline anyway, are untouched. */
+section.joints-field { display: block; }
