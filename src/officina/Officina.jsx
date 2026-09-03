@@ -337,6 +337,16 @@ function Console({ user, onExit }) {
   const load = React.useCallback(async () => {
     setLoading(true);
     setError(null);
+
+    // Projects need their own permission, so they fail independently and say so
+    // rather than looking like an empty board. Started here rather than awaited
+    // after the block below: it is a separate request with a separate failure
+    // mode, and making the board wait for repositories and activity delayed it
+    // by a whole round trip for no reason.
+    gh.projects()
+      .then((p) => { setProjects(p); setProjectsError(null); })
+      .catch((e) => { setProjects([]); setProjectsError(e); });
+
     try {
       // Counts come from the search API, which is rate-limited harder than the
       // rest; a failure there must not take the whole console down.
@@ -351,15 +361,6 @@ function Console({ user, onExit }) {
       if (e.kind === 'auth') onExit();
     } finally {
       setLoading(false);
-    }
-    // Projects need their own permission, so they fail independently and say so
-    // rather than looking like an empty board.
-    try {
-      setProjects(await gh.projects());
-      setProjectsError(null);
-    } catch (e) {
-      setProjects([]);
-      setProjectsError(e);
     }
   }, [user.login, onExit]);
 

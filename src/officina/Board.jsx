@@ -100,7 +100,17 @@ function Card({ item, columns, dragging, onDragStart, onDragEnd, onMove, busy })
 }
 
 export default function Board({ projects, onReload }) {
-  const [projectId, setProjectId] = React.useState(projects[0]?.id || null);
+  // Derived, not copied. The console loads repositories and activity before it
+  // loads projects, so this component mounts while `projects` is still empty —
+  // and a useState initialiser runs once, so a default captured here would stay
+  // null for good and the board would spin forever. Falling back to the first
+  // project on every render means it starts working the moment they arrive.
+  // The explicit choice also has to be re-checked: a project can disappear
+  // between reloads, and pointing at a stale id would load nothing.
+  const [chosenId, setChosenId] = React.useState(null);
+  const projectId = projects.some((p) => p.id === chosenId)
+    ? chosenId
+    : (projects[0]?.id ?? null);
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
@@ -172,7 +182,7 @@ export default function Board({ projects, onReload }) {
           <div style={{ minWidth: 220 }}>
             <Select
               value={projectId || ''}
-              onChange={(e) => setProjectId(e.target.value)}
+              onChange={(e) => setChosenId(e.target.value)}
               options={projects.map((p) => ({ value: p.id, label: p.title }))}
             />
           </div>
